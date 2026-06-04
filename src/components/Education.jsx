@@ -1,0 +1,203 @@
+import React from 'react'
+import { FaGraduationCap, FaStar } from 'react-icons/fa'
+
+const educationData = [
+  {
+    date: 'Sep 2024 – May 2028',
+    title: 'Bachelor of Engineering — ECE',
+    institution: 'Government College of Engineering, Erode',
+    description: 'Currently pursuing B.E. in Electronics and Communication Engineering with a focus on FPGA design, embedded systems, and full-stack development.',
+    grade: 'CGPA: 8.23',
+  },
+  {
+    date: 'Jul 2022 – May 2024',
+    title: 'Higher Secondary — Bio Maths',
+    institution: 'Tagore Matric Higher Secondary School, Deviyakurichi',
+    description: 'Completed higher secondary education with distinction in Bio Mathematics stream, demonstrating strong analytical and problem-solving capabilities.',
+    grade: '93.16%',
+  },
+  {
+    date: 'Completed 2022',
+    title: 'SSLC (10th Grade)',
+    institution: 'Tagore Matric Higher Secondary School, Deviyakurichi',
+    description: 'Achieved outstanding academic performance in secondary education, laying a strong foundation in science and mathematics.',
+    grade: '94.8%',
+  },
+]
+
+const Education = ({ data }) => {
+  const items = data || educationData
+
+  return (
+    <section className="section" id="education">
+      <div className="container">
+        <div className="section-header" data-aos="fade-up">
+          <span className="section-label">// My academic journey</span>
+          <h2 className="section-title">Education</h2>
+          <p className="section-subtitle">
+            A track record of academic excellence and continuous learning
+          </p>
+        </div>
+
+        <div className="timeline" style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '40px',
+          paddingLeft: '20px',
+          borderLeft: '2px solid rgba(124, 58, 237, 0.2)',
+          position: 'relative'
+        }}>
+          {(Array.isArray(items) ? items : educationData).map((item, idx) => (
+            <div
+              className="timeline-item"
+              key={idx}
+              data-aos="fade-up"
+              data-aos-delay={idx * 150}
+              style={{
+                position: 'relative',
+                width: '100%'
+              }}
+            >
+              {/* Timeline Dot Indicator */}
+              <div style={{
+                position: 'absolute',
+                left: '-31px',
+                top: '30px',
+                width: '20px',
+                height: '20px',
+                borderRadius: '50%',
+                background: 'var(--bg-primary)',
+                border: '3px solid #7c3aed',
+                boxShadow: '0 0 10px #7c3aed',
+                zIndex: 2
+              }} />
+
+              <div
+                className="education-card"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  backdropFilter: 'blur(15px)',
+                  border: '1px solid rgba(124, 58, 237, 0.2)',
+                  borderRadius: '20px',
+                  padding: '30px',
+                  marginLeft: '20px',
+                  cursor: 'default',
+                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)',
+                  zIndex: 1
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateX(10px)';
+                  e.currentTarget.style.border = '1px solid rgba(124, 58, 237, 0.6)';
+                  e.currentTarget.style.boxShadow = '0 25px 50px rgba(124, 58, 237, 0.2)';
+                  const reflection = e.currentTarget.querySelector('.mirror-reflection');
+                  if (reflection) reflection.style.transform = 'translateX(100%)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateX(0)';
+                  e.currentTarget.style.border = '1px solid rgba(124, 58, 237, 0.2)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
+                  const reflection = e.currentTarget.querySelector('.mirror-reflection');
+                  if (reflection) reflection.style.transform = 'translateX(-100%)';
+                }}
+              >
+                {/* Mirror Reflection Effect Layer */}
+                <div 
+                  className="mirror-reflection"
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+                    transform: 'translateX(-100%)',
+                    transition: 'transform 0.6s ease-in-out',
+                    pointerEvents: 'none',
+                    zIndex: 0
+                  }}
+                />
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px', position: 'relative', zIndex: 1 }}>
+                  <span style={{ 
+                    fontSize: '0.85rem', 
+                    fontWeight: '700', 
+                    color: '#c4b5fd', 
+                    background: 'rgba(124, 58, 237, 0.1)', 
+                    padding: '6px 14px', 
+                    borderRadius: '50px',
+                    border: '1px solid rgba(124, 58, 237, 0.3)',
+                    letterSpacing: '1px'
+                  }}>
+                    {item.date || item.duration}
+                  </span>
+                  <span style={{ fontSize: '1.2rem', color: '#f59e0b', background: 'rgba(245, 158, 11, 0.1)', padding: '8px', borderRadius: '12px' }}>
+                    <FaGraduationCap />
+                  </span>
+                </div>
+
+                <h3 style={{ 
+                  fontSize: '1.6rem', 
+                  fontWeight: '800', 
+                  color: '#fff', 
+                  marginBottom: '8px',
+                  lineHeight: '1.2',
+                  position: 'relative',
+                  zIndex: 1
+                }}>
+                  {item.title || item.degree}
+                </h3>
+
+                <p style={{ 
+                  fontSize: '1rem', 
+                  color: '#7c3aed', 
+                  fontWeight: '700',
+                  marginBottom: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  position: 'relative',
+                  zIndex: 1
+                }}>
+                  {item.institution}
+                </p>
+
+                <p style={{ 
+                  fontSize: '0.95rem', 
+                  color: '#cbd5e1', 
+                  lineHeight: '1.7',
+                  marginBottom: '24px',
+                  position: 'relative',
+                  zIndex: 1
+                }}>
+                  {item.description}
+                </p>
+
+                <div style={{ 
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  gap: '10px',
+                  background: 'rgba(16, 185, 129, 0.1)', 
+                  color: '#10b981', 
+                  padding: '8px 16px', 
+                  borderRadius: '10px',
+                  border: '1px solid rgba(16, 185, 129, 0.2)',
+                  fontWeight: '700',
+                  position: 'relative',
+                  zIndex: 1
+                }}>
+                  <FaStar style={{ fontSize: '0.9rem' }} />
+                  {item.grade}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Education
