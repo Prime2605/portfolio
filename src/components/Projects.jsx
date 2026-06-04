@@ -58,6 +58,13 @@ const projectsData = [
     github: 'https://github.com/Prime2605/Academic-Authenticity-Validator',
     emoji: '🔗',
   },
+  {
+    title: 'Secured Door Lock System using Li-Fi Technology',
+    description: 'A wireless light-based security lock system utilizing Li-Fi (Visible Light Communication). Decodes password patterns flashed from an Android transmitter app to an Arduino receiver unit via an LDR sensor, controlling a servo-driven deadbolt, buzzer alerts, status LEDs, and an LCD interface.',
+    tags: ['Arduino', 'Embedded C', 'Li-Fi', 'VLC', 'IoT', 'Hardware Security'],
+    github: 'https://github.com/Prime2605/Door-Lock-System',
+    emoji: '🔐',
+  },
 ]
 
 const Projects = ({ data }) => {
