@@ -12,6 +12,7 @@ const baseCertificationsData = [
   { id: '1v2Ar-J6n2U_fnqZnIG5rHuDyPYTzgFbD', category: 'Hackathons', title: 'Certificate of Participation', event: 'Conscientia 2025 - HACKORBITAL', issuer: 'IIST', subIssuer: '', date: '2025', color: '#14b8a6', emoji: '🚀', tags: ['Space Tech', 'Hackathon'] },
   { id: '1nJS1qGl6cquIWtiPnU2IZANp4ekJk_Nq', category: 'Hackathons', title: 'Certificate of Participation', event: 'CodeFest\'26 - Vista', issuer: 'IIT Varanasi (BHU)', subIssuer: 'Unstop', date: '2026', color: '#3b82f6', emoji: '👁️', tags: ['CodeFest', 'IIT BHU'] },
   { id: '1Trs7yUzWmyB4WZTqX5WSMPjCI05u_yCc', category: 'Hackathons', title: 'Certificate of Participation', event: 'Devcation Delhi 2026', issuer: 'Google Developer Groups', subIssuer: 'IGDTUW × IITD', date: '2026', color: '#7c3aed', emoji: '🎖️', tags: ['GDG', 'Google', 'Delhi'] }, // Moved to Hackathons
+  { id: '1K3TXgkwyfwqGvkZho8smKSFUNtEyoUw8', category: 'Hackathons', title: 'Certificate of Participation', event: 'BITBOX 6.0', issuer: 'Google Developer Groups', subIssuer: 'JIIT Noida', date: '2026', color: '#4285F4', emoji: '💻', tags: ['Hackathon', 'GDG', 'Coding'] },
   
   // Courses
   { id: '11lKSwl7u-l9MuRsM_9CAP1bE-fkdI-d3', category: 'Courses', title: 'Certificate of Completion', event: 'Networking Basics', issuer: 'Cisco Networking Academy', subIssuer: '', date: '2023', color: '#0284c7', emoji: '🌐', tags: ['Networking', 'Cisco'] },
@@ -26,6 +27,8 @@ const baseCertificationsData = [
 
   // Workshops
   { id: '1jdgn5zAGoJRKyUwcA9HrtZVWysQ0M9e3', category: 'Workshops', title: 'Certificate of Participation', event: 'Semiconductors & VLSI Design', issuer: 'Edu Fabrica', subIssuer: '', date: '2025', color: '#dc2626', emoji: '🖥️', tags: ['Workshop', 'Hardware'] },
+  { id: '14Ih98vYjm8mlC-yhLxw7CEZNIt8B5oKW', category: 'Workshops', title: 'Certificate of Completion', event: 'AI Tools and ChatGPT Workshop', issuer: 'Be 10X', subIssuer: 'AI Tools Workshop', date: '2026', color: '#fbbf24', emoji: '🧠', tags: ['AI Tools', 'ChatGPT', 'AI Productivity'] },
+  { id: '1Zq7L_2ZDxCzxBk7059DR-JEJ-7iUPWa-', category: 'Workshops', title: 'Workshop Certificate of Participation', event: 'Two-Day Workshop on VLSI Design and Semiconductor Industry', issuer: 'ChipXpert Technologies', subIssuer: 'ID: CXVLSI-MAY26-1668', date: '2026', color: '#f97316', emoji: '🖲️', tags: ['VLSI', 'Semiconductors', 'Hardware'] },
   
   // Internships
   { id: '1A5UF4Vs1HKMvMZNEeTlWPLm-d8mczyzF', category: 'Internships', title: 'Certificate of Internship', event: 'Ind. Embedded Systems with IOT', issuer: 'NSIC Chennai', subIssuer: 'Govt. of India', date: '2025', color: '#4f46e5', emoji: '🔌', tags: ['IoT', 'Embedded Systems', 'Internship'] }, // Moved to Internships
@@ -37,6 +40,8 @@ const baseCertificationsData = [
   { id: '1FcIO1JbiWeqyHtNl5_Uoh3YZjjbJ8Yga', category: 'Others', title: 'Certificate of Participation', event: 'ELECT-ERA\'26 - CHASE AND BUILD', issuer: 'Coimbatore Institute of Technology', subIssuer: '', date: '2026', color: '#f43f5e', emoji: '🛠️', tags: ['Hardware', 'Symposium'] }, // Moved to Others
   { id: '13-CXBTGmug3noakvBJq4r3n3ved7DQwk', category: 'Others', title: 'Certificate of Participation', event: 'GALAXY\'24 PHASE II - PAPER WAR', issuer: 'Government College of Engineering, Erode', subIssuer: '', date: '2024', color: '#6366f1', emoji: '📄', tags: ['Paper Presentation', 'Symposium'] }, // Moved to Others
   { id: '1dwC1QsBZyVTeq1E4ZS9dkI7keI3322fb', category: 'Others', title: 'Certificate of Participation', event: 'Attack on Bots (Robotics)', issuer: 'NIT Tiruchi', subIssuer: '', date: '2025', color: '#ef4444', emoji: '🤖', tags: ['Robotics', 'NIT'] }, // Moved to Others
+  { id: '1jx_ff43Yk7cJBI9Y9dXTT-WhbL-pMoaZ', category: 'Others', title: 'Certificate of Completion', event: 'Tech Bootcamp (AIML Track)', issuer: 'Takshashila University', subIssuer: 'in collaboration with Xebia', date: '2026', color: '#a855f7', emoji: '🤖', tags: ['Generative AI', 'Agentic Systems', 'Bootcamp'] },
+  { id: '1H53l1-TWBtwFWw796zJVyUdQzkPlhpni', category: 'Others', title: 'Certificate of Participation', event: 'National Level E-Quiz on World Intellectual Property Day 2026', issuer: 'Guru Nanak College (Autonomous)', subIssuer: 'Scored 90/100', date: '2026', color: '#10b981', emoji: '⚖️', tags: ['IPR Cell', 'Intellectual Property', 'Quiz'] },
 ];
 
 const certificationsData = baseCertificationsData.map(cert => ({
