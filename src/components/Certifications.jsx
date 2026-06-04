@@ -4,55 +4,416 @@ import { SiGoogle } from 'react-icons/si'
 
 const baseCertificationsData = [
   // Hackathons
-  { id: '1YG9MutlUK3s2c6VCuqDl4-zmsLjLheev', category: 'Hackathons', title: 'Certificate of Participation', event: 'CONVOLVE 4.0 - Pan-IIT AI/ML Hackathon', issuer: 'IIT Guwahati', subIssuer: 'Unstop', date: '2025', color: '#06b6d4', emoji: '🏆', tags: ['AI/ML', 'IIT', 'Hackathon'] },
-  { id: '1dZX4n7jC2ZFaCGFymZbceHyMnahZYii4', category: 'Hackathons', title: 'Certificate of Merit', event: 'CONVOLVE 4.0 - Generative AI Track', issuer: 'IIT Guwahati', subIssuer: 'Semi-Finalist', date: '2026', color: '#0ea5e9', emoji: '🏅', tags: ['GenAI', 'Merit', 'Semi-Finalist'] },
-  { id: '1vFpe6m2WvwHcEw-QWZaUGP4Pccv0tue2', category: 'Hackathons', title: 'Certificate of Participation', event: 'Byte Quest AI Vibe Coding Challenge', issuer: 'Ramdeobaba University', subIssuer: '24 Hrs Hackathon', date: '2026', color: '#10b981', emoji: '💻', tags: ['24Hrs', 'AI Coding'] },
-  { id: '1eIqQhZ7Q4_BOp21ehkyyJgAlT4kbjMKm', category: 'Hackathons', title: 'Certificate of Participation', event: 'Kurukshetra\'26 - K!ODE WARS', issuer: 'Anna University (CEG)', subIssuer: '', date: '2026', color: '#a855f7', emoji: '⚔️', tags: ['Coding', 'Algorithms'] },
-  { id: '1o7Rm5mFj2vbTguAIhDq7xngT2MIjZJJL', category: 'Hackathons', title: 'Certificate of Participation', event: 'Kurukshetra\'26 - Design Hack!s', issuer: 'Anna University (CEG)', subIssuer: '', date: '2026', color: '#ec4899', emoji: '🎨', tags: ['Design', 'Hackathon'] },
-  { id: '1v2Ar-J6n2U_fnqZnIG5rHuDyPYTzgFbD', category: 'Hackathons', title: 'Certificate of Participation', event: 'Conscientia 2025 - HACKORBITAL', issuer: 'IIST', subIssuer: '', date: '2025', color: '#14b8a6', emoji: '🚀', tags: ['Space Tech', 'Hackathon'] },
-  { id: '1nJS1qGl6cquIWtiPnU2IZANp4ekJk_Nq', category: 'Hackathons', title: 'Certificate of Participation', event: 'CodeFest\'26 - Vista', issuer: 'IIT Varanasi (BHU)', subIssuer: 'Unstop', date: '2026', color: '#3b82f6', emoji: '👁️', tags: ['CodeFest', 'IIT BHU'] },
-  { id: '1Trs7yUzWmyB4WZTqX5WSMPjCI05u_yCc', category: 'Hackathons', title: 'Certificate of Participation', event: 'Devcation Delhi 2026', issuer: 'Google Developer Groups', subIssuer: 'IGDTUW × IITD', date: '2026', color: '#7c3aed', emoji: '🎖️', tags: ['GDG', 'Google', 'Delhi'] }, // Moved to Hackathons
-  { id: '1K3TXgkwyfwqGvkZho8smKSFUNtEyoUw8', category: 'Hackathons', title: 'Certificate of Participation', event: 'BITBOX 6.0', issuer: 'Google Developer Groups', subIssuer: 'JIIT Noida', date: '2026', color: '#4285F4', emoji: '💻', tags: ['Hackathon', 'GDG', 'Coding'] },
+  { 
+    id: '1YG9MutlUK3s2c6VCuqDl4-zmsLjLheev', 
+    category: 'Hackathons', 
+    title: 'Certificate of Participation', 
+    event: 'CONVOLVE 4.0 - Pan-IIT AI/ML Hackathon', 
+    issuer: 'IIT Guwahati', 
+    subIssuer: 'Unstop', 
+    date: '2025', 
+    color: '#06b6d4', 
+    emoji: '🏆', 
+    tags: ['AI/ML', 'IIT', 'Hackathon'],
+    description: 'Participated in the Pan-IIT AI/ML Hackathon CONVOLVE 4.0 organized by IIT Guwahati in collaboration with Unstop, competing with top talents nationwide.'
+  },
+  { 
+    id: '1dZX4n7jC2ZFaCGFymZbceHyMnahZYii4', 
+    category: 'Hackathons', 
+    title: 'Certificate of Merit', 
+    event: 'CONVOLVE 4.0 - Generative AI Track', 
+    issuer: 'IIT Guwahati', 
+    subIssuer: 'Semi-Finalist', 
+    date: '2026', 
+    color: '#0ea5e9', 
+    emoji: '🏅', 
+    tags: ['GenAI', 'Merit', 'Semi-Finalist'],
+    description: 'Recognized as a Semi-Finalist in the Generative AI Track of CONVOLVE 4.0, a Pan-IIT hackathon organized by IIT Guwahati.'
+  },
+  { 
+    id: '1vFpe6m2WvwHcEw-QWZaUGP4Pccv0tue2', 
+    category: 'Hackathons', 
+    title: 'Certificate of Participation', 
+    event: 'Byte Quest AI Vibe Coding Challenge', 
+    issuer: 'Ramdeobaba University', 
+    subIssuer: '24 Hrs Hackathon', 
+    date: '2026', 
+    color: '#10b981', 
+    emoji: '💻', 
+    tags: ['24Hrs', 'AI Coding'],
+    description: 'Participated in the 24-hour Byte Quest AI Vibe Coding Challenge hosted by Ramdeobaba University, building AI-focused solutions under time constraints.'
+  },
+  { 
+    id: '1eIqQhZ7Q4_BOp21ehkyyJgAlT4kbjMKm', 
+    category: 'Hackathons', 
+    title: 'Certificate of Participation', 
+    event: 'Kurukshetra\'26 - K!ODE WARS', 
+    issuer: 'Anna University (CEG)', 
+    subIssuer: '', 
+    date: '2026', 
+    color: '#a855f7', 
+    emoji: '⚔️', 
+    tags: ['Coding', 'Algorithms'],
+    description: 'Competed in K!ODE WARS, a competitive algorithms and coding contest during Kurukshetra\'26, the international techno-management festival of CEG, Anna University.'
+  },
+  { 
+    id: '1o7Rm5mFj2vbTguAIhDq7xngT2MIjZJJL', 
+    category: 'Hackathons', 
+    title: 'Certificate of Participation', 
+    event: 'Kurukshetra\'26 - Design Hack!s', 
+    issuer: 'Anna University (CEG)', 
+    subIssuer: '', 
+    date: '2026', 
+    color: '#ec4899', 
+    emoji: '🎨', 
+    tags: ['Design', 'Hackathon'],
+    description: 'Participated in the Design Hack!s hackathon at Kurukshetra\'26, CEG, Anna University, developing innovative UI/UX and design concepts.'
+  },
+  { 
+    id: '1v2Ar-J6n2U_fnqZnIG5rHuDyPYTzgFbD', 
+    category: 'Hackathons', 
+    title: 'Certificate of Participation', 
+    event: 'Conscientia 2025 - HACKORBITAL', 
+    issuer: 'IIST', 
+    subIssuer: '', 
+    date: '2025', 
+    color: '#14b8a6', 
+    emoji: '🚀', 
+    tags: ['Space Tech', 'Hackathon'],
+    description: 'Participated in HACKORBITAL, a space-tech and core engineering hackathon organized during Conscientia 2025 by IIST (Indian Institute of Space Science and Technology).'
+  },
+  { 
+    id: '1nJS1qGl6cquIWtiPnU2IZANp4ekJk_Nq', 
+    category: 'Hackathons', 
+    title: 'Certificate of Participation', 
+    event: 'CodeFest\'26 - Vista', 
+    issuer: 'IIT Varanasi (BHU)', 
+    subIssuer: 'Unstop', 
+    date: '2026', 
+    color: '#3b82f6', 
+    emoji: '👁️', 
+    tags: ['CodeFest', 'IIT BHU'],
+    description: 'Participated in Vista, a competitive coding and development track of CodeFest\'26 organized by IIT Varanasi (BHU) on Unstop.'
+  },
+  { 
+    id: '1Trs7yUzWmyB4WZTqX5WSMPjCI05u_yCc', 
+    category: 'Hackathons', 
+    title: 'Certificate of Participation', 
+    event: 'Devcation Delhi 2026', 
+    issuer: 'Google Developer Groups', 
+    subIssuer: 'IGDTUW × IITD', 
+    date: '2026', 
+    color: '#7c3aed', 
+    emoji: '🎖️', 
+    tags: ['GDG', 'Google', 'Delhi'],
+    description: 'Participated in Devcation Delhi 2026, a hackathon organized by Google Developer Groups in collaboration with IGDTUW and IIT Delhi.'
+  },
+  { 
+    id: '1K3TXgkwyfwqGvkZho8smKSFUNtEyoUw8', 
+    category: 'Hackathons', 
+    title: 'Certificate of Participation', 
+    event: 'BITBOX 6.0', 
+    issuer: 'Google Developer Groups', 
+    subIssuer: 'JIIT Noida', 
+    date: '2026', 
+    color: '#4285F4', 
+    emoji: '💻', 
+    tags: ['Hackathon', 'GDG', 'Coding'],
+    description: 'Successfully participated in BITBOX 6.0, a 12-hour hackathon conducted by Google Developers Group on campus at Jaypee Institute of Information Technology, Sector-128, Noida. Event coordination led by Dr. Anubhuti Roda Mohindra, Prof. Shikha Mehta, and Dr. Neeraj Pathak.'
+  },
   
   // Courses
-  { id: '11lKSwl7u-l9MuRsM_9CAP1bE-fkdI-d3', category: 'Courses', title: 'Certificate of Completion', event: 'Networking Basics', issuer: 'Cisco Networking Academy', subIssuer: '', date: '2023', color: '#0284c7', emoji: '🌐', tags: ['Networking', 'Cisco'] },
-  { id: '1Mhd2kJh3Ck3LFwmKi4Shvy4-jrSotXLt', category: 'Courses', title: 'Certificate of Completion', event: 'Semiconductors - VLSI & Embedded Systems', issuer: 'Maven Silicon', subIssuer: '', date: '2024', color: '#ea580c', emoji: '🖲️', tags: ['VLSI', 'Semiconductors'] },
-  { id: '1p253OxTv8I-xKxW2kLGBynjzIk5-LxRi', category: 'Courses', title: 'Certificate of Completion', event: 'Electronics - Nanoelectronics', issuer: 'Cursa', subIssuer: '', date: '2025', color: '#059669', emoji: '🔬', tags: ['Nanoelectronics', 'Online Course'] },
-  { id: '1wHtA88evTo25yOpd2GNKsZzabWGqIMKn', category: 'Courses', title: 'Certificate of Completion', event: 'Basics of Python', issuer: 'Infosys Springboard', subIssuer: '', date: '2023', color: '#ca8a04', emoji: '🐍', tags: ['Python', 'Programming'] },
-  { id: '1iGb4-e7J9iD4I8cIE2TAiGcvL_iIMx3R', category: 'Courses', title: 'Certificate of Completion', event: 'Programming in C', issuer: 'Infosys Springboard', subIssuer: '', date: '2023', color: '#2563eb', emoji: 'C', tags: ['C Programming', 'Basics'] },
-  { id: '13PYJYnI8NKImTvABLAXgZLh3lAgAeczU', category: 'Courses', title: 'Certificate of Achievement', event: 'Employability Skills', issuer: 'Naan Mudhalvan Scheme', subIssuer: 'TN Skill Development', date: '2025', color: '#d946ef', emoji: '📈', tags: ['Soft Skills', 'Government'] },
-  { id: '15uCpmj0FuC934kR7sLVJScsDcOM8wRkP', category: 'Courses', title: 'Certificate of Completion', event: 'Explore Electrical Eng. Job Simulation', issuer: 'Forage / GE Aerospace', subIssuer: '', date: '2025', color: '#0f766e', emoji: '⚡', tags: ['Electrical', 'Simulation'] },
-  { id: '1xFsYn3jE6jxumdCkFrcd_KXh7maqjjFZ', category: 'Courses', title: 'Certificate of Completion', event: 'Python Bootcamp', issuer: 'Lets Upgrade', subIssuer: 'NSDC & GDG MAD', date: '2025', color: '#eab308', emoji: '🏕️', tags: ['Bootcamp', 'Python'] },
-  { id: '1gmBOeLgC8Yl4tz2coTeriBVHnwXGwjEl', category: 'Courses', title: 'Certificate of Completion', event: 'GenAI 101: Socratic AI Tutor Essentials', issuer: 'Lets Upgrade', subIssuer: 'NSDC & GDG MAD', date: '2026', color: '#8b5cf6', emoji: '🤖', tags: ['GenAI', 'Course'] }, // Moved to Courses
+  { 
+    id: '11lKSwl7u-l9MuRsM_9CAP1bE-fkdI-d3', 
+    category: 'Courses', 
+    title: 'Certificate of Completion', 
+    event: 'Networking Basics', 
+    issuer: 'Cisco Networking Academy', 
+    subIssuer: '', 
+    date: '2023', 
+    color: '#0284c7', 
+    emoji: '🌐', 
+    tags: ['Networking', 'Cisco'],
+    description: 'Completed the Networking Basics certification course by Cisco Networking Academy, covering fundamental network protocols and architectures.'
+  },
+  { 
+    id: '1Mhd2kJh3Ck3LFwmKi4Shvy4-jrSotXLt', 
+    category: 'Courses', 
+    title: 'Certificate of Completion', 
+    event: 'Semiconductors - VLSI & Embedded Systems', 
+    issuer: 'Maven Silicon', 
+    subIssuer: '', 
+    date: '2024', 
+    color: '#ea580c', 
+    emoji: '🖲️', 
+    tags: ['VLSI', 'Semiconductors'],
+    description: 'Successfully completed VLSI and Embedded Systems training from Maven Silicon, focusing on chip design principles and architectures.'
+  },
+  { 
+    id: '1p253OxTv8I-xKxW2kLGBynjzIk5-LxRi', 
+    category: 'Courses', 
+    title: 'Certificate of Completion', 
+    event: 'Electronics - Nanoelectronics', 
+    issuer: 'Cursa', 
+    subIssuer: '', 
+    date: '2025', 
+    color: '#059669', 
+    emoji: '🔬', 
+    tags: ['Nanoelectronics', 'Online Course'],
+    description: 'Completed the online course on Nanoelectronics by Cursa, studying nanoscale solid-state devices and semiconductor physics.'
+  },
+  { 
+    id: '1wHtA88evTo25yOpd2GNKsZzabWGqIMKn', 
+    category: 'Courses', 
+    title: 'Certificate of Completion', 
+    event: 'Basics of Python', 
+    issuer: 'Infosys Springboard', 
+    subIssuer: '', 
+    date: '2023', 
+    color: '#ca8a04', 
+    emoji: '🐍', 
+    tags: ['Python', 'Programming'],
+    description: 'Completed the Python programming course by Infosys Springboard, mastering coding logic, data structures, and scripting basics.'
+  },
+  { 
+    id: '1iGb4-e7J9iD4I8cIE2TAiGcvL_iIMx3R', 
+    category: 'Courses', 
+    title: 'Certificate of Completion', 
+    event: 'Programming in C', 
+    issuer: 'Infosys Springboard', 
+    subIssuer: '', 
+    date: '2023', 
+    color: '#2563eb', 
+    emoji: 'C', 
+    tags: ['C Programming', 'Basics'],
+    description: 'Completed the C programming course by Infosys Springboard, learning compiler directives, pointers, and memory management.'
+  },
+  { 
+    id: '13PYJYnI8NKImTvABLAXgZLh3lAgAeczU', 
+    category: 'Courses', 
+    title: 'Certificate of Achievement', 
+    event: 'Employability Skills', 
+    issuer: 'Naan Mudhalvan Scheme', 
+    subIssuer: 'TN Skill Development', 
+    date: '2025', 
+    color: '#d946ef', 
+    emoji: '📈', 
+    tags: ['Soft Skills', 'Government'],
+    description: 'Awarded a Certificate of Achievement in Employability Skills by Naan Mudhalvan Scheme, a TN Skill Development Initiative.'
+  },
+  { 
+    id: '15uCpmj0FuC934kR7sLVJScsDcOM8wRkP', 
+    category: 'Courses', 
+    title: 'Certificate of Completion', 
+    event: 'Explore Electrical Eng. Job Simulation', 
+    issuer: 'Forage / GE Aerospace', 
+    subIssuer: '', 
+    date: '2025', 
+    color: '#0f766e', 
+    emoji: '⚡', 
+    tags: ['Electrical', 'Simulation'],
+    description: 'Completed the job simulation program for electrical engineering organized by GE Aerospace through Forage, working on aircraft power systems.'
+  },
+  { 
+    id: '1xFsYn3jE6jxumdCkFrcd_KXh7maqjjFZ', 
+    category: 'Courses', 
+    title: 'Certificate of Completion', 
+    event: 'Python Bootcamp', 
+    issuer: 'Lets Upgrade', 
+    subIssuer: 'NSDC & GDG MAD', 
+    date: '2025', 
+    color: '#eab308', 
+    emoji: '🏕️', 
+    tags: ['Bootcamp', 'Python'],
+    description: 'Participated in the Python Bootcamp organized by Lets Upgrade in collaboration with NSDC and GDG MAD.'
+  },
+  { 
+    id: '1gmBOeLgC8Yl4tz2coTeriBVHnwXGwjEl', 
+    category: 'Courses', 
+    title: 'Certificate of Completion', 
+    event: 'GenAI 101: Socratic AI Tutor Essentials', 
+    issuer: 'Lets Upgrade', 
+    subIssuer: 'NSDC & GDG MAD', 
+    date: '2026', 
+    color: '#8b5cf6', 
+    emoji: '🤖', 
+    tags: ['GenAI', 'Course'],
+    description: 'Completed the GenAI 101: Socratic AI Tutor Essentials course by Lets Upgrade, learning prompt engineering and LLM application frameworks.'
+  },
 
   // Workshops
-  { id: '1jdgn5zAGoJRKyUwcA9HrtZVWysQ0M9e3', category: 'Workshops', title: 'Certificate of Participation', event: 'Semiconductors & VLSI Design', issuer: 'Edu Fabrica', subIssuer: '', date: '2025', color: '#dc2626', emoji: '🖥️', tags: ['Workshop', 'Hardware'] },
-  { id: '14Ih98vYjm8mlC-yhLxw7CEZNIt8B5oKW', category: 'Workshops', title: 'Certificate of Completion', event: 'AI Tools and ChatGPT Workshop', issuer: 'Be 10X', subIssuer: 'AI Tools Workshop', date: '2026', color: '#fbbf24', emoji: '🧠', tags: ['AI Tools', 'ChatGPT', 'AI Productivity'] },
-  { id: '1Zq7L_2ZDxCzxBk7059DR-JEJ-7iUPWa-', category: 'Workshops', title: 'Workshop Certificate of Participation', event: 'Two-Day Workshop on VLSI Design and Semiconductor Industry', issuer: 'ChipXpert Technologies', subIssuer: 'ID: CXVLSI-MAY26-1668', date: '2026', color: '#f97316', emoji: '🖲️', tags: ['VLSI', 'Semiconductors', 'Hardware'] },
+  { 
+    id: '1jdgn5zAGoJRKyUwcA9HrtZVWysQ0M9e3', 
+    category: 'Workshops', 
+    title: 'Certificate of Participation', 
+    event: 'Semiconductors & VLSI Design', 
+    issuer: 'Edu Fabrica', 
+    subIssuer: '', 
+    date: '2025', 
+    color: '#dc2626', 
+    emoji: '🖥️', 
+    tags: ['Workshop', 'Hardware'],
+    description: 'Completed the Semiconductors and VLSI Design workshop by Edu Fabrica, gaining hands-on exposure to digital VLSI layout.'
+  },
+  { 
+    id: '14Ih98vYjm8mlC-yhLxw7CEZNIt8B5oKW', 
+    category: 'Workshops', 
+    title: 'Certificate of Completion', 
+    event: 'AI Tools and ChatGPT Workshop', 
+    issuer: 'Be 10X', 
+    subIssuer: 'AI Tools Workshop', 
+    date: '2026', 
+    color: '#fbbf24', 
+    emoji: '🧠', 
+    tags: ['AI Tools', 'ChatGPT', 'AI Productivity'],
+    description: 'Completed the AI Tools and ChatGPT Workshop. Trained to create presentations using AI in under 5 minutes, analyze data in under 30 minutes, and code/debug using AI in under 10 minutes.'
+  },
+  { 
+    id: '1Zq7L_2ZDxCzxBk7059DR-JEJ-7iUPWa-', 
+    category: 'Workshops', 
+    title: 'Workshop Certificate of Participation', 
+    event: 'Two-Day Workshop on VLSI Design and Semiconductor Industry', 
+    issuer: 'ChipXpert Technologies', 
+    subIssuer: 'ID: CXVLSI-MAY26-1668', 
+    date: '2026', 
+    color: '#f97316', 
+    emoji: '🖲️', 
+    tags: ['VLSI', 'Semiconductors', 'Hardware'],
+    description: 'Participated in the Two-Day Workshop on VLSI Design and Semiconductor Industry organized by ChipXpert Technologies Private Limited. Certificate ID: CXVLSI-MAY26-1668. Signed by Kairamkonda Shivakrishna (Managing Director).'
+  },
   
   // Internships
-  { id: '1A5UF4Vs1HKMvMZNEeTlWPLm-d8mczyzF', category: 'Internships', title: 'Certificate of Internship', event: 'Ind. Embedded Systems with IOT', issuer: 'NSIC Chennai', subIssuer: 'Govt. of India', date: '2025', color: '#4f46e5', emoji: '🔌', tags: ['IoT', 'Embedded Systems', 'Internship'] }, // Moved to Internships
+  { 
+    id: '1A5UF4Vs1HKMvMZNEeTlWPLm-d8mczyzF', 
+    category: 'Internships', 
+    title: 'Certificate of Internship', 
+    event: 'Ind. Embedded Systems with IOT', 
+    issuer: 'NSIC Chennai', 
+    subIssuer: 'Govt. of India', 
+    date: '2025', 
+    color: '#4f46e5', 
+    emoji: '🔌', 
+    tags: ['IoT', 'Embedded Systems', 'Internship'],
+    description: 'Completed a comprehensive industrial internship in Embedded Systems and IoT at NSIC Chennai, a Government of India enterprise.'
+  },
 
   // Others
-  { id: '1CIevT824g2PeKq--9QDFYH91RC8KAQmX', category: 'Others', title: 'Certificate of Participation', event: 'ELECT-ERA\'26 - TYPING ARENA', issuer: 'Coimbatore Institute of Technology', subIssuer: '', date: '2026', color: '#8b5cf6', emoji: '⌨️', tags: ['Typing', 'Symposium'] }, // Moved to Others
-  { id: '1Xc-mDE0YDTIVCnEBaVjgP6tOWiwRoftV', category: 'Others', title: 'Certificate of Appreciation', event: 'Kalloori Kalai Thiruvizha - Science Exhb.', issuer: 'Govt of Tamil Nadu', subIssuer: '2nd Position', date: '2025', color: '#eab308', emoji: '🥈', tags: ['Exhibition', 'Science', '2nd Place'] }, // Moved to Others
-  { id: '1MqeiKsJ4MrCwwSNpQdCGeRJqGvOyV7Tb', category: 'Others', title: 'Certificate of Participation', event: 'Kurukshetra\'26 - STEAM QUEST', issuer: 'Anna University (CEG)', subIssuer: '', date: '2026', color: '#f97316', emoji: '🧩', tags: ['STEAM', 'Techno-Management'] }, // Moved to Others
-  { id: '1FcIO1JbiWeqyHtNl5_Uoh3YZjjbJ8Yga', category: 'Others', title: 'Certificate of Participation', event: 'ELECT-ERA\'26 - CHASE AND BUILD', issuer: 'Coimbatore Institute of Technology', subIssuer: '', date: '2026', color: '#f43f5e', emoji: '🛠️', tags: ['Hardware', 'Symposium'] }, // Moved to Others
-  { id: '13-CXBTGmug3noakvBJq4r3n3ved7DQwk', category: 'Others', title: 'Certificate of Participation', event: 'GALAXY\'24 PHASE II - PAPER WAR', issuer: 'Government College of Engineering, Erode', subIssuer: '', date: '2024', color: '#6366f1', emoji: '📄', tags: ['Paper Presentation', 'Symposium'] }, // Moved to Others
-  { id: '1dwC1QsBZyVTeq1E4ZS9dkI7keI3322fb', category: 'Others', title: 'Certificate of Participation', event: 'Attack on Bots (Robotics)', issuer: 'NIT Tiruchi', subIssuer: '', date: '2025', color: '#ef4444', emoji: '🤖', tags: ['Robotics', 'NIT'] }, // Moved to Others
-  { id: '1jx_ff43Yk7cJBI9Y9dXTT-WhbL-pMoaZ', category: 'Others', title: 'Certificate of Completion', event: 'Tech Bootcamp (AIML Track)', issuer: 'Takshashila University', subIssuer: 'in collaboration with Xebia', date: '2026', color: '#a855f7', emoji: '🤖', tags: ['Generative AI', 'Agentic Systems', 'Bootcamp'] },
-  { id: '1H53l1-TWBtwFWw796zJVyUdQzkPlhpni', category: 'Others', title: 'Certificate of Participation', event: 'National Level E-Quiz on World Intellectual Property Day 2026', issuer: 'Guru Nanak College (Autonomous)', subIssuer: 'Scored 90/100', date: '2026', color: '#10b981', emoji: '⚖️', tags: ['IPR Cell', 'Intellectual Property', 'Quiz'] },
+  { 
+    id: '1CIevT824g2PeKq--9QDFYH91RC8KAQmX', 
+    category: 'Others', 
+    title: 'Certificate of Participation', 
+    event: 'ELECT-ERA\'26 - TYPING ARENA', 
+    issuer: 'Coimbatore Institute of Technology', 
+    subIssuer: '', 
+    date: '2026', 
+    color: '#8b5cf6', 
+    emoji: '⌨️', 
+    tags: ['Typing', 'Symposium'],
+    description: 'Participated in the Typing Arena contest during ELECT-ERA\'26, a technical symposium at Coimbatore Institute of Technology.'
+  },
+  { 
+    id: '1Xc-mDE0YDTIVCnEBaVjgP6tOWiwRoftV', 
+    category: 'Others', 
+    title: 'Certificate of Appreciation', 
+    event: 'Kalloori Kalai Thiruvizha - Science Exhb.', 
+    issuer: 'Govt of Tamil Nadu', 
+    subIssuer: '2nd Position', 
+    date: '2025', 
+    color: '#eab308', 
+    emoji: '🥈', 
+    tags: ['Exhibition', 'Science', '2nd Place'],
+    description: 'Awarded 2nd Position in the state-level Science Exhibition during Kalloori Kalai Thiruvizha organized by the Government of Tamil Nadu.'
+  },
+  { 
+    id: '1MqeiKsJ4MrCwwSNpQdCGeRJqGvOyV7Tb', 
+    category: 'Others', 
+    title: 'Certificate of Participation', 
+    event: 'Kurukshetra\'26 - STEAM QUEST', 
+    issuer: 'Anna University (CEG)', 
+    subIssuer: '', 
+    date: '2026', 
+    color: '#f97316', 
+    emoji: '🧩', 
+    tags: ['STEAM', 'Techno-Management'],
+    description: 'Participated in the STEAM QUEST competition at Kurukshetra\'26, CEG, Anna University.'
+  },
+  { 
+    id: '1FcIO1JbiWeqyHtNl5_Uoh3YZjjbJ8Yga', 
+    category: 'Others', 
+    title: 'Certificate of Participation', 
+    event: 'ELECT-ERA\'26 - CHASE AND BUILD', 
+    issuer: 'Coimbatore Institute of Technology', 
+    subIssuer: '', 
+    date: '2026', 
+    color: '#f43f5e', 
+    emoji: '🛠️', 
+    tags: ['Hardware', 'Symposium'],
+    description: 'Participated in the Chase and Build hardware prototyping event at Coimbatore Institute of Technology\'s ELECT-ERA\'26 symposium.'
+  },
+  { 
+    id: '13-CXBTGmug3noakvBJq4r3n3ved7DQwk', 
+    category: 'Others', 
+    title: 'Certificate of Participation', 
+    event: 'GALAXY\'24 PHASE II - PAPER WAR', 
+    issuer: 'Government College of Engineering, Erode', 
+    subIssuer: '', 
+    date: '2024', 
+    color: '#6366f1', 
+    emoji: '📄', 
+    tags: ['Paper Presentation', 'Symposium'],
+    description: 'Participated in the Paper War paper presentation symposium at Government College of Engineering, Erode.'
+  },
+  { 
+    id: '1dwC1QsBZyVTeq1E4ZS9dkI7keI3322fb', 
+    category: 'Others', 
+    title: 'Certificate of Participation', 
+    event: 'Attack on Bots (Robotics)', 
+    issuer: 'NIT Tiruchi', 
+    subIssuer: '', 
+    date: '2025', 
+    color: '#ef4444', 
+    emoji: '🤖', 
+    tags: ['Robotics', 'NIT'],
+    description: 'Participated in the Attack on Bots robotics competition organized by NIT Trichy.'
+  },
+  { 
+    id: '1jx_ff43Yk7cJBI9Y9dXTT-WhbL-pMoaZ', 
+    category: 'Others', 
+    title: 'Certificate of Completion', 
+    event: 'Tech Bootcamp (AIML Track)', 
+    issuer: 'Takshashila University', 
+    subIssuer: 'in collaboration with Xebia', 
+    date: '2026', 
+    color: '#a855f7', 
+    emoji: '🤖', 
+    tags: ['Generative AI', 'Agentic Systems', 'Bootcamp'],
+    description: 'Organized by Takshashila University in collaboration with Xebia. Covering No-Code & Low-Code Applications using Generative AI, and Agentic Systems and Autonomous Workflows. Signed by Amand Sahay (CEO, Xebia), Brijesh Kohli (Head of Education, Xebia), Prof. (Dr.) Vivek Inder Kochar (VC), and Prof. (Dr.) S. Senthil (Registrar).'
+  },
+  { 
+    id: '1H53l1-TWBtwFWw796zJVyUdQzkPlhpni', 
+    category: 'Others', 
+    title: 'Certificate of Participation', 
+    event: 'National Level E-Quiz on World Intellectual Property Day 2026', 
+    issuer: 'Guru Nanak College (Autonomous)', 
+    subIssuer: 'Scored 90/100', 
+    date: '2026', 
+    color: '#10b981', 
+    emoji: '⚖️', 
+    tags: ['IPR Cell', 'Intellectual Property', 'Quiz'],
+    description: 'Scored 90/100 in the National Level E-Quiz to commemorate World Intellectual Property Day 2026, organized by the Intellectual Property Rights Cell in association with the Guru Nanak Centre for Innovation, Incubation, Entrepreneurship & Startups of Guru Nanak College (Autonomous), Guru Nanak Salai, Velachery, Chennai – 600042, held on 28/04/2026. Signed by Dr. Mahendrakumar M., Dr. R. Rajini Surendranath, and Dr. R.M. Elilarasi.'
+  },
 ];
 
 const certificationsData = baseCertificationsData.map(cert => ({
   ...cert,
   driveImageUrl: `/certs/${cert.id}.png?v=1`,
   driveId: cert.id,
-  description: 
+  description: cert.description || (
     cert.category === 'Hackathons' ? "Demonstrated outstanding performance and technical skillset in this competitive event." :
     cert.category === 'Courses' ? "Successfully completed comprehensive coursework and practical assignments to master fundamental concepts." :
     cert.category === 'Internships' ? "Gained hands-on industry experience and tackled real-world projects during this extensive internship training." :
     "Actively engaged in collaborative activities, exhibitions, and symposiums to broaden technical boundaries."
+  )
 }));
 
 const Certifications = ({ data }) => {
