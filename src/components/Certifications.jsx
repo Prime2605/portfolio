@@ -391,7 +391,7 @@ const baseCertificationsData = [
   },
   { 
     id: '1H53l1-TWBtwFWw796zJVyUdQzkPlhpni', 
-    category: 'Others', 
+    category: 'Quiz Certificates', 
     title: 'Certificate of Participation', 
     event: 'National Level E-Quiz on World Intellectual Property Day 2026', 
     issuer: 'Guru Nanak College (Autonomous)', 
@@ -402,6 +402,201 @@ const baseCertificationsData = [
     tags: ['IPR Cell', 'Intellectual Property', 'Quiz'],
     description: 'Scored 90/100 in the National Level E-Quiz to commemorate World Intellectual Property Day 2026, organized by the Intellectual Property Rights Cell in association with the Guru Nanak Centre for Innovation, Incubation, Entrepreneurship & Startups of Guru Nanak College (Autonomous), Guru Nanak Salai, Velachery, Chennai – 600042, held on 28/04/2026. Signed by Dr. Mahendrakumar M., Dr. R. Rajini Surendranath, and Dr. R.M. Elilarasi.'
   },
+  {
+    id: '1bWkTq-_emK-IO1lweK9Ij7NtUETxL2bA',
+    category: 'Courses',
+    title: 'Elite NPTEL Online Certification',
+    event: 'Digital Design with Verilog',
+    issuer: 'IIT Guwahati',
+    subIssuer: 'NPTEL (Score: 62%)',
+    date: '2026',
+    color: '#0ea5e9',
+    emoji: '📜',
+    tags: ['Verilog', 'Digital Design', 'IIT'],
+    description: 'Awarded Elite NPTEL Online Certification (funded by the MoE, Govt. of India) for successfully completing the 12-week course "Digital Design with Verilog" conducted by IIT Guwahati, scoring 62%. Roll No: NPTEL26CS24S1264900905.'
+  },
+  {
+    id: '1_fY8sv9w3r6wNAUGT0iNYo543VJOA86e',
+    category: 'Hackathons',
+    title: 'Certificate of Participation',
+    event: 'Altaria V1.0 - 24-Hr Hackathon',
+    issuer: 'Dayananda Sagar College of Engineering',
+    subIssuer: 'Dept of CSE',
+    date: '2026',
+    color: '#06b6d4',
+    emoji: '🏆',
+    tags: ['Hackathon', 'IoT', 'Cybersecurity'],
+    description: 'Participated in Altaria V1.0 2026, a 24-hour hackathon organized by the Department of Computer Science and Engineering at Dayananda Sagar College of Engineering, Bengaluru, showcasing collaboration, creativity, and development skills.'
+  },
+  {
+    id: '1T8Zio4WfzENAEJCzXEk5v_TZB_dV09yn',
+    category: 'Quiz Certificates',
+    title: 'Certificate of Participation',
+    event: 'ML SPARK Machine Learning Challenge Quiz',
+    issuer: 'University of Hyderabad',
+    subIssuer: 'School of Management Studies',
+    date: '2026',
+    color: '#10b981',
+    emoji: '🧠',
+    tags: ['Machine Learning', 'Quiz', 'Unstop'],
+    description: 'Participated in the MCQ Quiz Competition of the ML SPARK Machine Learning Challenge organized by the School of Management Studies (SMS), University of Hyderabad, on the Unstop platform.'
+  },
+  {
+    id: '11MUPrif_XkTJitDEAOvue3jXKtqUpNte',
+    category: 'Hackathons',
+    title: 'Certificate of Participation',
+    event: 'Prince iSolve Hack',
+    issuer: 'Prince Shri Venkateshwara Padmavathy Eng. College',
+    subIssuer: 'Unstop',
+    date: '2026',
+    color: '#8b5cf6',
+    emoji: '💻',
+    tags: ['iSolve', 'Hackathon', 'Unstop'],
+    description: 'Participated in the Prince iSolve Hack hackathon organized by Prince Shri Venkateshwara Padmavathy Engineering College (PSVPEC), Chennai, Tamil Nadu, hosted on Unstop.'
+  },
+  {
+    id: '1HLpx5TmhRjmyrBWHGMTlUXb8rnmGbkXT',
+    category: 'Others',
+    title: 'Certificate of Participation',
+    event: 'ARIVOLIO 2K\'26',
+    issuer: 'Knowledge Institute of Technology',
+    subIssuer: 'Unstop',
+    date: '2026',
+    color: '#d946ef',
+    emoji: '✨',
+    tags: ['Symposium', 'Tech Fest', 'Unstop'],
+    description: 'Participated in ARIVOLIO 2K\'26, a national-level technical symposium organized by the Knowledge Institute of Technology on Unstop.'
+  },
+  {
+    id: '1_htQ0kTBuCuqUecnE2fQy1rKknS-lgvB',
+    category: 'Hackathons',
+    title: 'Certificate of Participation',
+    event: 'Bitwars 3.0 - Offline Competitive Coding',
+    issuer: 'VIT Chennai',
+    subIssuer: 'Unstop',
+    date: '2026',
+    color: '#3b82f6',
+    emoji: '⚔️',
+    tags: ['Competitive Coding', 'VIT', 'Algorithms'],
+    description: 'Participated in Bitwars 3.0, South India\'s Premier Offline Competitive Coding Event organized by Vellore Institute of Technology (VIT), Chennai, on Unstop.'
+  },
+  {
+    id: '1ZQaTQt6y_KjUtkNzyhScY0qtEJgtRler',
+    category: 'Quiz Certificates',
+    title: 'Certificate of Participation',
+    event: 'Earth Day Quiz Competition 2026',
+    issuer: 'ISTE Student Chapter',
+    subIssuer: 'Unstop',
+    date: '2026',
+    color: '#22c55e',
+    emoji: '🌍',
+    tags: ['Earth Day', 'Quiz', 'ISTE'],
+    description: 'Participated in the Earth Day Quiz Competition 2026, organized by the ISTE Student Chapter at Government College of Engineering, Erode, on Unstop.'
+  },
+  {
+    id: '1372-yHvQ7JgtB3_JxabcL-Jaq6hrZklS',
+    category: 'Others',
+    title: 'Certificate of Participation',
+    event: 'The Filter of OutThinkX',
+    issuer: 'Thinksy Arena',
+    subIssuer: 'Unstop',
+    date: '2026',
+    color: '#f97316',
+    emoji: '🧩',
+    tags: ['Logic', 'Challenge', 'OutThinkX'],
+    description: 'Participated in "The Filter" round of OutThinkX, a logical thinking and problem-solving competition organized by Thinksy Arena on Unstop.'
+  },
+  {
+    id: '1_ajucDz_vJa4hpxMQ6LLWp7Ul7aDSaYp',
+    category: 'Courses',
+    title: 'Certificate of Completion',
+    event: 'Generative AI Mastermind',
+    issuer: 'Outskill',
+    subIssuer: 'Vaibhav Sisinty',
+    date: '2026',
+    color: '#a855f7',
+    emoji: '🤖',
+    tags: ['Generative AI', 'AI Tools', 'Mastermind'],
+    description: 'Successfully completed the Generative AI Mastermind course by Outskill, covering advanced prompt engineering, AI productivity workflows, and LLM implementation, signed by Founder Vaibhav Sisinty.'
+  },
+  {
+    id: '1PevDeLkbL9FacmzEI6vKRl-fZ5BXEdKF',
+    category: 'Hackathons',
+    title: 'Certificate of Participation',
+    event: 'CodeFest\'26 - Vista',
+    issuer: 'IIT (BHU) Varanasi',
+    subIssuer: 'Dept of CSE',
+    date: '2026',
+    color: '#3b82f6',
+    emoji: '👁️',
+    tags: ['CodeFest', 'IIT BHU', 'Coding'],
+    description: 'Recognized for outstanding performance in the Vista Event of Codefest\'26, the annual national coding festival organized by the Department of Computer Science and Engineering, IIT (BHU) Varanasi.'
+  },
+  {
+    id: '1qFReKIYph4h3SMwbdgbuWJdBTTqnbv8B',
+    category: 'Others',
+    title: 'Certificate of Participation',
+    event: 'Galaxy24 Phase II - EROTECT WAR',
+    issuer: 'Government College of Engineering, Erode',
+    subIssuer: 'Association of ECE',
+    date: '2024',
+    color: '#6366f1',
+    emoji: '🛡️',
+    tags: ['ECE', 'Galaxy24', 'Symposium'],
+    description: 'Participated in the EROTECT WAR event during GALAXY24 Phase II, a national-level technical symposium organized by the Association of ECE at Government College of Engineering, Erode, on 24th and 25th October 2024.'
+  },
+  {
+    id: '1ex-bRTYKIBCGbzYD1q3djoCazmtZiNuA',
+    category: 'Hackathons',
+    title: 'Certificate of Achievement',
+    event: 'Smart Campus Hackathon\'26',
+    issuer: 'Government College of Engineering, Erode',
+    subIssuer: 'First Prize 🏆',
+    date: '2026',
+    color: '#d4af37',
+    emoji: '🏆',
+    tags: ['Hackathon', 'CSE', 'First Prize'],
+    description: 'Secured the First Prize in the Smart Campus Hackathon\'26 conducted by the Department of Computer Science and Engineering, Government College of Engineering, Erode, on January 30, 2026. Signed by Dr. A. Kavitha (HOD) and Dr. A. Saradha (Principal).'
+  },
+  {
+    id: '1M2DNg_pNrsU9YLdHAH_ffF7ztBnoRPF8',
+    category: 'Hackathons',
+    title: 'Certificate of Participation',
+    event: 'CodeKshetra Coding Contest',
+    issuer: 'CodeKshetra',
+    subIssuer: 'Coding Contest',
+    date: '2026',
+    color: '#10b981',
+    emoji: '💻',
+    tags: ['Coding Contest', 'Algorithms', 'Speed Coding'],
+    description: 'Successfully participated in the CodeKshetra Coding Contest on 18th April 2026, demonstrating a strong commitment to learning and competitive algorithms problem-solving.'
+  },
+  {
+    id: '1SzSvvalT-9MVUpexmEFYd-NcM7RqtJic',
+    category: 'Workshops',
+    title: 'Certificate of Completion',
+    event: 'Full Stack Web Development Workshop',
+    issuer: 'Jobaaj Learnings',
+    subIssuer: 'Jobaaj Group',
+    date: '2026',
+    color: '#ec4899',
+    emoji: '🌐',
+    tags: ['Web Dev', 'Full Stack', 'Workshop'],
+    description: 'Successfully completed the Full Stack Web Development Workshop organized by Jobaaj Learnings, covering modern web architectures and development practices. ID: ATNQX108468.'
+  },
+  {
+    id: '1I1nFw6Qjppf7clrV7IUYNM_U--PVLNAe',
+    category: 'Hackathons',
+    title: 'Certificate of Participation',
+    event: 'National Cloud Innovation Challenge',
+    issuer: '3SVK, Hyderabad',
+    subIssuer: 'Cloud Hackathon',
+    date: '2026',
+    color: '#0ea5e9',
+    emoji: '☁️',
+    tags: ['Cloud', 'Hackathon', '3SVK'],
+    description: 'Participated in Season 1 of the National Cloud Innovation Challenge (India\'s Largest Student Cloud Hackathon) organized by 3SVK, Hyderabad, engaging over 2,000+ developers across India.'
+  }
 ];
 
 const certificationsData = baseCertificationsData.map(cert => ({
@@ -422,7 +617,7 @@ const Certifications = ({ data }) => {
   const [activeCertificate, setActiveCertificate] = useState(null)
   const [isFullScreenImg, setIsFullScreenImg] = useState(false)
 
-  const tabs = ['Hackathons', 'Courses', 'Workshops', 'Internships', 'Others'];
+  const tabs = ['Hackathons', 'Courses', 'Workshops', 'Internships', 'Quiz Certificates', 'Others'];
   const filteredCerts = certs.filter(cert => cert.category === activeTab);
 
   // Lock body scroll when modal is open

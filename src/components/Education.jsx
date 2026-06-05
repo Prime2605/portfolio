@@ -11,17 +11,17 @@ const educationData = [
   },
   {
     date: 'Jul 2022 – May 2024',
-    title: 'Higher Secondary — Bio Maths',
+    title: 'HSC (11th & 12th Grade)',
     institution: 'Tagore Matric Higher Secondary School, Deviyakurichi',
-    description: 'Completed higher secondary education with distinction in Bio Mathematics stream, demonstrating strong analytical and problem-solving capabilities.',
-    grade: '93.16%',
+    description: 'Completed higher secondary education in Bio-Mathematics stream. Scored 557/600 (92.83%) in 11th standard and 559/600 (93.17%) in 12th standard, demonstrating strong analytical skills.',
+    grade: '93.17% (12th Grade)',
   },
   {
-    date: 'Completed 2022',
-    title: 'SSLC (10th Grade)',
+    date: 'Jun 2020 – May 2022',
+    title: 'SSLC (9th & 10th Grade)',
     institution: 'Tagore Matric Higher Secondary School, Deviyakurichi',
-    description: 'Achieved outstanding academic performance in secondary education, laying a strong foundation in science and mathematics.',
-    grade: '94.8%',
+    description: 'Completed secondary education with an outstanding foundation in science and mathematics. Scored 474/500 in 10th standard.',
+    grade: '94.8% (10th Grade)',
   },
 ]
 
