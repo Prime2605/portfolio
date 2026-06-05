@@ -1733,7 +1733,8 @@ body {
 .document-card,
 .cert-card,
 .hero-text,
-.footer {
+.footer,
+.section-header {
   position: relative;
   overflow: hidden;
   background: rgba(10, 10, 15, 0.65) !important;
@@ -1785,6 +1786,13 @@ body {
   border-bottom: 1px solid rgba(124, 58, 237, 0.35) !important;
 }
 
+.section-header {
+  padding: 30px 40px !important;
+  border-radius: var(--border-radius-lg, 24px) !important;
+  max-width: 800px !important;
+  margin: 0 auto 60px auto !important;
+}
+
 /* Sweep reflection element */
 .education-card::after,
 .project-card::after,
@@ -1795,7 +1803,8 @@ body {
 .document-card::after,
 .cert-card::after,
 .hero-text::after,
-.footer::after {
+.footer::after,
+.section-header::after {
   content: '';
   position: absolute;
   top: 0;
@@ -1819,7 +1828,8 @@ body {
 .document-card:hover,
 .cert-card:hover,
 .hero-text:hover,
-.footer:hover {
+.footer:hover,
+.section-header:hover {
   background: rgba(15, 15, 25, 0.75) !important;
   border-color: rgba(124, 58, 237, 0.75) !important;
   box-shadow: 0 20px 45px rgba(124, 58, 237, 0.25) !important;
@@ -1848,7 +1858,8 @@ body {
 .document-card:hover::after,
 .cert-card:hover::after,
 .hero-text:hover::after,
-.footer:hover::after {
+.footer:hover::after,
+.section-header:hover::after {
   transform: translateX(100%);
 }
 

@@ -4,7 +4,7 @@ const ScrollCanvas = () => {
   const canvasRef = useRef(null)
   const [images, setImages] = useState([])
   const [loadedCount, setLoadedCount] = useState(0)
-  const frameCount = 361
+  const frameCount = 600
   const activeFrameRef = useRef(1)
 
   // Preload images
@@ -82,6 +82,29 @@ const ScrollCanvas = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [images])
 
+  const targetFrameRef = useRef(1)
+  const currentFrameRef = useRef(1)
+  const isAnimatingRef = useRef(false)
+
+  // Smooth frame render loop
+  const animate = () => {
+    const target = targetFrameRef.current
+    let current = currentFrameRef.current
+
+    const diff = target - current
+    if (Math.abs(diff) < 0.05) {
+      currentFrameRef.current = target
+      drawFrame(Math.round(target))
+      isAnimatingRef.current = false
+    } else {
+      // Smooth interpolation: advance by 15% of the remaining distance per frame
+      current += diff * 0.15
+      currentFrameRef.current = current
+      drawFrame(Math.round(current))
+      requestAnimationFrame(animate)
+    }
+  }
+
   // Handle scroll to sync with video frames
   useEffect(() => {
     const handleScroll = () => {
@@ -95,13 +118,17 @@ const ScrollCanvas = () => {
         Math.max(1, Math.floor(scrollFraction * frameCount) + 1)
       )
 
-      if (activeFrameRef.current !== frameIndex) {
-        activeFrameRef.current = frameIndex
-        requestAnimationFrame(() => drawFrame(frameIndex))
+      targetFrameRef.current = frameIndex
+
+      // Start easing loop if not already running
+      if (!isAnimatingRef.current) {
+        isAnimatingRef.current = true
+        requestAnimationFrame(animate)
       }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
+    
     // Initial draw
     if (images.length > 0) {
       drawFrame(1)
