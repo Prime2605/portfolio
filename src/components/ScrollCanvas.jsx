@@ -15,7 +15,8 @@ const ScrollCanvas = () => {
     for (let i = 1; i <= frameCount; i++) {
       const img = new Image()
       const frameNum = String(i).padStart(4, '0')
-      img.src = `/frames/frame_${frameNum}.jpg`
+      // Use query parameter to bust browser and CDN cache for the new 600 frames
+      img.src = `/frames/frame_${frameNum}.jpg?v=4`
       img.onload = () => {
         loaded++
         setLoadedCount(loaded)
@@ -99,8 +100,8 @@ const ScrollCanvas = () => {
       drawFrame(Math.round(target))
       isAnimatingRef.current = false
     } else {
-      // Smooth interpolation: advance by 6% of the remaining distance per frame for butter-smooth easing
-      current += diff * 0.06
+      // Smooth interpolation: advance by 8% of the remaining distance per frame for butter-smooth responsive easing
+      current += diff * 0.08
       currentFrameRef.current = current
       drawFrame(Math.round(current))
       requestAnimationFrame(animate)
@@ -109,17 +110,20 @@ const ScrollCanvas = () => {
 
   // Handle scroll to sync with video frames
   useEffect(() => {
-    const handleScroll = () => {
+    const getScrollFrame = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight
-      if (maxScroll <= 0) return
+      if (maxScroll <= 0) return 1
 
       const scrollFraction = Math.min(1, Math.max(0, scrollTop / maxScroll))
-      const frameIndex = Math.min(
+      return Math.min(
         frameCount,
         Math.max(1, Math.floor(scrollFraction * frameCount) + 1)
       )
+    }
 
+    const handleScroll = () => {
+      const frameIndex = getScrollFrame()
       targetFrameRef.current = frameIndex
 
       // Start easing loop if not already running
@@ -131,9 +135,12 @@ const ScrollCanvas = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     
-    // Initial draw
+    // Initial draw & set position to match actual scroll position immediately (prevent initial slide)
     if (images.length > 0) {
-      drawFrame(1)
+      const initialFrame = getScrollFrame()
+      currentFrameRef.current = initialFrame
+      targetFrameRef.current = initialFrame
+      drawFrame(initialFrame)
     }
 
     return () => window.removeEventListener('scroll', handleScroll)
