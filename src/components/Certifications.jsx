@@ -5,19 +5,6 @@ import { SiGoogle } from 'react-icons/si'
 const baseCertificationsData = [
   // Hackathons
   { 
-    id: '1YG9MutlUK3s2c6VCuqDl4-zmsLjLheev', 
-    category: 'Hackathons', 
-    title: 'Certificate of Participation', 
-    event: 'CONVOLVE 4.0 - Pan-IIT AI/ML Hackathon', 
-    issuer: 'IIT Guwahati', 
-    subIssuer: 'Unstop', 
-    date: '2025', 
-    color: '#06b6d4', 
-    emoji: '🏆', 
-    tags: ['AI/ML', 'IIT', 'Hackathon'],
-    description: 'Participated in the Pan-IIT AI/ML Hackathon CONVOLVE 4.0 organized by IIT Guwahati in collaboration with Unstop, competing with top talents nationwide.'
-  },
-  { 
     id: '1dZX4n7jC2ZFaCGFymZbceHyMnahZYii4', 
     category: 'Hackathons', 
     title: 'Certificate of Merit', 
@@ -58,7 +45,7 @@ const baseCertificationsData = [
   },
   { 
     id: '1o7Rm5mFj2vbTguAIhDq7xngT2MIjZJJL', 
-    category: 'Hackathons', 
+    category: 'Others', 
     title: 'Certificate of Participation', 
     event: 'Kurukshetra\'26 - Design Hack!s', 
     issuer: 'Anna University (CEG)', 
@@ -123,6 +110,19 @@ const baseCertificationsData = [
   },
   
   // Courses
+  {
+    id: '1bWkTq-_emK-IO1lweK9Ij7NtUETxL2bA',
+    category: 'Courses',
+    title: 'Elite NPTEL Online Certification',
+    event: 'NPTEL - Digital Design with Verilog',
+    issuer: 'IIT Guwahati',
+    subIssuer: 'NPTEL (Score: 62%)',
+    date: '2026',
+    color: '#0ea5e9',
+    emoji: '📜',
+    tags: ['Verilog', 'Digital Design', 'IIT'],
+    description: 'Awarded Elite NPTEL Online Certification (funded by the MoE, Govt. of India) for successfully completing the 12-week course "Digital Design with Verilog" conducted by IIT Guwahati, scoring 62%. Roll No: NPTEL26CS24S1264900905.'
+  },
   { 
     id: '11lKSwl7u-l9MuRsM_9CAP1bE-fkdI-d3', 
     category: 'Courses', 
@@ -245,6 +245,7 @@ const baseCertificationsData = [
   { 
     id: '1jdgn5zAGoJRKyUwcA9HrtZVWysQ0M9e3', 
     category: 'Workshops', 
+    subCategory: 'VLSI',
     title: 'Certificate of Participation', 
     event: 'Semiconductors & VLSI Design', 
     issuer: 'Edu Fabrica', 
@@ -258,6 +259,7 @@ const baseCertificationsData = [
   { 
     id: '14Ih98vYjm8mlC-yhLxw7CEZNIt8B5oKW', 
     category: 'Workshops', 
+    subCategory: 'Software',
     title: 'Certificate of Completion', 
     event: 'AI Tools and ChatGPT Workshop', 
     issuer: 'Be 10X', 
@@ -271,6 +273,7 @@ const baseCertificationsData = [
   { 
     id: '1Zq7L_2ZDxCzxBk7059DR-JEJ-7iUPWa-', 
     category: 'Workshops', 
+    subCategory: 'VLSI',
     title: 'Workshop Certificate of Participation', 
     event: 'Two-Day Workshop on VLSI Design and Semiconductor Industry', 
     issuer: 'ChipXpert Technologies', 
@@ -401,19 +404,6 @@ const baseCertificationsData = [
     emoji: '⚖️', 
     tags: ['IPR Cell', 'Intellectual Property', 'Quiz'],
     description: 'Scored 90/100 in the National Level E-Quiz to commemorate World Intellectual Property Day 2026, organized by the Intellectual Property Rights Cell in association with the Guru Nanak Centre for Innovation, Incubation, Entrepreneurship & Startups of Guru Nanak College (Autonomous), Guru Nanak Salai, Velachery, Chennai – 600042, held on 28/04/2026. Signed by Dr. Mahendrakumar M., Dr. R. Rajini Surendranath, and Dr. R.M. Elilarasi.'
-  },
-  {
-    id: '1bWkTq-_emK-IO1lweK9Ij7NtUETxL2bA',
-    category: 'Courses',
-    title: 'Elite NPTEL Online Certification',
-    event: 'Digital Design with Verilog',
-    issuer: 'IIT Guwahati',
-    subIssuer: 'NPTEL (Score: 62%)',
-    date: '2026',
-    color: '#0ea5e9',
-    emoji: '📜',
-    tags: ['Verilog', 'Digital Design', 'IIT'],
-    description: 'Awarded Elite NPTEL Online Certification (funded by the MoE, Govt. of India) for successfully completing the 12-week course "Digital Design with Verilog" conducted by IIT Guwahati, scoring 62%. Roll No: NPTEL26CS24S1264900905.'
   },
   {
     id: '1_fY8sv9w3r6wNAUGT0iNYo543VJOA86e',
@@ -574,6 +564,7 @@ const baseCertificationsData = [
   {
     id: '1SzSvvalT-9MVUpexmEFYd-NcM7RqtJic',
     category: 'Workshops',
+    subCategory: 'Software',
     title: 'Certificate of Completion',
     event: 'Full Stack Web Development Workshop',
     issuer: 'Jobaaj Learnings',
@@ -614,11 +605,18 @@ const certificationsData = baseCertificationsData.map(cert => ({
 const Certifications = ({ data }) => {
   const certs = data || certificationsData
   const [activeTab, setActiveTab] = useState('Hackathons') // Default category
+  const [activeSubTab, setActiveSubTab] = useState('All') // Workshops subcategory
   const [activeCertificate, setActiveCertificate] = useState(null)
   const [isFullScreenImg, setIsFullScreenImg] = useState(false)
 
   const tabs = ['Hackathons', 'Courses', 'Workshops', 'Internships', 'Quiz Certificates', 'Others'];
-  const filteredCerts = certs.filter(cert => cert.category === activeTab);
+  const filteredCerts = certs.filter(cert => {
+    if (cert.category !== activeTab) return false;
+    if (activeTab === 'Workshops' && activeSubTab !== 'All') {
+      return cert.subCategory === activeSubTab;
+    }
+    return true;
+  });
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -645,7 +643,7 @@ const Certifications = ({ data }) => {
           {tabs.map(tab => (
             <button
               key={tab}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => { setActiveTab(tab); setActiveSubTab('All'); }}
               style={{
                 background: activeTab === tab ? 'linear-gradient(90deg, #1e3a8a, #d4af37)' : 'rgba(0, 0, 0, 0.4)',
                 color: activeTab === tab ? '#fff' : '#d4af37',
@@ -679,6 +677,46 @@ const Certifications = ({ data }) => {
             </button>
           ))}
         </div>
+
+        {/* 1.5. Workshops Sub-Filters */}
+        {activeTab === 'Workshops' && (
+          <div className="cert-subfilters" data-aos="fade-up" style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '30px', flexWrap: 'wrap' }}>
+            {['All', 'Software', 'VLSI'].map(subTab => (
+              <button
+                key={subTab}
+                onClick={() => setActiveSubTab(subTab)}
+                style={{
+                  background: activeSubTab === subTab ? 'linear-gradient(90deg, #d4af37, #1e3a8a)' : 'rgba(0, 0, 0, 0.4)',
+                  color: activeSubTab === subTab ? '#fff' : '#d4af37',
+                  border: '1px solid',
+                  borderColor: activeSubTab === subTab ? '#d4af37' : 'rgba(212, 175, 55, 0.3)',
+                  padding: '8px 20px',
+                  borderRadius: '20px',
+                  fontSize: '0.85rem',
+                  fontWeight: '700',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: activeSubTab === subTab ? '0 0 10px rgba(212, 175, 55, 0.4)' : 'none',
+                  backdropFilter: 'blur(10px)'
+                }}
+                onMouseEnter={(e) => {
+                  if (activeSubTab !== subTab) {
+                    e.target.style.background = 'rgba(212, 175, 55, 0.2)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (activeSubTab !== subTab) {
+                    e.target.style.background = 'rgba(0, 0, 0, 0.4)';
+                  }
+                }}
+              >
+                {subTab}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* 2. Grid of Certificate Cards for the active category */}
         <div className="cert-grid" data-aos="fade-up" style={{
