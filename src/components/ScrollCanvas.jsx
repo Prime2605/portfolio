@@ -62,6 +62,8 @@ const ScrollCanvas = () => {
     }
 
     ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+    ctx.imageSmoothingEnabled = true
+    ctx.imageSmoothingQuality = 'high'
     ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight)
   }
 
@@ -97,8 +99,8 @@ const ScrollCanvas = () => {
       drawFrame(Math.round(target))
       isAnimatingRef.current = false
     } else {
-      // Smooth interpolation: advance by 15% of the remaining distance per frame
-      current += diff * 0.15
+      // Smooth interpolation: advance by 6% of the remaining distance per frame for butter-smooth easing
+      current += diff * 0.06
       currentFrameRef.current = current
       drawFrame(Math.round(current))
       requestAnimationFrame(animate)
