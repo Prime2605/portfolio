@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaGraduationCap, FaStar, FaDownload } from 'react-icons/fa'
+import { FaGraduationCap, FaStar } from 'react-icons/fa'
 
 const educationData = [
   {
@@ -191,63 +191,6 @@ const Education = ({ data }) => {
                   <FaStar style={{ fontSize: '0.9rem' }} />
                   {item.grade}
                 </div>
-
-                {idx === 0 && (
-                  <div style={{ marginTop: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
-                    <a
-                      href="/Transcript.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-jelly btn-primary"
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        padding: '10px 20px',
-                        fontSize: '0.95rem',
-                        textDecoration: 'none',
-                        borderRadius: '10px',
-                        fontWeight: '700',
-                        background: 'linear-gradient(90deg, #7c3aed, #a855f7)',
-                        color: '#fff',
-                        border: 'none',
-                        boxShadow: '0 4px 15px rgba(124, 58, 237, 0.4)',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      View Transcript
-                    </a>
-                    <a
-                      href="/Transcript.pdf"
-                      download="Prime_RS_Transcript.pdf"
-                      className="btn-jelly btn-secondary"
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        padding: '10px 20px',
-                        fontSize: '0.95rem',
-                        textDecoration: 'none',
-                        borderRadius: '10px',
-                        fontWeight: '700',
-                        background: 'rgba(255, 255, 255, 0.05)',
-                        color: '#fff',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
-                        cursor: 'pointer',
-                        transition: 'all 0.3s ease'
-                      }}
-                      onMouseEnter={e => {
-                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
-                      }}
-                      onMouseLeave={e => {
-                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
-                      }}
-                    >
-                      Download <FaDownload />
-                    </a>
-                  </div>
-                )}
               </div>
             </div>
           ))}

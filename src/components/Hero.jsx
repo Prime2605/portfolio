@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react'
+import { Link } from 'react-router-dom'
 import { TypeAnimation } from 'react-type-animation'
 import { FaGithub, FaLinkedinIn, FaInstagram, FaDiscord, FaDownload } from 'react-icons/fa'
 import { HiArrowDown } from 'react-icons/hi'
@@ -41,10 +42,22 @@ const Hero = ({ data }) => {
               hardware innovation and software development. Building the future one circuit 
               and one line of code at a time.
             </p>
-            <div className="hero-buttons">
+            <div className="hero-buttons" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
               <a href="#contact" className="btn-jelly btn-primary" id="hero-contact-btn">
                 Get In Touch
               </a>
+              <Link to="/documents" className="btn-jelly btn-secondary" id="hero-documents-btn" style={{
+                background: 'linear-gradient(90deg, #7c3aed, #a855f7)',
+                color: '#fff',
+                border: 'none',
+                boxShadow: '0 4px 15px rgba(124, 58, 237, 0.4)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px'
+              }}>
+                Documents (Click here)
+              </Link>
               <a href="#projects" className="btn-jelly btn-secondary" id="hero-projects-btn">
                 View Projects <HiArrowDown />
               </a>

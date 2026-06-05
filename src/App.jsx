@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Navbar from './components/Navbar'
@@ -11,14 +12,16 @@ import Certifications from './components/Certifications'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
+import Documents from './components/Documents'
 import { api } from './lib/api'
 import { supabase } from './lib/supabase'
 
-function App() {
+function AppContent() {
   const [loading, setLoading] = useState(true)
   const [portfolioData, setPortfolioData] = useState(null)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const cursorRef = useRef(null)
+  const location = useLocation()
 
   useEffect(() => {
     AOS.init({
@@ -65,7 +68,22 @@ function App() {
 
   useEffect(() => {
     AOS.refresh()
-  }, [loading])
+
+    // Scroll to section hash when loading completes
+    if (!loading && location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(location.hash)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    }
+  }, [loading, location.hash])
+
+  // Scroll to top when pathname changes
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   return (
     <>
@@ -78,17 +96,30 @@ function App() {
       <div className="cursor-glow" ref={cursorRef} />
 
       <Navbar />
-      <main>
-        <Hero data={portfolioData?.profile} />
-        <About data={portfolioData?.profile} />
-        <Skills data={portfolioData?.skills} />
-        <Education data={portfolioData?.education} />
-        <Projects data={portfolioData?.projects} />
-        <Certifications data={portfolioData?.certifications} />
-        <Contact data={portfolioData?.profile} />
-      </main>
+      <Routes>
+        <Route path="/" element={
+          <main>
+            <Hero data={portfolioData?.profile} />
+            <About data={portfolioData?.profile} />
+            <Skills data={portfolioData?.skills} />
+            <Education data={portfolioData?.education} />
+            <Projects data={portfolioData?.projects} />
+            <Certifications data={portfolioData?.certifications} />
+            <Contact data={portfolioData?.profile} />
+          </main>
+        } />
+        <Route path="/documents" element={<Documents />} />
+      </Routes>
       <Footer />
     </>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   )
 }
 
