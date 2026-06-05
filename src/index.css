@@ -1716,3 +1716,40 @@ body {
   position: relative;
   z-index: 1;
 }
+
+/* ===== VIDEO SCROLL ANIMATION & TEXT VISIBILITY OVERRIDES ===== */
+
+.section {
+  background: transparent !important;
+}
+
+.education-card,
+.project-card,
+.about-image-card,
+.info-item,
+.glass-card,
+.document-card,
+.cert-card {
+  background: rgba(10, 10, 15, 0.65) !important;
+  backdrop-filter: blur(25px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+  border: 1px solid rgba(124, 58, 237, 0.35) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Hover highlights for central elements */
+.education-card:hover,
+.project-card:hover,
+.about-image-card:hover,
+.document-card:hover,
+.cert-card:hover {
+  background: rgba(15, 15, 25, 0.75) !important;
+  border-color: rgba(124, 58, 237, 0.75) !important;
+  box-shadow: 0 20px 45px rgba(124, 58, 237, 0.25) !important;
+}
+
+/* Make body background have solid fallback but not block canvas */
+.app-background {
+  z-index: -3 !important;
+}
+

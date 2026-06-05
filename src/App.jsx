@@ -13,6 +13,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
 import Documents from './components/Documents'
+import ScrollCanvas from './components/ScrollCanvas'
 import { api } from './lib/api'
 import { supabase } from './lib/supabase'
 
@@ -90,6 +91,7 @@ function AppContent() {
       <LoadingScreen loading={loading} />
       
       <div className="app-background" />
+      <ScrollCanvas />
       <div className="orb orb-1" />
       <div className="orb orb-2" />
       <div className="orb orb-3" />

@@ -22,6 +22,5 @@ Thumbs.db
 npm-debug.log*
 
 # Large frame assets and videos
-public/frames/
 *.mp4
 public/*.mp4

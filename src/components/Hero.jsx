@@ -1,13 +1,12 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { TypeAnimation } from 'react-type-animation'
-import { FaGithub, FaLinkedinIn, FaInstagram, FaDiscord, FaDownload } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaInstagram, FaDiscord } from 'react-icons/fa'
 import { HiArrowDown } from 'react-icons/hi'
-import HeroScene from './HeroScene'
 
 const Hero = ({ data }) => {
   return (
-    <section className="hero section" id="home">
+    <section className="hero section" id="home" style={{ background: 'transparent' }}>
       <div className="container">
         <div className="hero-content">
           <div className="hero-text" data-aos="fade-right">
@@ -77,10 +76,8 @@ const Hero = ({ data }) => {
               </a>
             </div>
           </div>
-          <div className="hero-3d" data-aos="fade-left" data-aos-delay="200">
-            <Suspense fallback={<div style={{ color: 'var(--text-tertiary)' }}>Loading 3D...</div>}>
-              <HeroScene />
-            </Suspense>
+          <div className="hero-3d" data-aos="fade-left" data-aos-delay="200" style={{ pointerEvents: 'none' }}>
+            {/* Transparent space for scroll-animated blackhole background */}
           </div>
         </div>
       </div>
