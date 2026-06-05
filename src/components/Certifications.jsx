@@ -3,7 +3,20 @@ import { FaAward, FaExternalLinkAlt, FaTimes, FaExpand } from 'react-icons/fa'
 import { SiGoogle } from 'react-icons/si'
 
 const baseCertificationsData = [
-  // Hackathons
+  // Hackathons (Priority: 1st, Semifinalist, Others)
+  {
+    id: '1ex-bRTYKIBCGbzYD1q3djoCazmtZiNuA',
+    category: 'Hackathons',
+    title: 'Certificate of Achievement',
+    event: 'Smart Campus Hackathon\'26',
+    issuer: 'Government College of Engineering, Erode',
+    subIssuer: 'First Prize 🏆',
+    date: '2026',
+    color: '#d4af37',
+    emoji: '🏆',
+    tags: ['Hackathon', 'CSE', 'First Prize'],
+    description: 'Secured the First Prize in the Smart Campus Hackathon\'26 conducted by the Department of Computer Science and Engineering, Government College of Engineering, Erode, on January 30, 2026. Signed by Dr. A. Kavitha (HOD) and Dr. A. Saradha (Principal).'
+  },
   { 
     id: '1dZX4n7jC2ZFaCGFymZbceHyMnahZYii4', 
     category: 'Hackathons', 
@@ -42,19 +55,6 @@ const baseCertificationsData = [
     emoji: '⚔️', 
     tags: ['Coding', 'Algorithms'],
     description: 'Competed in K!ODE WARS, a competitive algorithms and coding contest during Kurukshetra\'26, the international techno-management festival of CEG, Anna University.'
-  },
-  { 
-    id: '1o7Rm5mFj2vbTguAIhDq7xngT2MIjZJJL', 
-    category: 'Others', 
-    title: 'Certificate of Participation', 
-    event: 'Kurukshetra\'26 - Design Hack!s', 
-    issuer: 'Anna University (CEG)', 
-    subIssuer: '', 
-    date: '2026', 
-    color: '#ec4899', 
-    emoji: '🎨', 
-    tags: ['Design', 'Hackathon'],
-    description: 'Participated in the Design Hack!s hackathon at Kurukshetra\'26, CEG, Anna University, developing innovative UI/UX and design concepts.'
   },
   { 
     id: '1v2Ar-J6n2U_fnqZnIG5rHuDyPYTzgFbD', 
@@ -108,8 +108,73 @@ const baseCertificationsData = [
     tags: ['Hackathon', 'GDG', 'Coding'],
     description: 'Successfully participated in BITBOX 6.0, a 12-hour hackathon conducted by Google Developers Group on campus at Jaypee Institute of Information Technology, Sector-128, Noida. Event coordination led by Dr. Anubhuti Roda Mohindra, Prof. Shikha Mehta, and Dr. Neeraj Pathak.'
   },
+  {
+    id: '11MUPrif_XkTJitDEAOvue3jXKtqUpNte',
+    category: 'Hackathons',
+    title: 'Certificate of Participation',
+    event: 'Prince iSolve Hack',
+    issuer: 'Prince Shri Venkateshwara Padmavathy Eng. College',
+    subIssuer: 'Unstop',
+    date: '2026',
+    color: '#8b5cf6',
+    emoji: '💻',
+    tags: ['iSolve', 'Hackathon', 'Unstop'],
+    description: 'Participated in the Prince iSolve Hack hackathon organized by Prince Shri Venkateshwara Padmavathy Engineering College (PSVPEC), Chennai, Tamil Nadu, hosted on Unstop.'
+  },
+  {
+    id: '1_htQ0kTBuCuqUecnE2fQy1rKknS-lgvB',
+    category: 'Hackathons',
+    title: 'Certificate of Participation',
+    event: 'Bitwars 3.0 - Offline Competitive Coding',
+    issuer: 'VIT Chennai',
+    subIssuer: 'Unstop',
+    date: '2026',
+    color: '#3b82f6',
+    emoji: '⚔️',
+    tags: ['Competitive Coding', 'VIT', 'Algorithms'],
+    description: 'Participated in Bitwars 3.0, South India\'s Premier Offline Competitive Coding Event organized by Vellore Institute of Technology (VIT), Chennai, on Unstop.'
+  },
+  {
+    id: '1PevDeLkbL9FacmzEI6vKRl-fZ5BXEdKF',
+    category: 'Hackathons',
+    title: 'Certificate of Participation',
+    event: 'CodeFest\'26 - Vista',
+    issuer: 'IIT (BHU) Varanasi',
+    subIssuer: 'Dept of CSE',
+    date: '2026',
+    color: '#3b82f6',
+    emoji: '👁️',
+    tags: ['CodeFest', 'IIT BHU', 'Coding'],
+    description: 'Recognized for outstanding performance in the Vista Event of Codefest\'26, the annual national coding festival organized by the Department of Computer Science and Engineering, IIT (BHU) Varanasi.'
+  },
+  {
+    id: '1M2DNg_pNrsU9YLdHAH_ffF7ztBnoRPF8',
+    category: 'Hackathons',
+    title: 'Certificate of Participation',
+    event: 'CodeKshetra Coding Contest',
+    issuer: 'CodeKshetra',
+    subIssuer: 'Coding Contest',
+    date: '2026',
+    color: '#10b981',
+    emoji: '💻',
+    tags: ['Coding Contest', 'Algorithms', 'Speed Coding'],
+    description: 'Successfully participated in the CodeKshetra Coding Contest on 18th April 2026, demonstrating a strong commitment to learning and competitive algorithms problem-solving.'
+  },
+  {
+    id: '1I1nFw6Qjppf7clrV7IUYNM_U--PVLNAe',
+    category: 'Hackathons',
+    title: 'Certificate of Participation',
+    event: 'National Cloud Innovation Challenge',
+    issuer: '3SVK, Hyderabad',
+    subIssuer: 'Cloud Hackathon',
+    date: '2026',
+    color: '#0ea5e9',
+    emoji: '☁️',
+    tags: ['Cloud', 'Hackathon', '3SVK'],
+    description: 'Participated in Season 1 of the National Cloud Innovation Challenge (India\'s Largest Student Cloud Hackathon) organized by 3SVK, Hyderabad, engaging over 2,000+ developers across India.'
+  },
   
-  // Courses
+  // Courses (Priority: NPTEL / Gov, Private)
   {
     id: '1bWkTq-_emK-IO1lweK9Ij7NtUETxL2bA',
     category: 'Courses',
@@ -122,6 +187,19 @@ const baseCertificationsData = [
     emoji: '📜',
     tags: ['Verilog', 'Digital Design', 'IIT'],
     description: 'Awarded Elite NPTEL Online Certification (funded by the MoE, Govt. of India) for successfully completing the 12-week course "Digital Design with Verilog" conducted by IIT Guwahati, scoring 62%. Roll No: NPTEL26CS24S1264900905.'
+  },
+  { 
+    id: '13PYJYnI8NKImTvABLAXgZLh3lAgAeczU', 
+    category: 'Courses', 
+    title: 'Certificate of Achievement', 
+    event: 'Employability Skills', 
+    issuer: 'Naan Mudhalvan Scheme', 
+    subIssuer: 'TN Skill Development', 
+    date: '2025', 
+    color: '#d946ef', 
+    emoji: '📈', 
+    tags: ['Soft Skills', 'Government'],
+    description: 'Awarded a Certificate of Achievement in Employability Skills by Naan Mudhalvan Scheme, a TN Skill Development Initiative.'
   },
   { 
     id: '11lKSwl7u-l9MuRsM_9CAP1bE-fkdI-d3', 
@@ -189,19 +267,6 @@ const baseCertificationsData = [
     description: 'Completed the C programming course by Infosys Springboard, learning compiler directives, pointers, and memory management.'
   },
   { 
-    id: '13PYJYnI8NKImTvABLAXgZLh3lAgAeczU', 
-    category: 'Courses', 
-    title: 'Certificate of Achievement', 
-    event: 'Employability Skills', 
-    issuer: 'Naan Mudhalvan Scheme', 
-    subIssuer: 'TN Skill Development', 
-    date: '2025', 
-    color: '#d946ef', 
-    emoji: '📈', 
-    tags: ['Soft Skills', 'Government'],
-    description: 'Awarded a Certificate of Achievement in Employability Skills by Naan Mudhalvan Scheme, a TN Skill Development Initiative.'
-  },
-  { 
     id: '15uCpmj0FuC934kR7sLVJScsDcOM8wRkP', 
     category: 'Courses', 
     title: 'Certificate of Completion', 
@@ -240,22 +305,21 @@ const baseCertificationsData = [
     tags: ['GenAI', 'Course'],
     description: 'Completed the GenAI 101: Socratic AI Tutor Essentials course by Lets Upgrade, learning prompt engineering and LLM application frameworks.'
   },
-
-  // Workshops
-  { 
-    id: '1jdgn5zAGoJRKyUwcA9HrtZVWysQ0M9e3', 
-    category: 'Workshops', 
-    subCategory: 'VLSI',
-    title: 'Certificate of Participation', 
-    event: 'Semiconductors & VLSI Design', 
-    issuer: 'Edu Fabrica', 
-    subIssuer: '', 
-    date: '2025', 
-    color: '#dc2626', 
-    emoji: '🖥️', 
-    tags: ['Workshop', 'Hardware'],
-    description: 'Completed the Semiconductors and VLSI Design workshop by Edu Fabrica, gaining hands-on exposure to digital VLSI layout.'
+  {
+    id: '1_ajucDz_vJa4hpxMQ6LLWp7Ul7aDSaYp',
+    category: 'Courses',
+    title: 'Certificate of Completion',
+    event: 'Generative AI Mastermind',
+    issuer: 'Outskill',
+    subIssuer: 'Vaibhav Sisinty',
+    date: '2026',
+    color: '#a855f7',
+    emoji: '🤖',
+    tags: ['Generative AI', 'AI Tools', 'Mastermind'],
+    description: 'Successfully completed the Generative AI Mastermind course by Outskill, covering advanced prompt engineering, AI productivity workflows, and LLM implementation, signed by Founder Vaibhav Sisinty.'
   },
+
+  // Workshops (Priority: Software, VLSI)
   { 
     id: '14Ih98vYjm8mlC-yhLxw7CEZNIt8B5oKW', 
     category: 'Workshops', 
@@ -269,6 +333,34 @@ const baseCertificationsData = [
     emoji: '🧠', 
     tags: ['AI Tools', 'ChatGPT', 'AI Productivity'],
     description: 'Completed the AI Tools and ChatGPT Workshop. Trained to create presentations using AI in under 5 minutes, analyze data in under 30 minutes, and code/debug using AI in under 10 minutes.'
+  },
+  {
+    id: '1SzSvvalT-9MVUpexmEFYd-NcM7RqtJic',
+    category: 'Workshops',
+    subCategory: 'Software',
+    title: 'Certificate of Completion',
+    event: 'Full Stack Web Development Workshop',
+    issuer: 'Jobaaj Learnings',
+    subIssuer: 'Jobaaj Group',
+    date: '2026',
+    color: '#ec4899',
+    emoji: '🌐',
+    tags: ['Web Dev', 'Full Stack', 'Workshop'],
+    description: 'Successfully completed the Full Stack Web Development Workshop organized by Jobaaj Learnings, covering modern web architectures and development practices. ID: ATNQX108468.'
+  },
+  { 
+    id: '1jdgn5zAGoJRKyUwcA9HrtZVWysQ0M9e3', 
+    category: 'Workshops', 
+    subCategory: 'VLSI',
+    title: 'Certificate of Participation', 
+    event: 'Semiconductors & VLSI Design', 
+    issuer: 'Edu Fabrica', 
+    subIssuer: '', 
+    date: '2025', 
+    color: '#dc2626', 
+    emoji: '🖥️', 
+    tags: ['Workshop', 'Hardware'],
+    description: 'Completed the Semiconductors and VLSI Design workshop by Edu Fabrica, gaining hands-on exposure to digital VLSI layout.'
   },
   { 
     id: '1Zq7L_2ZDxCzxBk7059DR-JEJ-7iUPWa-', 
@@ -300,20 +392,48 @@ const baseCertificationsData = [
     description: 'Completed a comprehensive industrial internship in Embedded Systems and IoT at NSIC Chennai, a Government of India enterprise.'
   },
 
-  // Others
+  // Quiz
   { 
-    id: '1CIevT824g2PeKq--9QDFYH91RC8KAQmX', 
-    category: 'Others', 
+    id: '1H53l1-TWBtwFWw796zJVyUdQzkPlhpni', 
+    category: 'Quiz', 
     title: 'Certificate of Participation', 
-    event: 'ELECT-ERA\'26 - TYPING ARENA', 
-    issuer: 'Coimbatore Institute of Technology', 
-    subIssuer: '', 
+    event: 'National Level E-Quiz on World Intellectual Property Day 2026', 
+    issuer: 'Guru Nanak College (Autonomous)', 
+    subIssuer: 'Scored 90/100', 
     date: '2026', 
-    color: '#8b5cf6', 
-    emoji: '⌨️', 
-    tags: ['Typing', 'Symposium'],
-    description: 'Participated in the Typing Arena contest during ELECT-ERA\'26, a technical symposium at Coimbatore Institute of Technology.'
+    color: '#10b981', 
+    emoji: '⚖️', 
+    tags: ['IPR Cell', 'Intellectual Property', 'Quiz'],
+    description: 'Scored 90/100 in the National Level E-Quiz to commemorate World Intellectual Property Day 2026, organized by the Intellectual Property Rights Cell in association with the Guru Nanak Centre for Innovation, Incubation, Entrepreneurship & Startups of Guru Nanak College (Autonomous), Guru Nanak Salai, Velachery, Chennai – 600042, held on 28/04/2026. Signed by Dr. Mahendrakumar M., Dr. R. Rajini Surendranath, and Dr. R.M. Elilarasi.'
   },
+  {
+    id: '1T8Zio4WfzENAEJCzXEk5v_TZB_dV09yn',
+    category: 'Quiz',
+    title: 'Certificate of Participation',
+    event: 'ML SPARK Machine Learning Challenge Quiz',
+    issuer: 'University of Hyderabad',
+    subIssuer: 'School of Management Studies',
+    date: '2026',
+    color: '#10b981',
+    emoji: '🧠', 
+    tags: ['Machine Learning', 'Quiz', 'Unstop'],
+    description: 'Participated in the MCQ Quiz Competition of the ML SPARK Machine Learning Challenge organized by the School of Management Studies (SMS), University of Hyderabad, on the Unstop platform.'
+  },
+  {
+    id: '1ZQaTQt6y_KjUtkNzyhScY0qtEJgtRler',
+    category: 'Quiz',
+    title: 'Certificate of Participation',
+    event: 'Earth Day Quiz Competition 2026',
+    issuer: 'ISTE Student Chapter',
+    subIssuer: 'Unstop',
+    date: '2026',
+    color: '#22c55e',
+    emoji: '🌍',
+    tags: ['Earth Day', 'Quiz', 'ISTE'],
+    description: 'Participated in the Earth Day Quiz Competition 2026, organized by the ISTE Student Chapter at Government College of Engineering, Erode, on Unstop.'
+  },
+
+  // Others
   { 
     id: '1Xc-mDE0YDTIVCnEBaVjgP6tOWiwRoftV', 
     category: 'Others', 
@@ -326,6 +446,19 @@ const baseCertificationsData = [
     emoji: '🥈', 
     tags: ['Exhibition', 'Science', '2nd Place'],
     description: 'Awarded 2nd Position in the state-level Science Exhibition during Kalloori Kalai Thiruvizha organized by the Government of Tamil Nadu.'
+  },
+  { 
+    id: '1CIevT824g2PeKq--9QDFYH91RC8KAQmX', 
+    category: 'Others', 
+    title: 'Certificate of Participation', 
+    event: 'ELECT-ERA\'26 - TYPING ARENA', 
+    issuer: 'Coimbatore Institute of Technology', 
+    subIssuer: '', 
+    date: '2026', 
+    color: '#8b5cf6', 
+    emoji: '⌨️', 
+    tags: ['Typing', 'Symposium'],
+    description: 'Participated in the Typing Arena contest during ELECT-ERA\'26, a technical symposium at Coimbatore Institute of Technology.'
   },
   { 
     id: '1MqeiKsJ4MrCwwSNpQdCGeRJqGvOyV7Tb', 
@@ -392,58 +525,6 @@ const baseCertificationsData = [
     tags: ['Generative AI', 'Agentic Systems', 'Bootcamp'],
     description: 'Organized by Takshashila University in collaboration with Xebia. Covering No-Code & Low-Code Applications using Generative AI, and Agentic Systems and Autonomous Workflows. Signed by Amand Sahay (CEO, Xebia), Brijesh Kohli (Head of Education, Xebia), Prof. (Dr.) Vivek Inder Kochar (VC), and Prof. (Dr.) S. Senthil (Registrar).'
   },
-  { 
-    id: '1H53l1-TWBtwFWw796zJVyUdQzkPlhpni', 
-    category: 'Quiz Certificates', 
-    title: 'Certificate of Participation', 
-    event: 'National Level E-Quiz on World Intellectual Property Day 2026', 
-    issuer: 'Guru Nanak College (Autonomous)', 
-    subIssuer: 'Scored 90/100', 
-    date: '2026', 
-    color: '#10b981', 
-    emoji: '⚖️', 
-    tags: ['IPR Cell', 'Intellectual Property', 'Quiz'],
-    description: 'Scored 90/100 in the National Level E-Quiz to commemorate World Intellectual Property Day 2026, organized by the Intellectual Property Rights Cell in association with the Guru Nanak Centre for Innovation, Incubation, Entrepreneurship & Startups of Guru Nanak College (Autonomous), Guru Nanak Salai, Velachery, Chennai – 600042, held on 28/04/2026. Signed by Dr. Mahendrakumar M., Dr. R. Rajini Surendranath, and Dr. R.M. Elilarasi.'
-  },
-  {
-    id: '1_fY8sv9w3r6wNAUGT0iNYo543VJOA86e',
-    category: 'Hackathons',
-    title: 'Certificate of Participation',
-    event: 'Altaria V1.0 - 24-Hr Hackathon',
-    issuer: 'Dayananda Sagar College of Engineering',
-    subIssuer: 'Dept of CSE',
-    date: '2026',
-    color: '#06b6d4',
-    emoji: '🏆',
-    tags: ['Hackathon', 'IoT', 'Cybersecurity'],
-    description: 'Participated in Altaria V1.0 2026, a 24-hour hackathon organized by the Department of Computer Science and Engineering at Dayananda Sagar College of Engineering, Bengaluru, showcasing collaboration, creativity, and development skills.'
-  },
-  {
-    id: '1T8Zio4WfzENAEJCzXEk5v_TZB_dV09yn',
-    category: 'Quiz Certificates',
-    title: 'Certificate of Participation',
-    event: 'ML SPARK Machine Learning Challenge Quiz',
-    issuer: 'University of Hyderabad',
-    subIssuer: 'School of Management Studies',
-    date: '2026',
-    color: '#10b981',
-    emoji: '🧠',
-    tags: ['Machine Learning', 'Quiz', 'Unstop'],
-    description: 'Participated in the MCQ Quiz Competition of the ML SPARK Machine Learning Challenge organized by the School of Management Studies (SMS), University of Hyderabad, on the Unstop platform.'
-  },
-  {
-    id: '11MUPrif_XkTJitDEAOvue3jXKtqUpNte',
-    category: 'Hackathons',
-    title: 'Certificate of Participation',
-    event: 'Prince iSolve Hack',
-    issuer: 'Prince Shri Venkateshwara Padmavathy Eng. College',
-    subIssuer: 'Unstop',
-    date: '2026',
-    color: '#8b5cf6',
-    emoji: '💻',
-    tags: ['iSolve', 'Hackathon', 'Unstop'],
-    description: 'Participated in the Prince iSolve Hack hackathon organized by Prince Shri Venkateshwara Padmavathy Engineering College (PSVPEC), Chennai, Tamil Nadu, hosted on Unstop.'
-  },
   {
     id: '1HLpx5TmhRjmyrBWHGMTlUXb8rnmGbkXT',
     category: 'Others',
@@ -456,32 +537,6 @@ const baseCertificationsData = [
     emoji: '✨',
     tags: ['Symposium', 'Tech Fest', 'Unstop'],
     description: 'Participated in ARIVOLIO 2K\'26, a national-level technical symposium organized by the Knowledge Institute of Technology on Unstop.'
-  },
-  {
-    id: '1_htQ0kTBuCuqUecnE2fQy1rKknS-lgvB',
-    category: 'Hackathons',
-    title: 'Certificate of Participation',
-    event: 'Bitwars 3.0 - Offline Competitive Coding',
-    issuer: 'VIT Chennai',
-    subIssuer: 'Unstop',
-    date: '2026',
-    color: '#3b82f6',
-    emoji: '⚔️',
-    tags: ['Competitive Coding', 'VIT', 'Algorithms'],
-    description: 'Participated in Bitwars 3.0, South India\'s Premier Offline Competitive Coding Event organized by Vellore Institute of Technology (VIT), Chennai, on Unstop.'
-  },
-  {
-    id: '1ZQaTQt6y_KjUtkNzyhScY0qtEJgtRler',
-    category: 'Quiz Certificates',
-    title: 'Certificate of Participation',
-    event: 'Earth Day Quiz Competition 2026',
-    issuer: 'ISTE Student Chapter',
-    subIssuer: 'Unstop',
-    date: '2026',
-    color: '#22c55e',
-    emoji: '🌍',
-    tags: ['Earth Day', 'Quiz', 'ISTE'],
-    description: 'Participated in the Earth Day Quiz Competition 2026, organized by the ISTE Student Chapter at Government College of Engineering, Erode, on Unstop.'
   },
   {
     id: '1372-yHvQ7JgtB3_JxabcL-Jaq6hrZklS',
@@ -497,32 +552,6 @@ const baseCertificationsData = [
     description: 'Participated in "The Filter" round of OutThinkX, a logical thinking and problem-solving competition organized by Thinksy Arena on Unstop.'
   },
   {
-    id: '1_ajucDz_vJa4hpxMQ6LLWp7Ul7aDSaYp',
-    category: 'Courses',
-    title: 'Certificate of Completion',
-    event: 'Generative AI Mastermind',
-    issuer: 'Outskill',
-    subIssuer: 'Vaibhav Sisinty',
-    date: '2026',
-    color: '#a855f7',
-    emoji: '🤖',
-    tags: ['Generative AI', 'AI Tools', 'Mastermind'],
-    description: 'Successfully completed the Generative AI Mastermind course by Outskill, covering advanced prompt engineering, AI productivity workflows, and LLM implementation, signed by Founder Vaibhav Sisinty.'
-  },
-  {
-    id: '1PevDeLkbL9FacmzEI6vKRl-fZ5BXEdKF',
-    category: 'Hackathons',
-    title: 'Certificate of Participation',
-    event: 'CodeFest\'26 - Vista',
-    issuer: 'IIT (BHU) Varanasi',
-    subIssuer: 'Dept of CSE',
-    date: '2026',
-    color: '#3b82f6',
-    emoji: '👁️',
-    tags: ['CodeFest', 'IIT BHU', 'Coding'],
-    description: 'Recognized for outstanding performance in the Vista Event of Codefest\'26, the annual national coding festival organized by the Department of Computer Science and Engineering, IIT (BHU) Varanasi.'
-  },
-  {
     id: '1qFReKIYph4h3SMwbdgbuWJdBTTqnbv8B',
     category: 'Others',
     title: 'Certificate of Participation',
@@ -536,57 +565,17 @@ const baseCertificationsData = [
     description: 'Participated in the EROTECT WAR event during GALAXY24 Phase II, a national-level technical symposium organized by the Association of ECE at Government College of Engineering, Erode, on 24th and 25th October 2024.'
   },
   {
-    id: '1ex-bRTYKIBCGbzYD1q3djoCazmtZiNuA',
-    category: 'Hackathons',
-    title: 'Certificate of Achievement',
-    event: 'Smart Campus Hackathon\'26',
-    issuer: 'Government College of Engineering, Erode',
-    subIssuer: 'First Prize 🏆',
-    date: '2026',
-    color: '#d4af37',
-    emoji: '🏆',
-    tags: ['Hackathon', 'CSE', 'First Prize'],
-    description: 'Secured the First Prize in the Smart Campus Hackathon\'26 conducted by the Department of Computer Science and Engineering, Government College of Engineering, Erode, on January 30, 2026. Signed by Dr. A. Kavitha (HOD) and Dr. A. Saradha (Principal).'
-  },
-  {
-    id: '1M2DNg_pNrsU9YLdHAH_ffF7ztBnoRPF8',
-    category: 'Hackathons',
+    id: '1o7Rm5mFj2vbTguAIhDq7xngT2MIjZJJL',
+    category: 'Others',
     title: 'Certificate of Participation',
-    event: 'CodeKshetra Coding Contest',
-    issuer: 'CodeKshetra',
-    subIssuer: 'Coding Contest',
-    date: '2026',
-    color: '#10b981',
-    emoji: '💻',
-    tags: ['Coding Contest', 'Algorithms', 'Speed Coding'],
-    description: 'Successfully participated in the CodeKshetra Coding Contest on 18th April 2026, demonstrating a strong commitment to learning and competitive algorithms problem-solving.'
-  },
-  {
-    id: '1SzSvvalT-9MVUpexmEFYd-NcM7RqtJic',
-    category: 'Workshops',
-    subCategory: 'Software',
-    title: 'Certificate of Completion',
-    event: 'Full Stack Web Development Workshop',
-    issuer: 'Jobaaj Learnings',
-    subIssuer: 'Jobaaj Group',
+    event: 'Kurukshetra\'26 - Design Hack!s',
+    issuer: 'Anna University (CEG)',
+    subIssuer: '',
     date: '2026',
     color: '#ec4899',
-    emoji: '🌐',
-    tags: ['Web Dev', 'Full Stack', 'Workshop'],
-    description: 'Successfully completed the Full Stack Web Development Workshop organized by Jobaaj Learnings, covering modern web architectures and development practices. ID: ATNQX108468.'
-  },
-  {
-    id: '1I1nFw6Qjppf7clrV7IUYNM_U--PVLNAe',
-    category: 'Hackathons',
-    title: 'Certificate of Participation',
-    event: 'National Cloud Innovation Challenge',
-    issuer: '3SVK, Hyderabad',
-    subIssuer: 'Cloud Hackathon',
-    date: '2026',
-    color: '#0ea5e9',
-    emoji: '☁️',
-    tags: ['Cloud', 'Hackathon', '3SVK'],
-    description: 'Participated in Season 1 of the National Cloud Innovation Challenge (India\'s Largest Student Cloud Hackathon) organized by 3SVK, Hyderabad, engaging over 2,000+ developers across India.'
+    emoji: '🎨',
+    tags: ['Design', 'Hackathon'],
+    description: 'Participated in the Design Hack!s hackathon at Kurukshetra\'26, CEG, Anna University, developing innovative UI/UX and design concepts.'
   }
 ];
 
@@ -605,14 +594,14 @@ const certificationsData = baseCertificationsData.map(cert => ({
 const Certifications = ({ data }) => {
   const certs = data || certificationsData
   const [activeTab, setActiveTab] = useState('Hackathons') // Default category
-  const [activeSubTab, setActiveSubTab] = useState('All') // Workshops subcategory
+  const [activeSubTab, setActiveSubTab] = useState('Software') // Default workshops subcategory to Software
   const [activeCertificate, setActiveCertificate] = useState(null)
   const [isFullScreenImg, setIsFullScreenImg] = useState(false)
 
-  const tabs = ['Hackathons', 'Courses', 'Workshops', 'Internships', 'Quiz Certificates', 'Others'];
+  const tabs = ['Hackathons', 'Courses', 'Workshops', 'Internships', 'Quiz', 'Others'];
   const filteredCerts = certs.filter(cert => {
     if (cert.category !== activeTab) return false;
-    if (activeTab === 'Workshops' && activeSubTab !== 'All') {
+    if (activeTab === 'Workshops') {
       return cert.subCategory === activeSubTab;
     }
     return true;
@@ -643,7 +632,7 @@ const Certifications = ({ data }) => {
           {tabs.map(tab => (
             <button
               key={tab}
-              onClick={() => { setActiveTab(tab); setActiveSubTab('All'); }}
+              onClick={() => { setActiveTab(tab); setActiveSubTab('Software'); }}
               style={{
                 background: activeTab === tab ? 'linear-gradient(90deg, #1e3a8a, #d4af37)' : 'rgba(0, 0, 0, 0.4)',
                 color: activeTab === tab ? '#fff' : '#d4af37',
@@ -681,16 +670,16 @@ const Certifications = ({ data }) => {
         {/* 1.5. Workshops Sub-Filters */}
         {activeTab === 'Workshops' && (
           <div className="cert-subfilters" data-aos="fade-up" style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '30px', flexWrap: 'wrap' }}>
-            {['All', 'Software', 'VLSI'].map(subTab => (
+            {['Software', 'VLSI'].map(subTab => (
               <button
                 key={subTab}
                 onClick={() => setActiveSubTab(subTab)}
                 style={{
-                  background: activeSubTab === subTab ? 'linear-gradient(90deg, #d4af37, #1e3a8a)' : 'rgba(0, 0, 0, 0.4)',
-                  color: activeSubTab === subTab ? '#fff' : '#d4af37',
+                  background: activeSubTab === subTab ? 'linear-gradient(90deg, #3b82f6, #1d4ed8)' : 'rgba(0, 0, 0, 0.5)',
+                  color: activeSubTab === subTab ? '#fff' : '#94a3b8',
                   border: '1px solid',
-                  borderColor: activeSubTab === subTab ? '#d4af37' : 'rgba(212, 175, 55, 0.3)',
-                  padding: '8px 20px',
+                  borderColor: activeSubTab === subTab ? '#60a5fa' : 'rgba(148, 163, 184, 0.2)',
+                  padding: '8px 24px',
                   borderRadius: '20px',
                   fontSize: '0.85rem',
                   fontWeight: '700',
@@ -698,17 +687,21 @@ const Certifications = ({ data }) => {
                   letterSpacing: '1px',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  boxShadow: activeSubTab === subTab ? '0 0 10px rgba(212, 175, 55, 0.4)' : 'none',
+                  boxShadow: activeSubTab === subTab ? '0 0 15px rgba(37, 99, 235, 0.4)' : 'none',
                   backdropFilter: 'blur(10px)'
                 }}
                 onMouseEnter={(e) => {
                   if (activeSubTab !== subTab) {
-                    e.target.style.background = 'rgba(212, 175, 55, 0.2)';
+                    e.target.style.background = 'rgba(59, 130, 246, 0.15)';
+                    e.target.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                    e.target.style.color = '#fff';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (activeSubTab !== subTab) {
-                    e.target.style.background = 'rgba(0, 0, 0, 0.4)';
+                    e.target.style.background = 'rgba(0, 0, 0, 0.5)';
+                    e.target.style.borderColor = 'rgba(148, 163, 184, 0.2)';
+                    e.target.style.color = '#94a3b8';
                   }
                 }}
               >
