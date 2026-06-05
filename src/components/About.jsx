@@ -15,48 +15,7 @@ const About = ({ data }) => {
 
         <div className="about-grid">
           <div className="about-image-wrapper" data-aos="fade-right" data-aos-delay="100">
-            <div 
-              className="about-image-card"
-              style={{
-                background: 'rgba(0, 0, 0, 0.65)',
-                backdropFilter: 'blur(30px)',
-                border: '1px solid rgba(124, 58, 237, 0.4)',
-                borderRadius: '24px',
-                padding: '24px',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'all 0.4s ease',
-                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.8)'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-5px)';
-                e.currentTarget.style.border = '1px solid rgba(124, 58, 237, 0.7)';
-                const reflection = e.currentTarget.querySelector('.mirror-reflection');
-                if (reflection) reflection.style.transform = 'translateX(100%)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.border = '1px solid rgba(124, 58, 237, 0.4)';
-                const reflection = e.currentTarget.querySelector('.mirror-reflection');
-                if (reflection) reflection.style.transform = 'translateX(-100%)';
-              }}
-            >
-              {/* Mirror Reflection Effect Layer */}
-              <div 
-                className="mirror-reflection"
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  background: 'linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.15), transparent)',
-                  transform: 'translateX(-100%)',
-                  transition: 'transform 0.6s ease-in-out',
-                  pointerEvents: 'none',
-                  zIndex: 0
-                }}
-              />
+            <div className="about-image-card">
 
               <div className="about-image-placeholder" style={{ position: 'relative', zIndex: 1, filter: 'drop-shadow(0 0 15px rgba(124, 58, 237, 0.4))' }}>
                 <svg width="120" height="120" viewBox="0 0 120 120" fill="none">

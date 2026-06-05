@@ -72,53 +72,7 @@ const Education = ({ data }) => {
                 zIndex: 2
               }} />
 
-              <div
-                className="education-card"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  backdropFilter: 'blur(15px)',
-                  border: '1px solid rgba(124, 58, 237, 0.2)',
-                  borderRadius: '20px',
-                  padding: '30px',
-                  marginLeft: '20px',
-                  cursor: 'default',
-                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)',
-                  zIndex: 1
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateX(10px)';
-                  e.currentTarget.style.border = '1px solid rgba(124, 58, 237, 0.6)';
-                  e.currentTarget.style.boxShadow = '0 25px 50px rgba(124, 58, 237, 0.2)';
-                  const reflection = e.currentTarget.querySelector('.mirror-reflection');
-                  if (reflection) reflection.style.transform = 'translateX(100%)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateX(0)';
-                  e.currentTarget.style.border = '1px solid rgba(124, 58, 237, 0.2)';
-                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
-                  const reflection = e.currentTarget.querySelector('.mirror-reflection');
-                  if (reflection) reflection.style.transform = 'translateX(-100%)';
-                }}
-              >
-                {/* Mirror Reflection Effect Layer */}
-                <div 
-                  className="mirror-reflection"
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    background: 'linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
-                    transform: 'translateX(-100%)',
-                    transition: 'transform 0.6s ease-in-out',
-                    pointerEvents: 'none',
-                    zIndex: 0
-                  }}
-                />
+              <div className="education-card">
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px', position: 'relative', zIndex: 1 }}>
                   <span style={{ 

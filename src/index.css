@@ -1723,33 +1723,138 @@ body {
   background: transparent !important;
 }
 
+/* Glassmorphic Mirror Blur Box Base */
 .education-card,
 .project-card,
 .about-image-card,
+.about-content,
 .info-item,
 .glass-card,
 .document-card,
-.cert-card {
+.cert-card,
+.hero-text,
+.footer {
+  position: relative;
+  overflow: hidden;
   background: rgba(10, 10, 15, 0.65) !important;
   backdrop-filter: blur(25px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
   border: 1px solid rgba(124, 58, 237, 0.35) !important;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover highlights for central elements */
+/* Layout structures for specific cards */
+.project-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  padding: 30px !important;
+  border-radius: 24px !important;
+  cursor: pointer !important;
+}
+
+.education-card {
+  padding: 30px !important;
+  margin-left: 20px !important;
+  border-radius: 20px !important;
+  cursor: default !important;
+}
+
+.about-image-card {
+  padding: 24px !important;
+  border-radius: 24px !important;
+}
+
+/* Custom paddings and radius for panel cards */
+.hero-text {
+  padding: 40px !important;
+  border-radius: var(--border-radius-lg, 24px) !important;
+}
+
+.about-content {
+  padding: 40px !important;
+  border-radius: var(--border-radius-lg, 24px) !important;
+}
+
+.footer {
+  padding: 30px !important;
+  border-radius: var(--border-radius-lg, 24px) !important;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.35) !important;
+}
+
+/* Sweep reflection element */
+.education-card::after,
+.project-card::after,
+.about-image-card::after,
+.about-content::after,
+.info-item::after,
+.glass-card::after,
+.document-card::after,
+.cert-card::after,
+.hero-text::after,
+.footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Hover States */
 .education-card:hover,
 .project-card:hover,
 .about-image-card:hover,
+.about-content:hover,
+.info-item:hover,
+.glass-card:hover,
 .document-card:hover,
-.cert-card:hover {
+.cert-card:hover,
+.hero-text:hover,
+.footer:hover {
   background: rgba(15, 15, 25, 0.75) !important;
   border-color: rgba(124, 58, 237, 0.75) !important;
   box-shadow: 0 20px 45px rgba(124, 58, 237, 0.25) !important;
+}
+
+/* Hover specific translations */
+.project-card:hover {
+  transform: translateY(-12px) scale(1.02) !important;
+}
+
+.education-card:hover {
+  transform: translateX(10px) !important;
+}
+
+.about-image-card:hover {
+  transform: translateY(-5px) !important;
+}
+
+/* Trigger Sweep Animation */
+.education-card:hover::after,
+.project-card:hover::after,
+.about-image-card:hover::after,
+.about-content:hover::after,
+.info-item:hover::after,
+.glass-card:hover::after,
+.document-card:hover::after,
+.cert-card:hover::after,
+.hero-text:hover::after,
+.footer:hover::after {
+  transform: translateX(100%);
 }
 
 /* Make body background have solid fallback but not block canvas */
 .app-background {
   z-index: -3 !important;
 }
+
 

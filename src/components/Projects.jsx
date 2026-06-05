@@ -93,53 +93,7 @@ const Projects = ({ data }) => {
               className="project-card"
               data-aos="fade-up"
               data-aos-delay={idx * 100}
-              style={{
-                background: 'rgba(0, 0, 0, 0.65)',
-                backdropFilter: 'blur(30px)',
-                border: '1px solid rgba(124, 58, 237, 0.4)',
-                borderRadius: '24px',
-                padding: '30px',
-                cursor: 'pointer',
-                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                overflow: 'hidden',
-                height: '100%',
-                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.8)',
-                zIndex: 1
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-12px) scale(1.02)';
-                e.currentTarget.style.border = '1px solid rgba(124, 58, 237, 0.7)';
-                e.currentTarget.style.boxShadow = '0 30px 60px rgba(124, 58, 237, 0.25), 0 0 20px rgba(6, 182, 212, 0.2)';
-                const reflection = e.currentTarget.querySelector('.mirror-reflection');
-                if (reflection) reflection.style.transform = 'translateX(100%)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.border = '1px solid rgba(124, 58, 237, 0.4)';
-                e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.8)';
-                const reflection = e.currentTarget.querySelector('.mirror-reflection');
-                if (reflection) reflection.style.transform = 'translateX(-100%)';
-              }}
             >
-              {/* Mirror Reflection Effect Layer */}
-              <div 
-                className="mirror-reflection"
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  background: 'linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.15), transparent)',
-                  transform: 'translateX(-100%)',
-                  transition: 'transform 0.6s ease-in-out',
-                  pointerEvents: 'none',
-                  zIndex: 0
-                }}
-              />
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', position: 'relative', zIndex: 1 }}>
                 <span style={{ fontSize: '2.5rem', filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.2))' }}>{project.emoji || '🚀'}</span>
