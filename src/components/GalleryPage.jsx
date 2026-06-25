@@ -65,15 +65,6 @@ const galleryData = [
 ];
 
 const GalleryPage = () => {
-  useEffect(() => {
-    // Hide the scrollbar globally for the gallery page to make the 3D scroll smoother
-    document.body.style.overflow = 'hidden';
-    
-    return () => {
-      document.body.style.overflow = 'unset';
-    }
-  }, []);
-
   return (
     <div className="gallery-page-container">
       <div className="gallery-overlay-text">
