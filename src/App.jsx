@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Navbar from './components/Navbar'
@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
 import Documents from './components/Documents'
 import ScrollCanvas from './components/ScrollCanvas'
+import GalleryPage from './components/GalleryPage'
 import { api } from './lib/api'
 import { supabase } from './lib/supabase'
 
@@ -92,7 +93,7 @@ function AppContent() {
       <LoadingScreen loading={loading} />
       
       <div className="app-background" />
-      <ScrollCanvas />
+      {location.pathname !== '/gallery' && <ScrollCanvas />}
       <div className="orb orb-1" />
       <div className="orb orb-2" />
       <div className="orb orb-3" />
@@ -109,9 +110,15 @@ function AppContent() {
             <Projects data={portfolioData?.projects} />
             <Certifications data={portfolioData?.certifications} />
             <Contact data={portfolioData?.profile} />
+            <div style={{ display: 'flex', justifyContent: 'center', padding: '0 0 80px 0' }}>
+              <Link to="/gallery" className="btn-jelly btn-primary glow-text" style={{ padding: '16px 40px', fontSize: '1.2rem' }}>
+                View Gallery
+              </Link>
+            </div>
           </main>
         } />
         <Route path="/documents" element={<Documents />} />
+        <Route path="/gallery" element={<GalleryPage />} />
       </Routes>
       <Footer />
     </>

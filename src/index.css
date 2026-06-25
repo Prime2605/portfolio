@@ -2055,4 +2055,118 @@ body {
   }
 }
 
+/* ===== CIRCULAR GALLERY ===== */
+.gallery-page-container {
+  height: 500vh;
+  position: relative;
+  background: var(--bg-primary); /* Ensure dark bg */
+}
 
+.gallery-overlay-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.gallery-overlay-text h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  margin: 0;
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.1; /* subtle watermark */
+}
+
+.gallery-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1500px;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.gallery-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item-container {
+  position: absolute;
+  transform-style: preserve-3d;
+  /* Centering handled by flex parent */
+}
+
+.gallery-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  padding: 0 !important; /* Override glass-card default padding */
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease;
+}
+
+.gallery-card:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+.gallery-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 15, 0.9) 0%, rgba(10, 10, 15, 0) 50%);
+  pointer-events: none;
+}
+
+.gallery-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  text-align: left;
+}
+
+.gallery-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.gallery-subtitle {
+  font-size: 0.9rem;
+  color: var(--accent-secondary);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.gallery-credit {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
