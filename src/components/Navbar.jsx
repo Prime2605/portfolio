@@ -9,7 +9,6 @@ const navItems = [
   { label: 'Projects', href: '#projects' },
   { label: 'Certifications', href: '#certifications' },
   { label: 'Contact', href: '#contact' },
-  { label: 'Gallery', href: '/gallery' },
 ]
 
 const Navbar = () => {
@@ -44,10 +43,6 @@ const Navbar = () => {
   const handleNavClick = (e, href) => {
     e.preventDefault()
     setMenuOpen(false)
-    if (href.startsWith('/')) {
-      navigate(href)
-      return
-    }
     if (location.pathname !== '/') {
       navigate('/' + href)
     } else {
@@ -81,7 +76,7 @@ const Navbar = () => {
             <li key={item.href}>
               <a
                 href={item.href}
-                className={activeSection === item.href.substring(1) || (location.pathname === item.href && item.href !== '/') ? 'active' : ''}
+                className={activeSection === item.href.substring(1) ? 'active' : ''}
                 onClick={(e) => handleNavClick(e, item.href)}
               >
                 {item.label}
