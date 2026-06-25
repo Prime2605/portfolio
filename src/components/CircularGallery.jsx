@@ -75,10 +75,7 @@ const CircularGalleryInner = ({ items, scrollProgress, itemWidth, itemHeight, mo
             key={index}
             className="gallery-item-container"
             style={{
-              width: itemWidth,
-              height: itemHeight,
               rotateY: rotationY,
-              z: radius,
               opacity: mounted ? opacity : initialOpacity,
               scale: scale,
               y: initialY,
@@ -86,19 +83,29 @@ const CircularGalleryInner = ({ items, scrollProgress, itemWidth, itemHeight, mo
               transitionDelay: `${index * 0.1}s`
             }}
           >
-            <div className="glass-card gallery-card">
-              <div 
-                className="gallery-image"
-                style={{ 
-                  backgroundImage: `url(${item.photo.url})`,
-                  backgroundPosition: item.photo.pos || 'center'
-                }}
-              />
-              <div className="gallery-gradient" />
-              <div className="gallery-info">
-                <h3 className="gallery-title">{item.common}</h3>
-                <p className="gallery-subtitle">{item.binomial}</p>
-                <p className="gallery-credit">By {item.photo.by}</p>
+            <div
+              style={{
+                width: itemWidth,
+                height: itemHeight,
+                transform: `translateZ(${radius}px)`,
+                transformStyle: 'preserve-3d',
+                position: 'relative'
+              }}
+            >
+              <div className="glass-card gallery-card">
+                <div 
+                  className="gallery-image"
+                  style={{ 
+                    backgroundImage: `url(${item.photo.url})`,
+                    backgroundPosition: item.photo.pos || 'center'
+                  }}
+                />
+                <div className="gallery-gradient" />
+                <div className="gallery-info">
+                  <h3 className="gallery-title">{item.common}</h3>
+                  <p className="gallery-subtitle">{item.binomial}</p>
+                  <p className="gallery-credit">By {item.photo.by}</p>
+                </div>
               </div>
             </div>
           </motion.div>
