@@ -1868,4 +1868,191 @@ body {
   z-index: -3 !important;
 }
 
+/* ===== MOBILE-ONLY NEUMORPHISM OVERRIDES ===== */
+@media (max-width: 768px) {
+  /* Ensure a solid, consistent dark background on mobile to make Neumorphic shadows pop */
+  body, .app-background {
+    background: #0d0d15 !important;
+  }
+
+  /* Reset floating orbs or reduce opacity since neumorphism depends on clear shadow shapes */
+  .orb {
+    opacity: 0.04 !important;
+  }
+
+  /* Completely transform Glassmorphic cards/sections into Neumorphic elements */
+  .education-card,
+  .project-card,
+  .about-image-card,
+  .about-content,
+  .info-item,
+  .glass-card,
+  .document-card,
+  .cert-card,
+  .hero-text,
+  .footer,
+  .section-header {
+    background: #0f0f1c !important; /* solid neumorphic surface */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    
+    /* Double-shadow for soft extruded neumorphic depth */
+    box-shadow: 
+      8px 8px 20px rgba(0, 0, 0, 0.75), 
+      -8px -8px 20px rgba(255, 255, 255, 0.035) !important;
+    border-radius: var(--border-radius-lg, 24px) !important;
+  }
+
+  /* Specific element exceptions */
+  .info-item, .contact-item {
+    background: #0b0b14 !important;
+    box-shadow: 
+      4px 4px 10px rgba(0, 0, 0, 0.8), 
+      -4px -4px 10px rgba(255, 255, 255, 0.02) !important;
+    border: none !important;
+  }
+
+  .stat-item {
+    background: #0b0b14 !important;
+    border: none !important;
+    box-shadow: 
+      inset 3px 3px 6px rgba(0, 0, 0, 0.8), 
+      inset -3px -3px 6px rgba(255, 255, 255, 0.02) !important;
+  }
+
+  /* Remove all reflection sweep animations on mobile */
+  .education-card::after,
+  .project-card::after,
+  .about-image-card::after,
+  .about-content::after,
+  .info-item::after,
+  .glass-card::after,
+  .document-card::after,
+  .cert-card::after,
+  .hero-text::after,
+  .footer::after,
+  .section-header::after {
+    display: none !important;
+  }
+
+  /* Neumorphic Hover Adjustments for Mobile (active/pressed states) */
+  .education-card:hover,
+  .project-card:hover,
+  .about-image-card:hover,
+  .about-content:hover,
+  .info-item:hover,
+  .glass-card:hover,
+  .document-card:hover,
+  .cert-card:hover,
+  .hero-text:hover,
+  .footer:hover,
+  .section-header:hover {
+    background: #0f0f1c !important;
+    border-color: transparent !important;
+    /* Soft pressed/inset shadow when interacted with */
+    box-shadow: 
+      inset 4px 4px 10px rgba(0, 0, 0, 0.8), 
+      inset -4px -4px 10px rgba(255, 255, 255, 0.02) !important;
+    transform: none !important;
+  }
+
+  /* Skill tags & tags styling */
+  .skill-tag, .project-tag, .cert-tag, .cert-date {
+    background: #0b0b14 !important;
+    border: none !important;
+    box-shadow: 
+      3px 3px 8px rgba(0, 0, 0, 0.6), 
+      -3px -3px 8px rgba(255, 255, 255, 0.02) !important;
+    color: var(--text-secondary) !important;
+  }
+
+  .skill-tag:hover {
+    box-shadow: 
+      inset 2px 2px 5px rgba(0, 0, 0, 0.8), 
+      inset -2px -2px 5px rgba(255, 255, 255, 0.02) !important;
+    transform: none !important;
+  }
+
+  /* Neumorphic Jelly Buttons */
+  .btn-jelly {
+    background: #0f0f1c !important;
+    border: none !important;
+    box-shadow: 
+      5px 5px 12px rgba(0, 0, 0, 0.75), 
+      -5px -5px 12px rgba(255, 255, 255, 0.035) !important;
+    transition: var(--transition-smooth) !important;
+  }
+
+  .btn-primary {
+    color: var(--accent-primary) !important;
+  }
+
+  .btn-secondary {
+    color: var(--text-primary) !important;
+  }
+
+  .btn-jelly:active, .btn-jelly:hover {
+    box-shadow: 
+      inset 3px 3px 8px rgba(0, 0, 0, 0.85), 
+      inset -3px -3px 8px rgba(255, 255, 255, 0.02) !important;
+    transform: translateY(1px) !important;
+  }
+
+  /* Social Icons */
+  .hero-socials a, .contact-social-link {
+    background: #0f0f1c !important;
+    border: none !important;
+    box-shadow: 
+      4px 4px 10px rgba(0, 0, 0, 0.85), 
+      -4px -4px 10px rgba(255, 255, 255, 0.03) !important;
+  }
+
+  .hero-socials a:hover, .contact-social-link:hover {
+    box-shadow: 
+      inset 3px 3px 6px rgba(0, 0, 0, 0.9), 
+      inset -3px -3px 6px rgba(255, 255, 255, 0.02) !important;
+    transform: none !important;
+  }
+
+  /* Form Inputs (Contact) */
+  .form-input, .form-textarea {
+    background: #0a0a10 !important;
+    border: none !important;
+    box-shadow: 
+      inset 4px 4px 10px rgba(0, 0, 0, 0.95), 
+      inset -4px -4px 10px rgba(255, 255, 255, 0.015) !important;
+  }
+
+  .form-input:focus, .form-textarea:focus {
+    box-shadow: 
+      inset 4px 4px 10px rgba(0, 0, 0, 0.95), 
+      inset -4px -4px 10px rgba(255, 255, 255, 0.015),
+      0 0 0 2px var(--accent-primary) !important;
+  }
+
+  /* Mobile navigation menu */
+  .navbar-links {
+    background: #0d0d15 !important;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8) !important;
+    border-left: none !important;
+  }
+
+  .navbar-links a {
+    box-shadow: none !important;
+  }
+
+  .navbar-links a.active {
+    background: #0b0b14 !important;
+    box-shadow: 
+      inset 3px 3px 8px rgba(0, 0, 0, 0.8), 
+      inset -3px -3px 8px rgba(255, 255, 255, 0.02) !important;
+  }
+
+  /* Cursor Glow */
+  .cursor-glow {
+    display: none !important; /* Hide mouse glow on touch devices */
+  }
+}
+
 

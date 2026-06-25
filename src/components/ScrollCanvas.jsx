@@ -180,13 +180,20 @@ const ScrollCanvas = () => {
 
   // Pre-load initial view and sparse keyframe timeline
   useEffect(() => {
-    // 1. Immediately load target frame for initial scroll position
-    const initialFrame = getScrollFrame()
+    const isMobile = window.innerWidth <= 768
+
+    // 1. Immediately load target frame (always frame 1 for static fallback on mobile)
+    const initialFrame = isMobile ? 1 : getScrollFrame()
     loadImage(initialFrame).then(() => {
       currentFrameRef.current = initialFrame
       targetFrameRef.current = initialFrame
       drawFrame(initialFrame)
     })
+
+    if (isMobile) {
+      // Bypass loading sparse keyframe frames on mobile to save bandwidth & memory
+      return
+    }
 
     // 2. Queue sparse keyframes (every 10th frame) to build a fast-seeking outline timeline
     // This loads only 60 images (~12MB) on page load instead of 600 (~130MB), keeping network pipes free.
@@ -208,6 +215,8 @@ const ScrollCanvas = () => {
 
   // Scroll and Resize Event Listeners
   useEffect(() => {
+    const isMobile = window.innerWidth <= 768
+
     const handleScroll = () => {
       const frameIndex = getScrollFrame()
       targetFrameRef.current = frameIndex
@@ -219,7 +228,9 @@ const ScrollCanvas = () => {
       }
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    if (!isMobile) {
+      window.addEventListener('scroll', handleScroll, { passive: true })
+    }
 
     const handleResize = () => {
       const canvas = canvasRef.current
@@ -234,7 +245,9 @@ const ScrollCanvas = () => {
     handleResize() // Sizing setup
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      if (!isMobile) {
+        window.removeEventListener('scroll', handleScroll)
+      }
       window.removeEventListener('resize', handleResize)
     }
   }, [])

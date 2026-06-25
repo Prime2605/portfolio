@@ -31,6 +31,7 @@ function AppContent() {
       once: true,
       offset: 80,
       delay: 50,
+      disable: 'mobile',
     })
 
     // Try fetching from backend API, fallback to static data
