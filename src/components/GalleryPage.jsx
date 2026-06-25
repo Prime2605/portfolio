@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import CircularGallery from './CircularGallery';
+import { CircularGallery } from './ui/circular-gallery';
 
 const galleryData = [
 	{
@@ -26,54 +26,98 @@ const galleryData = [
 		common: 'Red-tailed black cockatoo',
 		binomial: 'Calyptorhynchus banksii',
 		photo: {
-			url: 'https://images.unsplash.com/photo-1596706798083-05ec76d6fc3a?w=900&auto=format&fit=crop&q=80',
-			text: 'black bird with a red tail on a brown tree branch',
-			pos: '50% 30%',
+			url: 'https://images.unsplash.com/photo-1619664208054-41eefeab29e9?w=900&auto=format&fit=crop&q=80',
+			text: 'close-up of a black cockatoo',
+			pos: '53% 43%',
 			by: 'David Clode'
 		}
 	},
 	{
-		common: 'Koala',
-		binomial: 'Phascolarctos cinereus',
+		common: 'Dromedary',
+		binomial: 'Camelus dromedarius',
 		photo: {
-			url: 'https://images.unsplash.com/photo-1599818815159-24b893f64c67?w=900&auto=format&fit=crop&q=80',
-			text: 'koala walking on a brown tree branch',
-			pos: '50% 60%',
-			by: 'David Clode'
+			url: 'https://images.unsplash.com/photo-1662841238473-f4b137e123cb?w=900&auto=format&fit=crop&q=80',
+			text: 'camel and her new born calf walking in the Sahara desert',
+			pos: '65% 65%',
+			by: 'Moaz Tobok'
 		}
 	},
 	{
-		common: 'Cheetah',
-		binomial: 'Acinonyx jubatus',
+		common: 'Polar bear',
+		binomial: 'Ursus maritimus',
 		photo: {
-			url: 'https://images.unsplash.com/photo-1563242702-86bb3ba86dfc?w=900&auto=format&fit=crop&q=80',
-			text: 'cheetah walking on a green grass field',
-			pos: '50% 65%',
-			by: 'Cara Fuller'
+			url: 'https://images.unsplash.com/photo-1589648751789-c8ecb7a88bd5?w=900&auto=format&fit=crop&q=80',
+			text: 'polar bear on the snow, by the water, raised on the hind legs, front paws together',
+			pos: '50% 25%',
+			by: 'Hans-Jurgen Mager'
 		}
 	},
 	{
 		common: 'Giant panda',
 		binomial: 'Ailuropoda melanoleuca',
 		photo: {
-			url: 'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=900&auto=format&fit=crop&q=80',
-			text: 'panda eating bamboo',
-			pos: '50% 50%',
-			by: 'Sid Balachandran'
+			url: 'https://images.unsplash.com/photo-1659540181281-1d89d6112832?w=900&auto=format&fit=crop&q=80',
+			text: 'giant panda hanging from a tree branch',
+			pos: '47%',
+			by: 'Jiachen Lin'
 		}
-	}
+	},
+	{
+		common: 'Grévy\'s zebra',
+		binomial: 'Equus grevyi',
+		photo: {
+			url: 'https://images.unsplash.com/photo-1526095179574-86e545346ae6?w=900&auto=format&fit=crop&q=80',
+			text: 'zebra standing on wheat field, looking back towards the camera',
+			pos: '65% 35%',
+			by: 'Jeff Griffith'
+		}
+	},
+	{
+		common: 'Cheetah',
+		binomial: 'Acinonyx jubatus',
+		photo: {
+			url: 'https://images.unsplash.com/photo-1541707519942-08fd2f6480ba?w=900&auto=format&fit=crop&q=80',
+			text: 'cheetah sitting in the grass under a blue sky',
+			by: 'Mike Bird'
+		}
+	},
+	{
+		common: 'King penguin',
+		binomial: 'Aptenodytes patagonicus',
+		photo: {
+			url: 'https://images.unsplash.com/photo-1595792419466-23cec2476fa6?w=900&auto=format&fit=crop&q=80',
+			text: 'king penguin with a fluffy brown chick on grey rocks',
+			pos: '35%',
+			by: 'Martin Wettstein'
+		}
+	},
+	{
+		common: 'Red panda',
+		binomial: 'Ailurus fulgens',
+		photo: {
+			url: 'https://images.unsplash.com/photo-1689799513565-44d2bc09d75b?w=900&auto=format&fit=crop&q=80',
+			text: 'a red panda in a tree',
+			by: 'Niels Baars'
+		}
+	},
 ];
 
-const GalleryPage = () => {
+const CircularGalleryDemo = () => {
   return (
-    <div className="gallery-page-container">
-      <div className="gallery-overlay-text">
-        <h1 className="glow-text">The Collection</h1>
-        <p>Scroll to explore</p>
+    // This outer container provides the scrollable height
+    <div className="w-full bg-background text-foreground" style={{ height: '500vh' }}>
+      {/* This inner container sticks to the top while scrolling */}
+      <div className="w-full h-screen sticky top-0 flex flex-col items-center justify-center overflow-hidden">
+        <div className="text-center mb-8 absolute top-16 z-10">
+          <h1 className="text-4xl font-bold">Animal Gallery</h1>
+          <p className="text-muted-foreground">Scroll to rotate the gallery</p>
+        </div>
+        <div className="w-full h-full">
+          <CircularGallery items={galleryData} />
+        </div>
       </div>
-      <CircularGallery items={galleryData} />
     </div>
   );
 };
 
-export default GalleryPage;
+export default CircularGalleryDemo;
