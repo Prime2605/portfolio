@@ -2244,3 +2244,98 @@ body {
 .gallery-item:hover img {
   transform: scale(1.05);
 }
+
+/* ===== MAGICUI BORDER BEAM ===== */
+.border-beam-container {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: var(--border-beam-width) solid transparent;
+  mask: linear-gradient(#000, #000) padding-box, linear-gradient(#000, #000) border-box;
+  -webkit-mask: linear-gradient(#000, #000) padding-box, linear-gradient(#000, #000) border-box;
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+}
+
+.border-beam-element {
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(to left, var(--color-from), var(--color-to), transparent);
+}
+
+/* ===== MAGICUI INTERACTIVE HOVER BUTTON ===== */
+.interactive-hover-btn {
+  position: relative;
+  width: auto;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid var(--border-glass);
+  padding: 0.75rem 2rem;
+  text-align: center;
+  font-weight: 600;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  display: inline-flex;
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: var(--transition-smooth);
+}
+
+.interactive-hover-btn:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.interactive-hover-btn-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.interactive-hover-btn-dot {
+  background: var(--accent-primary);
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease-in-out;
+}
+
+.interactive-hover-btn:hover .interactive-hover-btn-dot {
+  transform: scale(100.8);
+}
+
+.interactive-hover-btn-text {
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.interactive-hover-btn:hover .interactive-hover-btn-text {
+  transform: translateX(3rem);
+  opacity: 0;
+}
+
+.interactive-hover-btn-overlay {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transform: translateX(3rem);
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.interactive-hover-btn:hover .interactive-hover-btn-overlay {
+  transform: translateX(-0.5rem);
+  opacity: 1;
+}

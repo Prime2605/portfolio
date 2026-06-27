@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { TypeAnimation } from 'react-type-animation'
 import { FaGithub, FaLinkedinIn, FaInstagram, FaDiscord } from 'react-icons/fa'
 import { HiArrowDown } from 'react-icons/hi'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 
 const Hero = ({ data }) => {
   return (
@@ -42,24 +43,15 @@ const Hero = ({ data }) => {
               and one line of code at a time.
             </p>
             <div className="hero-buttons" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
-              <a href="#contact" className="btn-jelly btn-primary" id="hero-contact-btn">
+              <InteractiveHoverButton as="a" href="#contact" id="hero-contact-btn">
                 Get In Touch
-              </a>
-              <Link to="/documents" className="btn-jelly btn-secondary" id="hero-documents-btn" style={{
-                background: 'linear-gradient(90deg, #7c3aed, #a855f7)',
-                color: '#fff',
-                border: 'none',
-                boxShadow: '0 4px 15px rgba(124, 58, 237, 0.4)',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px'
-              }}>
+              </InteractiveHoverButton>
+              <InteractiveHoverButton as={Link} to="/documents" id="hero-documents-btn">
                 Documents (Click here)
-              </Link>
-              <a href="#projects" className="btn-jelly btn-secondary" id="hero-projects-btn">
-                View Projects <HiArrowDown />
-              </a>
+              </InteractiveHoverButton>
+              <InteractiveHoverButton as="a" href="#projects" id="hero-projects-btn">
+                View Projects
+              </InteractiveHoverButton>
             </div>
             <div className="hero-socials">
               <a href="https://github.com/Prime2605" target="_blank" rel="noopener noreferrer" aria-label="GitHub" id="social-github">
