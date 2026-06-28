@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { FaAward, FaExternalLinkAlt, FaTimes, FaExpand } from 'react-icons/fa'
+import { FaAward, FaTimes, FaExpand, FaExternalLinkAlt } from 'react-icons/fa'
 import { SiGoogle } from 'react-icons/si'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 
 const baseCertificationsData = [
   // Hackathons (Priority: 1st, Semifinalist, Others)
@@ -1009,35 +1010,21 @@ const Certifications = ({ data }) => {
                   </span>
                   
                   {activeCertificate.driveId && (
-                    <a
+                    <InteractiveHoverButton
+                      as="a"
                       href={`https://drive.google.com/file/d/${activeCertificate.driveId}/view`}
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
                         background: '#d4af37',
                         color: '#000',
                         textDecoration: 'none',
                         fontWeight: '700',
-                        padding: '10px 20px',
                         border: '1px solid #d4af37',
-                        borderRadius: '6px',
-                        transition: 'all 0.3s',
-                        boxShadow: '0 4px 15px rgba(212, 175, 55, 0.4)'
-                      }}
-                      onMouseEnter={e => {
-                        e.currentTarget.style.background = '#000';
-                        e.currentTarget.style.color = '#d4af37';
-                      }}
-                      onMouseLeave={e => {
-                        e.currentTarget.style.background = '#d4af37';
-                        e.currentTarget.style.color = '#000';
                       }}
                     >
                       <FaExternalLinkAlt /> Open in New Tab
-                    </a>
+                    </InteractiveHoverButton>
                   )}
                 </div>
                 

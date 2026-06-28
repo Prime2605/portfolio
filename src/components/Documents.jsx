@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaFilePdf, FaFileAlt, FaDownload, FaEye, FaArrowLeft, FaFileContract } from 'react-icons/fa'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 
 const Documents = () => {
   return (
@@ -8,27 +9,9 @@ const Documents = () => {
       <div className="container">
         {/* Back button */}
         <div data-aos="fade-up" style={{ marginBottom: '40px' }}>
-          <Link 
-            to="/" 
-            className="btn-jelly btn-secondary"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              padding: '12px 24px',
-              borderRadius: '12px',
-              fontWeight: '700',
-              textDecoration: 'none',
-              background: 'rgba(255, 255, 255, 0.03)',
-              color: '#fff',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease'
-            }}
-          >
-            <FaArrowLeft /> Back to Home
-          </Link>
+          <InteractiveHoverButton as={Link} to="/">
+            Back to Home
+          </InteractiveHoverButton>
         </div>
 
         {/* Section Header */}
@@ -119,61 +102,23 @@ const Documents = () => {
             </div>
 
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <a
+              <InteractiveHoverButton 
+                as="a"
                 href="/Transcript.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-jelly btn-primary"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 20px',
-                  fontSize: '0.9rem',
-                  textDecoration: 'none',
-                  borderRadius: '12px',
-                  fontWeight: '700',
-                  background: 'linear-gradient(90deg, #7c3aed, #a855f7)',
-                  color: '#fff',
-                  border: 'none',
-                  boxShadow: '0 4px 15px rgba(124, 58, 237, 0.3)',
-                  cursor: 'pointer',
-                  flex: 1,
-                  justifyContent: 'center'
-                }}
+                style={{ flex: 1 }}
               >
-                <FaEye /> View
-              </a>
-              <a
+                View Document
+              </InteractiveHoverButton>
+              <InteractiveHoverButton 
+                as="a"
                 href="/Transcript.pdf"
                 download="Prime_RS_Transcript.pdf"
-                className="btn-jelly btn-secondary"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 20px',
-                  fontSize: '0.9rem',
-                  textDecoration: 'none',
-                  borderRadius: '12px',
-                  fontWeight: '700',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  color: '#fff',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  cursor: 'pointer',
-                  flex: 1,
-                  justifyContent: 'center',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
-                }}
+                style={{ flex: 1 }}
               >
-                <FaDownload /> Download
-              </a>
+                Download
+              </InteractiveHoverButton>
             </div>
           </div>
 
@@ -264,27 +209,9 @@ const Documents = () => {
             </div>
 
             <div>
-              <button
-                disabled
-                className="btn-jelly btn-secondary"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 20px',
-                  fontSize: '0.95rem',
-                  borderRadius: '12px',
-                  fontWeight: '700',
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  color: 'rgba(255, 255, 255, 0.3)',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
-                  cursor: 'not-allowed',
-                  width: '100%',
-                  justifyContent: 'center'
-                }}
-              >
+              <InteractiveHoverButton disabled style={{ width: '100%', opacity: 0.5, cursor: 'not-allowed' }}>
                 Uploading Soon
-              </button>
+              </InteractiveHoverButton>
             </div>
           </div>
 
@@ -375,27 +302,9 @@ const Documents = () => {
             </div>
 
             <div>
-              <button
-                disabled
-                className="btn-jelly btn-secondary"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 20px',
-                  fontSize: '0.95rem',
-                  borderRadius: '12px',
-                  fontWeight: '700',
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  color: 'rgba(255, 255, 255, 0.3)',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
-                  cursor: 'not-allowed',
-                  width: '100%',
-                  justifyContent: 'center'
-                }}
-              >
+              <InteractiveHoverButton disabled style={{ width: '100%', opacity: 0.5, cursor: 'not-allowed' }}>
                 Uploading Soon
-              </button>
+              </InteractiveHoverButton>
             </div>
           </div>
         </div>

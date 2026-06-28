@@ -4,6 +4,7 @@ import { TypeAnimation } from 'react-type-animation'
 import { FaGithub, FaLinkedinIn, FaInstagram, FaDiscord } from 'react-icons/fa'
 import { HiArrowDown } from 'react-icons/hi'
 import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+import { PulsatingButton } from './ui/PulsatingButton'
 
 const Hero = ({ data }) => {
   return (
@@ -52,6 +53,9 @@ const Hero = ({ data }) => {
               <InteractiveHoverButton as="a" href="#projects" id="hero-projects-btn">
                 View Projects
               </InteractiveHoverButton>
+              <PulsatingButton as={Link} to="/gallery" id="hero-gallery-btn">
+                View Gallery
+              </PulsatingButton>
             </div>
             <div className="hero-socials">
               <a href="https://github.com/Prime2605" target="_blank" rel="noopener noreferrer" aria-label="GitHub" id="social-github">

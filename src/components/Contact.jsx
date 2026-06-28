@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedinIn, FaInstagram, FaDiscord, FaPaperPlane } from 'react-icons/fa'
 import { api } from '../lib/api'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 
 const Contact = ({ data }) => {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
@@ -141,9 +142,9 @@ const Contact = ({ data }) => {
                 required
               />
             </div>
-            <button type="submit" className="btn-jelly btn-primary form-submit" disabled={sending} id="contact-submit">
-              {sending ? 'Sending...' : <>Send Message <FaPaperPlane /></>}
-            </button>
+            <InteractiveHoverButton type="submit" className="form-submit w-full" disabled={sending} id="contact-submit" style={{ width: '100%' }}>
+              {sending ? 'Sending...' : 'Send Message'}
+            </InteractiveHoverButton>
             {status && (
               <div className={`form-status ${status.type}`}>
                 {status.message}

@@ -2297,18 +2297,25 @@ body {
 }
 
 .interactive-hover-btn-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
   background: var(--accent-primary);
-  height: 0.5rem;
-  width: 0.5rem;
+  height: 10px;
+  width: 10px;
   border-radius: 9999px;
   transition: all 0.3s ease-in-out;
+  z-index: 0;
 }
 
 .interactive-hover-btn:hover .interactive-hover-btn-dot {
-  transform: scale(100.8);
+  transform: translate(-50%, -50%) scale(50);
 }
 
 .interactive-hover-btn-text {
+  position: relative;
+  z-index: 1;
   display: inline-block;
   transition: all 0.3s ease-in-out;
 }
@@ -2338,4 +2345,70 @@ body {
 .interactive-hover-btn:hover .interactive-hover-btn-overlay {
   transform: translateX(-0.5rem);
   opacity: 1;
+}
+
+/* ===== MAGICUI PULSATING BUTTON ===== */
+.pulsating-button {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 12px 24px;
+  text-align: center;
+  font-family: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.pulsating-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pulsating-button-content {
+  position: relative;
+  z-index: 10;
+}
+
+.pulsating-button-ring {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: inherit;
+}
+
+.pulsating-button-ring.animate-pulse {
+  animation: pulsating-button-pulse var(--duration) ease-out infinite;
+}
+
+.pulsating-button-ring.animate-pulse-ripple {
+  animation: pulsating-button-ripple var(--duration) cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes pulsating-button-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--pulse-color, color-mix(in srgb, var(--bg) 50%, transparent));
+  }
+  50% {
+    box-shadow: 0 0 0 var(--distance) var(--pulse-color, color-mix(in srgb, var(--bg) 50%, transparent));
+  }
+}
+
+@keyframes pulsating-button-ripple {
+  0% {
+    box-shadow: 0 0 0 0 var(--pulse-color, var(--bg));
+  }
+  100% {
+    box-shadow: 0 0 0 var(--distance) color-mix(in srgb, var(--pulse-color, var(--bg)) 0%, transparent);
+  }
 }
