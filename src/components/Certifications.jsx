@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { FaAward, FaTimes, FaExpand, FaExternalLinkAlt } from 'react-icons/fa'
 import { SiGoogle } from 'react-icons/si'
 import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
@@ -580,7 +581,7 @@ const baseCertificationsData = [
   }
 ];
 
-const certificationsData = baseCertificationsData.map(cert => ({
+export const certificationsData = baseCertificationsData.map(cert => ({
   ...cert,
   driveImageUrl: `/certs/${cert.id}.png?v=1`,
   driveId: cert.id,
@@ -592,14 +593,14 @@ const certificationsData = baseCertificationsData.map(cert => ({
   )
 }));
 
-const Certifications = ({ data }) => {
+const Certifications = ({ data, limit }) => {
   const certs = data || certificationsData
   const [activeTab, setActiveTab] = useState('Hackathons') // Default category
   const [activeSubTab, setActiveSubTab] = useState('Software') // Default workshops subcategory to Software
   const [activeCertificate, setActiveCertificate] = useState(null)
   const [isFullScreenImg, setIsFullScreenImg] = useState(false)
 
-  const tabs = ['Hackathons', 'Courses', 'Workshops', 'Internships', 'Quiz', 'Others'];
+  const tabs = ['Hackathons', 'Courses', 'Quiz', 'Others'];
   const filteredCerts = certs.filter(cert => {
     if (cert.category !== activeTab) return false;
     if (activeTab === 'Workshops') {
@@ -607,6 +608,7 @@ const Certifications = ({ data }) => {
     }
     return true;
   });
+  const displayedCerts = limit ? filteredCerts.slice(0, limit) : filteredCerts;
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -720,7 +722,7 @@ const Certifications = ({ data }) => {
           marginBottom: '50px',
           width: '100%'
         }}>
-          {filteredCerts.length > 0 ? filteredCerts.map((cert) => (
+          {displayedCerts.length > 0 ? displayedCerts.map((cert) => (
             <div
               key={cert.id}
               onClick={() => setActiveCertificate(cert)}
@@ -860,6 +862,14 @@ const Certifications = ({ data }) => {
             </div>
           )}
         </div>
+
+        {limit && filteredCerts.length > limit && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }} data-aos="fade-up">
+            <Link to="/certifications" className="btn-jelly btn-primary glow-text" style={{ padding: '14px 36px', fontSize: '1.1rem', textDecoration: 'none' }}>
+              View All Certifications
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* 3. Floating Window / Mirror Transparent Blue-Gold-Black Styled Box */}

@@ -18,6 +18,10 @@ import GalleryPage from './components/GalleryPage'
 import { AnimatedThemeToggler } from './components/ui/AnimatedThemeToggler'
 import { api } from './lib/api'
 import { supabase } from './lib/supabase'
+import Experience from './components/Experience'
+import ProjectsPage from './components/ProjectsPage'
+import CertificationsPage from './components/CertificationsPage'
+import ExperiencePage from './components/ExperiencePage'
 
 function AppContent() {
   const [loading, setLoading] = useState(true)
@@ -110,8 +114,9 @@ function AppContent() {
             <About data={portfolioData?.profile} />
             <Skills data={portfolioData?.skills} />
             <Education data={portfolioData?.education} />
-            <Projects data={portfolioData?.projects} />
-            <Certifications data={portfolioData?.certifications} />
+            <Experience data={portfolioData?.certifications} limit={3} />
+            <Projects data={portfolioData?.projects} limit={3} />
+            <Certifications data={portfolioData?.certifications} limit={3} />
             <Contact data={portfolioData?.profile} />
             <div style={{ display: 'flex', justifyContent: 'center', padding: '0 0 80px 0' }}>
               <Link to="/gallery" className="btn-jelly btn-primary glow-text" style={{ padding: '16px 40px', fontSize: '1.2rem' }}>
@@ -122,6 +127,9 @@ function AppContent() {
         } />
         <Route path="/documents" element={<Documents />} />
         <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/projects" element={<ProjectsPage data={portfolioData?.projects} />} />
+        <Route path="/certifications" element={<CertificationsPage data={portfolioData?.certifications} />} />
+        <Route path="/experience" element={<ExperiencePage data={portfolioData?.certifications} />} />
       </Routes>
       <Footer />
     </>

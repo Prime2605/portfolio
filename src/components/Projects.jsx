@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 
 const projectsData = [
@@ -46,7 +47,7 @@ const projectsData = [
   },
   {
     title: 'SENTINEL-X: Hardware Trojan Detection & Self-Healing',
-    description: 'A multi-layer hardware security framework implemented on a Spartan-7 FPGA using Verilog. Protects against supply chain Hardware Trojans via boot-time PUF fingerprinting, real-time AI-based Trojan detection using a decision tree classifier, and automatic isolation and hot-swapping to a backup ALU.',
+    description: 'An multi-layer hardware security framework implemented on a Spartan-7 FPGA using Verilog. Protects against supply chain Hardware Trojans via boot-time PUF fingerprinting, real-time AI-based Trojan detection using a decision tree classifier, and automatic isolation and hot-swapping to a backup ALU.',
     tags: ['Verilog', 'FPGA', 'Xilinx Vivado', 'Hardware Security', 'PUF', 'Logic Design'],
     github: 'https://github.com/Prime2605/FPGA-based-Online-Real-Time-Trojan-Recovery-and-Embedded-Security-System',
     emoji: '🛡️',
@@ -67,8 +68,9 @@ const projectsData = [
   },
 ]
 
-const Projects = ({ data }) => {
-  const projects = data || projectsData
+const Projects = ({ data, limit }) => {
+  const allProjects = data || projectsData
+  const displayedProjects = limit ? allProjects.slice(0, limit) : allProjects
 
   return (
     <section className="section" id="projects">
@@ -85,9 +87,10 @@ const Projects = ({ data }) => {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
           gap: '30px',
-          width: '100%'
+          width: '100%',
+          marginBottom: limit ? '0px' : '40px'
         }}>
-          {(Array.isArray(projects) ? projects : projectsData).map((project, idx) => (
+          {displayedProjects.map((project, idx) => (
             <div
               key={idx}
               className="project-card"
@@ -178,6 +181,14 @@ const Projects = ({ data }) => {
             </div>
           ))}
         </div>
+
+        {limit && allProjects.length > limit && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }} data-aos="fade-up">
+            <Link to="/projects" className="btn-jelly btn-primary glow-text" style={{ padding: '14px 36px', fontSize: '1.1rem', textDecoration: 'none' }}>
+              View All Projects
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   )
