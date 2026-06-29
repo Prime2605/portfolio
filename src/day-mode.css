@@ -1,0 +1,75 @@
+/* ===== DAY MODE STYLES ===== */
+/* This file is specifically for the "day mode" (light theme) */
+
+html.light {
+  /* ─── Bright White Core Colors ─── */
+  --bg-primary: #ffffff; 
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #ffffff;
+  
+  /* Cards */
+  --bg-card: #ffffff; 
+  --bg-glass: #ffffff;
+  --bg-glass-hover: #f1f5f9;
+  --bg-overlay: #ffffff;
+  
+  --bg-highlight: #ffffff;
+  --bg-highlight-blue: #ffffff;
+  --bg-highlight-green: #ffffff;
+  
+  /* Subtle borders to separate white cards from white background */
+  --border-glass: #e2e8f0;
+  --border-color: #e2e8f0;
+  --border-highlight: #e2e8f0;
+  --border-highlight-blue: #e2e8f0;
+  --border-highlight-green: #e2e8f0;
+
+  /* Typography */
+  --text-primary: #000000; 
+  --text-secondary: #333333;
+  --text-tertiary: #555555;
+  
+  /* Accents */
+  --accent-primary: #000000;
+  --accent-secondary: #000000;
+  --accent-emerald: #000000;
+
+  /* NO SHADOWS AT ALL (AS REQUESTED) */
+  --shadow-glow: none;
+  --shadow-glow-strong: none;
+  --shadow-card: none;
+  --shadow-elevated: none;
+}
+
+/* ===== REMOVE BLACK AESTHETIC BLURS & EFFECTS IN DAY MODE ===== */
+
+html.light .app-background {
+  background-image: none !important;
+  background-color: var(--bg-primary) !important;
+  box-shadow: none !important;
+}
+
+/* Remove the black radial gradients and corner vignette */
+html.light .app-background::before,
+html.light .app-background::after {
+  display: none !important;
+  background: none !important;
+  opacity: 0 !important;
+}
+
+html.light .orb,
+html.light #bg-canvas,
+html.light canvas {
+  display: none !important;
+}
+
+html.light .cursor-glow {
+  display: none !important;
+}
+
+/* Disable scroll animations in day mode */
+html.light [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}

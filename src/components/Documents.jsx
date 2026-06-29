@@ -38,31 +38,7 @@ const Documents = () => {
           <div 
             data-aos="fade-up"
             data-aos-delay="100"
-            className="document-card"
-            style={{
-              background: 'rgba(255, 255, 255, 0.03)',
-              backdropFilter: 'blur(15px)',
-              border: '1px solid rgba(124, 58, 237, 0.2)',
-              borderRadius: '24px',
-              padding: '40px 30px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.border = '1px solid rgba(124, 58, 237, 0.6)';
-              e.currentTarget.style.boxShadow = '0 20px 40px rgba(124, 58, 237, 0.25)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.border = '1px solid rgba(124, 58, 237, 0.2)';
-              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
-            }}
+            className="document-card doc-purple"
           >
             {/* Top decorative glow */}
             <div style={{
@@ -71,7 +47,7 @@ const Documents = () => {
               right: '-50px',
               width: '120px',
               height: '120px',
-              background: 'rgba(124, 58, 237, 0.15)',
+              background: 'var(--bg-highlight)',
               filter: 'blur(30px)',
               borderRadius: '50%'
             }} />
@@ -81,22 +57,22 @@ const Documents = () => {
                 width: '60px',
                 height: '60px',
                 borderRadius: '16px',
-                background: 'rgba(124, 58, 237, 0.1)',
+                background: 'var(--bg-highlight)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '1.8rem',
-                color: '#a855f7',
+                color: 'var(--accent-primary)',
                 marginBottom: '28px',
-                border: '1px solid rgba(124, 58, 237, 0.2)'
+                border: '1px solid var(--border-highlight)'
               }}>
                 <FaFilePdf />
               </div>
               
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: '#fff', marginBottom: '12px' }}>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '12px' }}>
                 Academic Transcript
               </h3>
-              <p style={{ color: '#cbd5e1', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '30px' }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '30px' }}>
                 Comprehensive transcript record containing verified semester-wise academic grades for both secondary education (schooling) and college degree (B.E. ECE).
               </p>
             </div>
@@ -126,31 +102,7 @@ const Documents = () => {
           <div 
             data-aos="fade-up"
             data-aos-delay="200"
-            className="document-card"
-            style={{
-              background: 'rgba(255, 255, 255, 0.03)',
-              backdropFilter: 'blur(15px)',
-              border: '1px solid rgba(59, 130, 246, 0.2)',
-              borderRadius: '24px',
-              padding: '40px 30px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.border = '1px solid rgba(59, 130, 246, 0.6)';
-              e.currentTarget.style.boxShadow = '0 20px 40px rgba(59, 130, 246, 0.25)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.border = '1px solid rgba(59, 130, 246, 0.2)';
-              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
-            }}
+            className="document-card doc-blue"
           >
             {/* Top decorative glow */}
             <div style={{
@@ -219,31 +171,7 @@ const Documents = () => {
           <div 
             data-aos="fade-up"
             data-aos-delay="300"
-            className="document-card"
-            style={{
-              background: 'rgba(255, 255, 255, 0.03)',
-              backdropFilter: 'blur(15px)',
-              border: '1px solid rgba(16, 185, 129, 0.2)',
-              borderRadius: '24px',
-              padding: '40px 30px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.border = '1px solid rgba(16, 185, 129, 0.6)';
-              e.currentTarget.style.boxShadow = '0 20px 40px rgba(16, 185, 129, 0.25)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.border = '1px solid rgba(16, 185, 129, 0.2)';
-              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
-            }}
+            className="document-card doc-green"
           >
             {/* Top decorative glow */}
             <div style={{

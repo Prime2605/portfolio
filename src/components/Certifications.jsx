@@ -635,10 +635,10 @@ const Certifications = ({ data }) => {
               key={tab}
               onClick={() => { setActiveTab(tab); setActiveSubTab('Software'); }}
               style={{
-                background: activeTab === tab ? 'linear-gradient(90deg, #1e3a8a, #d4af37)' : 'rgba(0, 0, 0, 0.4)',
-                color: activeTab === tab ? '#fff' : '#d4af37',
+                background: activeTab === tab ? 'var(--bg-highlight)' : 'var(--bg-glass)',
+                color: activeTab === tab ? 'var(--text-primary)' : 'var(--text-secondary)',
                 border: '1px solid',
-                borderColor: activeTab === tab ? '#d4af37' : 'rgba(212, 175, 55, 0.3)',
+                borderColor: activeTab === tab ? 'var(--accent-primary)' : 'var(--border-glass)',
                 padding: '10px 24px',
                 borderRadius: '8px',
                 fontSize: '0.95rem',
@@ -652,14 +652,14 @@ const Certifications = ({ data }) => {
               }}
               onMouseEnter={(e) => {
                 if (activeTab !== tab) {
-                  e.target.style.background = 'rgba(30, 58, 138, 0.3)';
-                  e.target.style.borderColor = '#d4af37';
+                  e.target.style.background = 'var(--bg-highlight)';
+                  e.target.style.borderColor = 'var(--border-highlight)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (activeTab !== tab) {
-                  e.target.style.background = 'rgba(0, 0, 0, 0.4)';
-                  e.target.style.borderColor = 'rgba(212, 175, 55, 0.3)';
+                  e.target.style.background = 'var(--bg-glass)';
+                  e.target.style.borderColor = 'var(--border-glass)';
                 }
               }}
             >
@@ -676,10 +676,10 @@ const Certifications = ({ data }) => {
                 key={subTab}
                 onClick={() => setActiveSubTab(subTab)}
                 style={{
-                  background: activeSubTab === subTab ? 'linear-gradient(90deg, #3b82f6, #1d4ed8)' : 'rgba(0, 0, 0, 0.5)',
-                  color: activeSubTab === subTab ? '#fff' : '#94a3b8',
+                  background: activeSubTab === subTab ? 'var(--bg-highlight-blue)' : 'var(--bg-glass)',
+                  color: activeSubTab === subTab ? 'var(--text-primary)' : 'var(--text-secondary)',
                   border: '1px solid',
-                  borderColor: activeSubTab === subTab ? '#60a5fa' : 'rgba(148, 163, 184, 0.2)',
+                  borderColor: activeSubTab === subTab ? 'var(--border-highlight-blue)' : 'var(--border-glass)',
                   padding: '8px 24px',
                   borderRadius: '20px',
                   fontSize: '0.85rem',
@@ -693,16 +693,16 @@ const Certifications = ({ data }) => {
                 }}
                 onMouseEnter={(e) => {
                   if (activeSubTab !== subTab) {
-                    e.target.style.background = 'rgba(59, 130, 246, 0.15)';
-                    e.target.style.borderColor = 'rgba(59, 130, 246, 0.5)';
-                    e.target.style.color = '#fff';
+                    e.target.style.background = 'var(--bg-highlight-blue)';
+                    e.target.style.borderColor = 'var(--border-highlight-blue)';
+                    e.target.style.color = 'var(--text-primary)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (activeSubTab !== subTab) {
-                    e.target.style.background = 'rgba(0, 0, 0, 0.5)';
-                    e.target.style.borderColor = 'rgba(148, 163, 184, 0.2)';
-                    e.target.style.color = '#94a3b8';
+                    e.target.style.background = 'var(--bg-glass)';
+                    e.target.style.borderColor = 'var(--border-glass)';
+                    e.target.style.color = 'var(--text-secondary)';
                   }
                 }}
               >
@@ -726,11 +726,11 @@ const Certifications = ({ data }) => {
               onClick={() => setActiveCertificate(cert)}
               className="cert-card"
               style={{
-                background: 'rgba(0, 0, 0, 0.65)',
+                background: 'var(--bg-card)',
                 backdropFilter: 'blur(30px)',
-                border: '1px solid rgba(212, 175, 55, 0.4)',
-                borderRadius: '20px',
-                padding: '24px',
+                border: '1px solid var(--border-glass)',
+                borderRadius: '24px',
+                padding: '30px',
                 cursor: 'pointer',
                 transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                 display: 'flex',

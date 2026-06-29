@@ -15,6 +15,7 @@ import LoadingScreen from './components/LoadingScreen'
 import Documents from './components/Documents'
 import ScrollCanvas from './components/ScrollCanvas'
 import GalleryPage from './components/GalleryPage'
+import { AnimatedThemeToggler } from './components/ui/AnimatedThemeToggler'
 import { api } from './lib/api'
 import { supabase } from './lib/supabase'
 
@@ -98,6 +99,8 @@ function AppContent() {
       <div className="orb orb-2" />
       <div className="orb orb-3" />
       <div className="cursor-glow" ref={cursorRef} />
+
+      <AnimatedThemeToggler />
 
       <Navbar />
       <Routes>

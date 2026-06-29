@@ -78,11 +78,11 @@ const Education = ({ data }) => {
                   <span style={{ 
                     fontSize: '0.85rem', 
                     fontWeight: '700', 
-                    color: '#c4b5fd', 
-                    background: 'rgba(124, 58, 237, 0.1)', 
+                    color: 'var(--text-primary)', 
+                    background: 'var(--bg-highlight)', 
                     padding: '6px 14px', 
                     borderRadius: '50px',
-                    border: '1px solid rgba(124, 58, 237, 0.3)',
+                    border: '1px solid var(--border-highlight)',
                     letterSpacing: '1px'
                   }}>
                     {item.date || item.duration}
@@ -95,7 +95,7 @@ const Education = ({ data }) => {
                 <h3 style={{ 
                   fontSize: '1.6rem', 
                   fontWeight: '800', 
-                  color: '#fff', 
+                  color: 'var(--text-primary)', 
                   marginBottom: '8px',
                   lineHeight: '1.2',
                   position: 'relative',
@@ -106,7 +106,7 @@ const Education = ({ data }) => {
 
                 <p style={{ 
                   fontSize: '1rem', 
-                  color: '#7c3aed', 
+                  color: 'var(--accent-primary)', 
                   fontWeight: '700',
                   marginBottom: '16px',
                   display: 'flex',
@@ -120,7 +120,7 @@ const Education = ({ data }) => {
 
                 <p style={{ 
                   fontSize: '0.95rem', 
-                  color: '#cbd5e1', 
+                  color: 'var(--text-secondary)', 
                   lineHeight: '1.7',
                   marginBottom: '24px',
                   position: 'relative',
@@ -133,11 +133,11 @@ const Education = ({ data }) => {
                   display: 'inline-flex', 
                   alignItems: 'center', 
                   gap: '10px',
-                  background: 'rgba(16, 185, 129, 0.1)', 
-                  color: '#10b981', 
+                  background: 'var(--bg-highlight-green)', 
+                  color: 'var(--accent-emerald)', 
                   padding: '8px 16px', 
                   borderRadius: '10px',
-                  border: '1px solid rgba(16, 185, 129, 0.2)',
+                  border: '1px solid var(--border-highlight-green)',
                   fontWeight: '700',
                   position: 'relative',
                   zIndex: 1

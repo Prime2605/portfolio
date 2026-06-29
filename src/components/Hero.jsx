@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedinIn, FaInstagram, FaDiscord } from 'react-icons/fa'
 import { HiArrowDown } from 'react-icons/hi'
 import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 import { PulsatingButton } from './ui/PulsatingButton'
+import { Text3DFlip } from './ui/Text3DFlip'
 
 const Hero = ({ data }) => {
   return (
@@ -15,9 +16,9 @@ const Hero = ({ data }) => {
             <p className="hero-greeting">
               <span className="wave">👋</span> Hello, I'm
             </p>
-            <h1 className="hero-name">
-              <span className="highlight">Prime</span> R S
-            </h1>
+            <div className="hero-name">
+              <Text3DFlip as="h1" className="hero-name-3d" textClassName="highlight" flipTextClassName="highlight" rotateDirection="top">Prime R S</Text3DFlip>
+            </div>
             <div className="hero-tagline">
               <TypeAnimation
                 sequence={[

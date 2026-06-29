@@ -103,9 +103,9 @@ const Projects = ({ data }) => {
                       href={project.github} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      style={{ color: '#fff', fontSize: '1.4rem', transition: 'all 0.3s', textShadow: '0 0 10px rgba(124, 58, 237, 0.8)' }}
-                      onMouseEnter={e => e.currentTarget.style.color = '#7c3aed'}
-                      onMouseLeave={e => e.currentTarget.style.color = '#fff'}
+                      style={{ color: 'var(--text-primary)', fontSize: '1.4rem', transition: 'all 0.3s', textShadow: '0 0 10px var(--border-highlight)' }}
+                      onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-primary)'}
+                      onMouseLeave={e => e.currentTarget.style.color = 'var(--text-primary)'}
                       onClick={e => e.stopPropagation()}
                     >
                       <FaGithub />
@@ -116,9 +116,9 @@ const Projects = ({ data }) => {
                       href={project.live} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      style={{ color: '#fff', fontSize: '1.4rem', transition: 'all 0.3s', textShadow: '0 0 10px rgba(6, 182, 212, 0.8)' }}
-                      onMouseEnter={e => e.currentTarget.style.color = '#06b6d4'}
-                      onMouseLeave={e => e.currentTarget.style.color = '#fff'}
+                      style={{ color: 'var(--text-primary)', fontSize: '1.4rem', transition: 'all 0.3s', textShadow: '0 0 10px var(--border-highlight-blue)' }}
+                      onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-secondary)'}
+                      onMouseLeave={e => e.currentTarget.style.color = 'var(--text-primary)'}
                       onClick={e => e.stopPropagation()}
                     >
                       <FaExternalLinkAlt />
@@ -130,7 +130,7 @@ const Projects = ({ data }) => {
               <h3 style={{ 
                 fontSize: '1.6rem', 
                 fontWeight: '900', 
-                color: '#fff', 
+                color: 'var(--text-primary)', 
                 marginBottom: '12px',
                 lineHeight: '1.3',
                 position: 'relative',
@@ -142,7 +142,7 @@ const Projects = ({ data }) => {
 
               <p style={{ 
                 fontSize: '1.05rem', 
-                color: '#f1f5f9', 
+                color: 'var(--text-secondary)', 
                 lineHeight: '1.7',
                 marginBottom: '24px',
                 position: 'relative',
@@ -163,11 +163,11 @@ const Projects = ({ data }) => {
                 {(project.tags || project.tech || []).map((tag, tIdx) => (
                   <span key={tIdx} style={{ 
                     fontSize: '0.8rem', 
-                    background: 'rgba(124, 58, 237, 0.15)', 
-                    color: '#c4b5fd', 
+                    background: 'var(--bg-highlight)', 
+                    color: 'var(--text-primary)', 
                     padding: '6px 14px', 
                     borderRadius: '8px',
-                    border: '1px solid rgba(124, 58, 237, 0.4)',
+                    border: '1px solid var(--border-highlight)',
                     fontWeight: '700',
                     letterSpacing: '0.5px'
                   }}>
