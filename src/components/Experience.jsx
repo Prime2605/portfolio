@@ -144,7 +144,7 @@ const Experience = ({ data, limit }) => {
               className="cert-card"
               style={{
                 background: 'var(--bg-card)',
-                backdropFilter: 'blur(30px)',
+                backdropFilter: 'blur(50px)',
                 border: '1px solid var(--border-glass)',
                 borderRadius: '24px',
                 padding: '30px',
@@ -293,7 +293,7 @@ const Experience = ({ data, limit }) => {
           position: 'fixed',
           top: 0, left: 0, right: 0, bottom: 0,
           background: 'rgba(0, 0, 0, 0.7)',
-          backdropFilter: 'blur(8px)',
+          backdropFilter: 'blur(12px)',
           zIndex: 99999,
           display: 'flex',
           alignItems: 'center',
@@ -317,7 +317,7 @@ const Experience = ({ data, limit }) => {
               width: '100%',
               maxHeight: '90vh',
               overflowY: 'auto',
-              backdropFilter: 'blur(24px)',
+              backdropFilter: 'blur(45px)',
               color: '#fff',
               position: 'relative',
               animation: 'slideUp 0.4s ease'
