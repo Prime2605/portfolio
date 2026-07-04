@@ -402,7 +402,7 @@ const baseCertificationsData = [
     description: 'Participated in COMSOL Multiphysics 6.4: Simulation-Driven Engineering with HPC, CUDA & AI organised by Indian Institute of Science (IISc), Bangalore.'
   },
   {
-    id: 'workshop-ai-iot',
+    id: 'workshop-vlsi',
     category: 'Workshops',
     subCategory: 'Hardware',
     title: 'Certificate of Participation',
@@ -766,8 +766,19 @@ const Certifications = ({ data, limit }) => {
 
         {/* 1.5. Workshops Sub-Filters */}
         {activeTab === 'Workshops' && (
-          <div className="cert-subfilters" data-aos="fade-up" style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '30px', flexWrap: 'wrap' }}>
-            {['Software', 'VLSI'].map(subTab => (
+          <div className="cert-subfilters" data-aos="fade-up" style={{ 
+            display: 'flex', 
+            justifyContent: 'flex-start', // Use flex-start instead of center so it scrolls correctly
+            gap: '15px', 
+            marginBottom: '30px', 
+            flexWrap: 'nowrap',
+            overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            paddingBottom: '10px',
+            scrollSnapType: 'x mandatory'
+          }}>
+            <style>{`.cert-subfilters::-webkit-scrollbar { display: none; }`}</style>
+            {['Software', 'Hardware'].map(subTab => (
               <button
                 key={subTab}
                 onClick={() => setActiveSubTab(subTab)}
