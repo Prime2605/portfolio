@@ -2711,15 +2711,25 @@ body {
     background: rgba(5, 5, 10, 0.95) !important;
     backdrop-filter: blur(25px) !important;
     -webkit-backdrop-filter: blur(25px) !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     border: none !important;
+    padding: 100px 24px 40px !important;
+  }
+  .navbar-links li {
+    width: 100% !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .navbar-links li:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
   .navbar-links a {
-    text-align: center;
+    text-align: left !important;
     font-size: 1.4rem !important;
-    padding: 15px !important;
-    font-weight: 600 !important;
+    padding: 20px 0 !important;
+    font-weight: 500 !important;
     letter-spacing: 1px;
+    width: 100%;
+    display: block;
   }
   .navbar-links a.active {
     background: transparent !important;
