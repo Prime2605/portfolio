@@ -1846,7 +1846,7 @@ body {
 
 .education-card {
   padding: 30px !important;
-  margin-left: 20px !important;
+  width: 100% !important;
   border-radius: 20px !important;
   cursor: default !important;
 }
