@@ -1827,8 +1827,8 @@ body {
   position: relative;
   overflow: hidden;
   background: var(--bg-card) !important;
-  backdrop-filter: blur(50px) saturate(200%) !important;
-  -webkit-backdrop-filter: blur(50px) saturate(200%) !important;
+  backdrop-filter: blur(100px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(100px) saturate(200%) !important;
   border: 1px solid var(--border-glass) !important;
   box-shadow: var(--shadow-card) !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2733,7 +2733,8 @@ body {
     padding: 16px !important; /* Strict 16px padding */
     border-radius: 16px !important;
     background: rgba(10, 10, 15, 0.75) !important;
-    backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(50px) !important;
+    -webkit-backdrop-filter: blur(50px) !important;
     margin-bottom: 16px !important;
   }
   

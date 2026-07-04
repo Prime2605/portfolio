@@ -34,9 +34,10 @@ function AppContent() {
     AOS.init({
       duration: 800,
       easing: 'ease-out-cubic',
-      once: true,
-      offset: 80,
-      delay: 50,
+      once: false,
+      offset: 50,
+      delay: 0,
+      mirror: true,
       disable: false,
     })
 

@@ -43,7 +43,7 @@ const Education = ({ data }) => {
           display: 'flex',
           flexDirection: 'column',
           gap: '40px',
-          paddingLeft: '20px',
+          paddingLeft: '10px', /* Reduced padding to increase card width */
           borderLeft: '2px solid rgba(124, 58, 237, 0.2)',
           position: 'relative'
         }}>
