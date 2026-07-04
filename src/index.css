@@ -2608,6 +2608,59 @@ body {
 }
 
 /* ==========================================================================
+   PREMIUM SPLASH SCREEN
+   ========================================================================== */
+.premium-splash {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s;
+}
+.premium-splash.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.splash-content {
+  text-align: center;
+}
+.splash-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 800;
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  animation: loadPulse 2s infinite ease-in-out;
+}
+.splash-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.splash-progress {
+  width: 200px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.splash-progress-bar {
+  width: 0%;
+  height: 100%;
+  background: var(--accent-primary);
+  animation: loadBar 2s ease-in-out forwards;
+}
+
+/* ==========================================================================
    MOBILE MASTER PIECE (NVIDIA / APPLE INSPIRED)
    ========================================================================== */
 
@@ -2636,34 +2689,71 @@ body {
   /* Typography refinements */
   .section-title {
     font-size: 2.2rem !important;
-    margin-bottom: 30px !important;
+    margin-bottom: 24px !important;
+  }
+
+  /* Sticky Top Navbar Refinement */
+  .navbar {
+    padding: 12px 0 !important;
+    background: rgba(10, 10, 15, 0.75) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+  .navbar-inner {
+    padding: 0 16px !important;
+  }
+  
+  /* Make the slide-out menu full screen premium */
+  .navbar-links {
+    width: 100% !important;
+    height: 100vh !important;
+    background: rgba(5, 5, 10, 0.95) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    align-items: center !important;
+    border: none !important;
+  }
+  .navbar-links a {
+    text-align: center;
+    font-size: 1.4rem !important;
+    padding: 15px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px;
+  }
+  .navbar-links a.active {
+    background: transparent !important;
+    color: var(--accent-primary) !important;
   }
 
   /* Cards & Glassmorphism refinements (sleeker borders) */
   .glass-card, .neumorphic-card, .neumorphic-card-inset {
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02) !important;
-    padding: 20px !important;
+    padding: 16px !important; /* Strict 16px padding */
     border-radius: 16px !important;
     background: rgba(10, 10, 15, 0.75) !important;
     backdrop-filter: blur(12px) !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 16px !important;
   }
   
   /* Fix Hero layout & Name Box */
   .hero-content {
     padding-top: 40px !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
   }
   
   .hero-name {
     padding: 10px 16px !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    white-space: nowrap; /* Keep PRIME R S on single line */
   }
   
-  /* Project/Experience Grid */
+  /* Strict 1-column Grids with 24px spacing */
   .projects-grid, .experience-grid, .certifications-grid {
     grid-template-columns: 1fr !important;
-    gap: 15px !important;
+    gap: 24px !important;
   }
 
   /* Standard Buttons */
@@ -2671,6 +2761,8 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 12px !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+    width: 100% !important; /* Full width on mobile */
+    justify-content: center;
   }
 
   /* Profile Photo container override */
@@ -2680,9 +2772,13 @@ body {
   }
 
   /* Timeline */
+  .timeline {
+    gap: 24px !important; /* Reduced from 40px */
+    padding-left: 20px !important;
+  }
   .timeline::before {
     background: rgba(255,255,255,0.05) !important;
-    width: 1px !important;
+    width: 2px !important;
   }
   
   /* Scrollbar sleekness */

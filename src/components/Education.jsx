@@ -119,9 +119,20 @@ const Education = ({ data }) => {
                   color: 'var(--text-secondary)', 
                   fontWeight: '600',
                   position: 'relative',
-                  zIndex: 1
+                  zIndex: 1,
+                  marginBottom: '12px'
                 }}>
                   {item.title || item.degree}
+                </p>
+
+                <p style={{
+                  fontSize: '0.9rem',
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  lineHeight: '1.6',
+                  position: 'relative',
+                  zIndex: 1
+                }}>
+                  {item.description}
                 </p>
               </div>
             </div>
