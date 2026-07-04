@@ -97,6 +97,8 @@ html {
   /* scrollbar-width & scrollbar-color: Firefox + Chrome 121+; -webkit-scrollbar fallback below for others */
   scrollbar-width: thin;
   scrollbar-color: var(--accent-primary) var(--bg-primary);
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 html::-webkit-scrollbar {
@@ -118,6 +120,7 @@ body {
   color: var(--text-primary);
   line-height: 1.7;
   overflow-x: hidden;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -2684,6 +2687,9 @@ body {
   .section-container {
     padding-top: 80px !important;
     padding-bottom: 60px !important;
+  }
+  .section {
+    padding: 60px 0 !important;
   }
 
   /* Typography refinements */

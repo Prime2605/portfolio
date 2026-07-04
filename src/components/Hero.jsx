@@ -12,14 +12,14 @@ const Hero = ({ data }) => {
     <section className="hero section" id="home" style={{ background: 'transparent' }}>
       <div className="container">
         <div className="hero-content">
-          <div className="hero-text" data-aos="fade-right">
-            <p className="hero-greeting">
+          <div className="hero-text">
+            <p className="hero-greeting" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="0">
               Hello, I'm
             </p>
-            <div className="hero-name">
+            <div className="hero-name" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="200">
               <Text3DFlip as="h1" className="hero-name-3d" textClassName="highlight" flipTextClassName="highlight" rotateDirection="top">PRIME R S</Text3DFlip>
             </div>
-            <div className="hero-tagline">
+            <div className="hero-tagline" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="400">
               <TypeAnimation
                 sequence={[
                   'Aspiring Researcher',
@@ -39,12 +39,12 @@ const Hero = ({ data }) => {
                 style={{ color: 'var(--accent-secondary)' }}
               />
             </div>
-            <p className="hero-description">
+            <p className="hero-description" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
               Passionate Electronics & Communication Engineering student with a dual focus on 
               hardware innovation and software development. Building the future one circuit 
               and one line of code at a time.
             </p>
-            <div className="hero-buttons" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+            <div className="hero-buttons" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }} data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">
               <InteractiveHoverButton as="a" href="#contact" id="hero-contact-btn">
                 Get In Touch
               </InteractiveHoverButton>
@@ -58,7 +58,7 @@ const Hero = ({ data }) => {
                 View Gallery
               </InteractiveHoverButton>
             </div>
-            <div className="hero-socials">
+            <div className="hero-socials" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1000">
               <a href="https://github.com/Prime2605" target="_blank" rel="noopener noreferrer" aria-label="GitHub" id="social-github">
                 <FaGithub />
               </a>

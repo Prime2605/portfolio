@@ -13,7 +13,8 @@ import {
   FaGlobe, 
   FaLaptopCode, 
   FaMicrochip, 
-  FaPlug 
+  FaPlug,
+  FaArrowLeft
 } from 'react-icons/fa'
 import { SiGoogle } from 'react-icons/si'
 import { certificationsData } from './Certifications'
@@ -351,27 +352,31 @@ const Experience = ({ data, limit }) => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Back Button */}
             <button 
               onClick={() => setActiveCertificate(null)}
               style={{
                 position: 'absolute',
                 top: '20px',
-                right: '20px',
-                background: 'rgba(212, 175, 55, 0.2)',
-                border: '1px solid #d4af37',
+                left: '20px',
+                background: 'rgba(212, 175, 55, 0.15)',
+                border: '1px solid rgba(212, 175, 55, 0.3)',
                 color: '#d4af37',
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
+                padding: '8px 16px',
+                borderRadius: '8px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
+                gap: '8px',
+                fontSize: '0.9rem',
+                fontWeight: '600',
                 cursor: 'pointer',
                 zIndex: 10,
                 transition: 'all 0.3s'
               }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212, 175, 55, 0.3)'; e.currentTarget.style.borderColor = '#d4af37'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212, 175, 55, 0.15)'; e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.3)'; }}
             >
-              <FaTimes />
+              <FaArrowLeft /> Back
             </button>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '30px' }}>
