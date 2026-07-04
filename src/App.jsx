@@ -21,6 +21,7 @@ import Experience from './components/Experience'
 import ProjectsPage from './components/ProjectsPage'
 import CertificationsPage from './components/CertificationsPage'
 import ExperiencePage from './components/ExperiencePage'
+import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton'
 
 function AppContent() {
   const [loading, setLoading] = useState(true)
