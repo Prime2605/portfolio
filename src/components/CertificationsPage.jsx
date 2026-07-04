@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { HiArrowLeft } from 'react-icons/hi'
 import Certifications from './Certifications'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 
 const CertificationsPage = ({ data }) => {
   useEffect(() => {
@@ -10,10 +11,10 @@ const CertificationsPage = ({ data }) => {
 
   return (
     <div className="section-container" style={{ minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
-      <div className="container" style={{ marginBottom: '20px' }}>
-        <Link to="/" className="btn-jelly btn-primary glow-text" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 24px', fontSize: '0.95rem', textDecoration: 'none' }}>
-          <HiArrowLeft /> Back to Home
-        </Link>
+      <div className="container" style={{ paddingTop: '100px', paddingBottom: '30px' }}>
+        <InteractiveHoverButton as={Link} to="/" className="glow-text" style={{ marginBottom: '20px' }}>
+          ← Back to Home
+        </InteractiveHoverButton>
       </div>
       <Certifications data={data} />
     </div>

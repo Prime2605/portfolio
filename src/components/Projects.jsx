@@ -1,6 +1,36 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+import { 
+  FaGithub, 
+  FaExternalLinkAlt, 
+  FaBook, 
+  FaMobileAlt, 
+  FaSearch, 
+  FaShieldAlt, 
+  FaKey, 
+  FaUniversity, 
+  FaSeedling, 
+  FaMapMarkedAlt, 
+  FaLink, 
+  FaCode 
+} from 'react-icons/fa'
+
+const projectIcons = {
+  '🌾': <FaSeedling />,
+  '🏛️': <FaUniversity />,
+  '📚': <FaBook />,
+  '📱': <FaMobileAlt />,
+  '🔍': <FaSearch />,
+  '🪖': <FaMapMarkedAlt />,
+  '🛡️': <FaShieldAlt />,
+  '🔗': <FaLink />,
+  '🔐': <FaKey />,
+}
+
+const getProjectIcon = (emoji) => {
+  return projectIcons[emoji] || <FaCode />
+}
 
 const projectsData = [
   {
@@ -99,7 +129,7 @@ const Projects = ({ data, limit }) => {
             >
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', position: 'relative', zIndex: 1 }}>
-                <span style={{ fontSize: '2.5rem', filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.2))' }}>{project.emoji || '🚀'}</span>
+                <span style={{ fontSize: '2.5rem', color: 'var(--accent-secondary)', filter: 'drop-shadow(0 0 10px rgba(6, 182, 212, 0.4))' }}>{getProjectIcon(project.emoji)}</span>
                 <div style={{ display: 'flex', gap: '10px' }}>
                   {project.github && (
                     <a 
@@ -183,10 +213,10 @@ const Projects = ({ data, limit }) => {
         </div>
 
         {limit && allProjects.length > limit && (
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }} data-aos="fade-up">
-            <Link to="/projects" className="btn-jelly btn-primary glow-text" style={{ padding: '14px 36px', fontSize: '1.1rem', textDecoration: 'none' }}>
-              View All Projects
-            </Link>
+          <div className="section-footer" style={{ textAlign: 'center', marginTop: '30px' }}>
+            <InteractiveHoverButton as={Link} to="/projects" className="glow-text">
+              See All Projects
+            </InteractiveHoverButton>
           </div>
         )}
       </div>

@@ -1,8 +1,72 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { FaAward, FaTimes, FaExpand, FaExternalLinkAlt } from 'react-icons/fa'
+import { 
+  FaAward, 
+  FaTimes, 
+  FaExpand, 
+  FaExternalLinkAlt,
+  FaTrophy,
+  FaMedal,
+  FaLaptopCode,
+  FaCode,
+  FaTerminal,
+  FaRocket,
+  FaCertificate,
+  FaCheckCircle,
+  FaGlobe,
+  FaMicrochip,
+  FaPython,
+  FaBolt,
+  FaRobot,
+  FaBrain,
+  FaPlug,
+  FaBalanceScale,
+  FaKeyboard,
+  FaPuzzlePiece,
+  FaWrench,
+  FaFileAlt,
+  FaBriefcase,
+  FaCalendarAlt,
+  FaTag
+} from 'react-icons/fa'
 import { SiGoogle } from 'react-icons/si'
 import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+
+const certIcons = {
+  '🏆': <FaTrophy />,
+  '🏅': <FaMedal />,
+  '💻': <FaLaptopCode />,
+  '⚔️': <FaCode />,
+  '🚀': <FaRocket />,
+  '👁️': <FaCode />,
+  '🎖️': <FaMedal />,
+  '📜': <FaCertificate />,
+  '📈': <FaCheckCircle />,
+  '🌐': <FaGlobe />,
+  '🖲️': <FaMicrochip />,
+  '🔬': <FaMicrochip />,
+  '🐍': <FaPython />,
+  'C': <FaTerminal />,
+  '⚡': <FaBolt />,
+  '🏕️': <FaCode />,
+  '🤖': <FaRobot />,
+  '🧠': <FaBrain />,
+  '🔌': <FaPlug />,
+  '⚖️': <FaBalanceScale />,
+  '🌍': <FaGlobe />,
+  '🥈': <FaAward />,
+  '⌨️': <FaKeyboard />,
+  '🧩': <FaPuzzlePiece />,
+  '🛠️': <FaWrench />,
+  '📄': <FaFileAlt />,
+  '✨': <FaCheckCircle />,
+  '💼': <FaBriefcase />,
+}
+
+const getCertIcon = (emoji) => {
+  return certIcons[emoji] || <FaAward />
+}
+
 
 const baseCertificationsData = [
   // Hackathons (Priority: 1st, Semifinalist, Others)
@@ -13,7 +77,7 @@ const baseCertificationsData = [
     event: 'Smart Campus Hackathon\'26',
     issuer: 'Government College of Engineering, Erode',
     subIssuer: 'First Prize 🏆',
-    date: '2026',
+    date: 'Jan 30, 2026',
     color: '#d4af37',
     emoji: '🏆',
     tags: ['Hackathon', 'CSE', 'First Prize'],
@@ -26,7 +90,7 @@ const baseCertificationsData = [
     event: 'CONVOLVE 4.0 - Generative AI Track', 
     issuer: 'IIT Guwahati', 
     subIssuer: 'Semi-Finalist', 
-    date: '2026', 
+    date: 'Jan – Feb 2026', 
     color: '#0ea5e9', 
     emoji: '🏅', 
     tags: ['GenAI', 'Merit', 'Semi-Finalist'],
@@ -65,7 +129,7 @@ const baseCertificationsData = [
     event: 'Conscientia 2025 - HACKORBITAL', 
     issuer: 'IIST', 
     subIssuer: '', 
-    date: '2025', 
+    date: 'Oct 16 – 19, 2025', 
     color: '#14b8a6', 
     emoji: '🚀', 
     tags: ['Space Tech', 'Hackathon'],
@@ -104,7 +168,7 @@ const baseCertificationsData = [
     event: 'BITBOX 6.0', 
     issuer: 'Google Developer Groups', 
     subIssuer: 'JIIT Noida', 
-    date: '2026', 
+    date: 'Apr 18, 2026', 
     color: '#4285F4', 
     emoji: '💻', 
     tags: ['Hackathon', 'GDG', 'Coding'],
@@ -156,7 +220,7 @@ const baseCertificationsData = [
     event: 'CodeKshetra Coding Contest',
     issuer: 'CodeKshetra',
     subIssuer: 'Coding Contest',
-    date: '2026',
+    date: 'Apr 18, 2026',
     color: '#10b981',
     emoji: '💻',
     tags: ['Coding Contest', 'Algorithms', 'Speed Coding'],
@@ -169,7 +233,7 @@ const baseCertificationsData = [
     event: 'National Cloud Innovation Challenge',
     issuer: '3SVK, Hyderabad',
     subIssuer: 'Cloud Hackathon',
-    date: '2026',
+    date: 'Apr 30, 2026',
     color: '#0ea5e9',
     emoji: '☁️',
     tags: ['Cloud', 'Hackathon', '3SVK'],
@@ -184,7 +248,7 @@ const baseCertificationsData = [
     event: 'NPTEL - Digital Design with Verilog',
     issuer: 'IIT Guwahati',
     subIssuer: 'NPTEL (Score: 62%)',
-    date: '2026',
+    date: 'Jan – Apr 2026',
     color: '#0ea5e9',
     emoji: '📜',
     tags: ['Verilog', 'Digital Design', 'IIT'],
@@ -210,7 +274,7 @@ const baseCertificationsData = [
     event: 'Networking Basics', 
     issuer: 'Cisco Networking Academy', 
     subIssuer: '', 
-    date: '2023', 
+    date: 'Jul 8, 2025', 
     color: '#0284c7', 
     emoji: '🌐', 
     tags: ['Networking', 'Cisco'],
@@ -223,7 +287,7 @@ const baseCertificationsData = [
     event: 'Semiconductors - VLSI & Embedded Systems', 
     issuer: 'Maven Silicon', 
     subIssuer: '', 
-    date: '2024', 
+    date: 'Jun 6, 2025', 
     color: '#ea580c', 
     emoji: '🖲️', 
     tags: ['VLSI', 'Semiconductors'],
@@ -236,7 +300,7 @@ const baseCertificationsData = [
     event: 'Electronics - Nanoelectronics', 
     issuer: 'Cursa', 
     subIssuer: '', 
-    date: '2025', 
+    date: 'Oct 7, 2025', 
     color: '#059669', 
     emoji: '🔬', 
     tags: ['Nanoelectronics', 'Online Course'],
@@ -249,7 +313,7 @@ const baseCertificationsData = [
     event: 'Basics of Python', 
     issuer: 'Infosys Springboard', 
     subIssuer: '', 
-    date: '2023', 
+    date: 'Apr 13, 2025', 
     color: '#ca8a04', 
     emoji: '🐍', 
     tags: ['Python', 'Programming'],
@@ -288,7 +352,7 @@ const baseCertificationsData = [
     event: 'Python Bootcamp', 
     issuer: 'Lets Upgrade', 
     subIssuer: 'NSDC & GDG MAD', 
-    date: '2025', 
+    date: 'May 21 – 23, 2025', 
     color: '#eab308', 
     emoji: '🏕️', 
     tags: ['Bootcamp', 'Python'],
@@ -301,7 +365,7 @@ const baseCertificationsData = [
     event: 'GenAI 101: Socratic AI Tutor Essentials', 
     issuer: 'Lets Upgrade', 
     subIssuer: 'NSDC & GDG MAD', 
-    date: '2026', 
+    date: 'Feb 7, 2026', 
     color: '#8b5cf6', 
     emoji: '🤖', 
     tags: ['GenAI', 'Course'],
@@ -322,6 +386,36 @@ const baseCertificationsData = [
   },
 
   // Workshops (Priority: Software, VLSI)
+  {
+    id: 'workshop-comsol',
+    category: 'Workshops',
+    subCategory: 'Software',
+    title: 'Certificate of Participation',
+    event: 'COMSOL Multiphysics 6.4: Simulation-Driven Engineering',
+    issuer: 'Indian Institute of Science (IISc)',
+    subIssuer: 'Bangalore',
+    date: 'Jul 2026',
+    color: '#0ea5e9',
+    emoji: '🤖',
+    tags: ['COMSOL', 'HPC', 'AI', 'Simulation'],
+    imageExt: 'jpeg',
+    description: 'Participated in COMSOL Multiphysics 6.4: Simulation-Driven Engineering with HPC, CUDA & AI organised by Indian Institute of Science (IISc), Bangalore.'
+  },
+  {
+    id: 'workshop-ai-iot',
+    category: 'Workshops',
+    subCategory: 'Hardware',
+    title: 'Certificate of Participation',
+    event: 'VLSI Design and Verification',
+    issuer: 'Nandha Engineering College',
+    subIssuer: 'Workshop',
+    date: 'Jun 8 - 12, 2026',
+    color: '#10b981',
+    emoji: '🔌',
+    tags: ['VLSI', 'Electronics', 'Design', 'Hardware'],
+    imageExt: 'jpeg',
+    description: 'Participated in a Five Days National Level Workshop on VLSI Design and Verification organized by Nandha Engineering College.'
+  },
   { 
     id: '14Ih98vYjm8mlC-yhLxw7CEZNIt8B5oKW', 
     category: 'Workshops', 
@@ -344,7 +438,7 @@ const baseCertificationsData = [
     event: 'Full Stack Web Development Workshop',
     issuer: 'Jobaaj Learnings',
     subIssuer: 'Jobaaj Group',
-    date: '2026',
+    date: 'May 14, 2026',
     color: '#ec4899',
     emoji: '🌐',
     tags: ['Web Dev', 'Full Stack', 'Workshop'],
@@ -358,7 +452,7 @@ const baseCertificationsData = [
     event: 'Semiconductors & VLSI Design', 
     issuer: 'Edu Fabrica', 
     subIssuer: '', 
-    date: '2025', 
+    date: 'Feb 7 – 8, 2026', 
     color: '#dc2626', 
     emoji: '🖥️', 
     tags: ['Workshop', 'Hardware'],
@@ -372,7 +466,7 @@ const baseCertificationsData = [
     event: 'Two-Day Workshop on VLSI Design and Semiconductor Industry', 
     issuer: 'ChipXpert Technologies', 
     subIssuer: 'ID: CXVLSI-MAY26-1668', 
-    date: '2026', 
+    date: 'May 30 – 31, 2026', 
     color: '#f97316', 
     emoji: '🖲️', 
     tags: ['VLSI', 'Semiconductors', 'Hardware'],
@@ -387,7 +481,7 @@ const baseCertificationsData = [
     event: 'Ind. Embedded Systems with IOT', 
     issuer: 'NSIC Chennai', 
     subIssuer: 'Govt. of India', 
-    date: '2025', 
+    date: 'Jul 14 – 28, 2025', 
     color: '#4f46e5', 
     emoji: '🔌', 
     tags: ['IoT', 'Embedded Systems', 'Internship'],
@@ -402,7 +496,7 @@ const baseCertificationsData = [
     event: 'National Level E-Quiz on World Intellectual Property Day 2026', 
     issuer: 'Guru Nanak College (Autonomous)', 
     subIssuer: 'Scored 90/100', 
-    date: '2026', 
+    date: 'Apr 28, 2026', 
     color: '#10b981', 
     emoji: '⚖️', 
     tags: ['IPR Cell', 'Intellectual Property', 'Quiz'],
@@ -482,7 +576,7 @@ const baseCertificationsData = [
     event: 'ELECT-ERA\'26 - CHASE AND BUILD', 
     issuer: 'Coimbatore Institute of Technology', 
     subIssuer: '', 
-    date: '2026', 
+    date: 'Feb 6, 2026', 
     color: '#f43f5e', 
     emoji: '🛠️', 
     tags: ['Hardware', 'Symposium'],
@@ -560,7 +654,7 @@ const baseCertificationsData = [
     event: 'Galaxy24 Phase II - EROTECT WAR',
     issuer: 'Government College of Engineering, Erode',
     subIssuer: 'Association of ECE',
-    date: '2024',
+    date: 'Oct 24 – 25, 2024',
     color: '#6366f1',
     emoji: '🛡️',
     tags: ['ECE', 'Galaxy24', 'Symposium'],
@@ -583,7 +677,7 @@ const baseCertificationsData = [
 
 export const certificationsData = baseCertificationsData.map(cert => ({
   ...cert,
-  driveImageUrl: `/certs/${cert.id}.png?v=1`,
+  driveImageUrl: `/certs/${cert.id}.${cert.imageExt || 'png'}?v=1`,
   driveId: cert.id,
   description: cert.description || (
     cert.category === 'Hackathons' ? "Demonstrated outstanding performance and technical skillset in this competitive event." :
@@ -600,7 +694,7 @@ const Certifications = ({ data, limit }) => {
   const [activeCertificate, setActiveCertificate] = useState(null)
   const [isFullScreenImg, setIsFullScreenImg] = useState(false)
 
-  const tabs = ['Hackathons', 'Courses', 'Quiz', 'Others'];
+  const tabs = ['Hackathons', 'Courses', 'Workshops', 'Quiz', 'Others'];
   const filteredCerts = certs.filter(cert => {
     if (cert.category !== activeTab) return false;
     if (activeTab === 'Workshops') {
@@ -776,7 +870,7 @@ const Certifications = ({ data, limit }) => {
               />
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px', position: 'relative', zIndex: 1 }}>
-                <span style={{ fontSize: '2.5rem', filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.2))' }}>{cert.emoji}</span>
+                <span style={{ fontSize: '2.5rem', color: 'var(--accent-secondary)', filter: 'drop-shadow(0 0 10px rgba(6, 182, 212, 0.4))', display: 'inline-flex', alignItems: 'center' }}>{getCertIcon(cert.emoji)}</span>
                 <span style={{ 
                   fontSize: '0.8rem', 
                   fontWeight: '800', 
@@ -822,7 +916,7 @@ const Certifications = ({ data, limit }) => {
                 color: '#cbd5e1', 
                 lineHeight: '1.7',
                 display: '-webkit-box',
-                WebkitLineClamp: 3,
+                WebkitLineClamp: limit ? 2 : 'none',
                 WebkitBoxOrient: 'vertical',
                 overflow: 'hidden',
                 marginBottom: '24px',
@@ -863,13 +957,13 @@ const Certifications = ({ data, limit }) => {
           )}
         </div>
 
-        {limit && filteredCerts.length > limit && (
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }} data-aos="fade-up">
-            <Link to="/certifications" className="btn-jelly btn-primary glow-text" style={{ padding: '14px 36px', fontSize: '1.1rem', textDecoration: 'none' }}>
-              View All Certifications
-            </Link>
-          </div>
-        )}
+        <div className="section-footer" style={{ textAlign: 'center', marginTop: '30px' }} data-aos="fade-up">
+          {limit && filteredCerts.length > limit && (
+            <InteractiveHoverButton as={Link} to="/certifications" className="glow-text">
+              See All Certifications
+            </InteractiveHoverButton>
+          )}
+        </div>
       </div>
 
       {/* 3. Floating Window / Mirror Transparent Blue-Gold-Black Styled Box */}
@@ -996,7 +1090,7 @@ const Certifications = ({ data, limit }) => {
               <div style={{ flex: '1', minWidth: '300px', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 2 }}>
                 <div style={{ marginBottom: '20px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span style={{ fontSize: '2.5rem', marginBottom: '10px' }}>{activeCertificate.emoji}</span>
+                     <span style={{ fontSize: '2.5rem', color: 'var(--accent-secondary)', filter: 'drop-shadow(0 0 10px rgba(6, 182, 212, 0.4))', marginBottom: '10px', display: 'inline-flex', alignItems: 'center' }}>{getCertIcon(activeCertificate.emoji)}</span>
                     <h3 style={{ fontSize: '1.8rem', color: '#d4af37', marginBottom: '10px', fontWeight: 'bold' }}>{activeCertificate.title}</h3>
                   </div>
                   <h4 style={{ fontSize: '1.3rem', color: '#60a5fa', marginBottom: '15px' }}>{activeCertificate.event}</h4>
@@ -1015,8 +1109,8 @@ const Certifications = ({ data, limit }) => {
                 </p>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto', flexWrap: 'wrap', gap: '15px' }}>
-                  <span style={{ background: 'linear-gradient(90deg, #1e3a8a, #3b82f6)', color: '#fff', padding: '8px 16px', borderRadius: '6px', fontWeight: 'bold', border: '1px solid #60a5fa', boxShadow: '0 4px 10px rgba(30,58,138,0.4)' }}>
-                    Issued: {activeCertificate.date}
+                   <span style={{ background: 'linear-gradient(90deg, #1e3a8a, #3b82f6)', color: '#fff', padding: '8px 16px', borderRadius: '6px', fontWeight: 'bold', border: '1px solid #60a5fa', boxShadow: '0 4px 10px rgba(30,58,138,0.4)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    <FaCalendarAlt /> Issued: {activeCertificate.date}
                   </span>
                   
                   {activeCertificate.driveId && (

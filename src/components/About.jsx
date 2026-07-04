@@ -3,7 +3,7 @@ import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaGraduationCap, FaCalendar, FaLan
 
 const About = ({ data }) => {
   const [imageError, setImageError] = useState(false)
-  const avatarSrc = data?.avatar_url || '/assets/profile.jpg'
+  const avatarSrc = data?.avatar_url || '/assets/about-profile-full.jpeg'
 
   useEffect(() => {
     setImageError(false)

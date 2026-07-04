@@ -14,10 +14,10 @@ const Hero = ({ data }) => {
         <div className="hero-content">
           <div className="hero-text" data-aos="fade-right">
             <p className="hero-greeting">
-              <span className="wave">👋</span> Hello, I'm
+              Hello, I'm
             </p>
             <div className="hero-name">
-              <Text3DFlip as="h1" className="hero-name-3d" textClassName="highlight" flipTextClassName="highlight" rotateDirection="top">Prime R S</Text3DFlip>
+              <Text3DFlip as="h1" className="hero-name-3d" textClassName="highlight" flipTextClassName="highlight" rotateDirection="top">PRIME R S</Text3DFlip>
             </div>
             <div className="hero-tagline">
               <TypeAnimation
@@ -49,14 +49,14 @@ const Hero = ({ data }) => {
                 Get In Touch
               </InteractiveHoverButton>
               <InteractiveHoverButton as={Link} to="/documents" id="hero-documents-btn">
-                Documents (Click here)
+                Documents
               </InteractiveHoverButton>
               <InteractiveHoverButton as="a" href="#projects" id="hero-projects-btn">
                 View Projects
               </InteractiveHoverButton>
-              <PulsatingButton as={Link} to="/gallery" id="hero-gallery-btn">
+              <InteractiveHoverButton as={Link} to="/gallery" id="hero-gallery-btn">
                 View Gallery
-              </PulsatingButton>
+              </InteractiveHoverButton>
             </div>
             <div className="hero-socials">
               <a href="https://github.com/Prime2605" target="_blank" rel="noopener noreferrer" aria-label="GitHub" id="social-github">

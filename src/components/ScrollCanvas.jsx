@@ -2,36 +2,54 @@ import React, { useEffect, useRef, useState } from 'react'
 
 const ScrollCanvas = () => {
   const canvasRef = useRef(null)
+  const videoRef = useRef(null)
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
   const frameCount = 600
 
-  const imagesRef = useRef({}) // Map of frameIndex (1-600) -> Image object
-  const loadingQueueRef = useRef(new Set()) // Set of frameIndices currently loading
+  // Canvas Refs
+  const imagesRef = useRef({})
+  const loadingQueueRef = useRef(new Set())
   const lastPrefetchedRef = useRef(1)
-  const [loadedCount, setLoadedCount] = useState(0)
-
   const targetFrameRef = useRef(1)
   const currentFrameRef = useRef(1)
   const isAnimatingRef = useRef(false)
 
-  // Load a single frame image on demand
+  // Video Refs
+  const videoTargetTimeRef = useRef(0)
+  const videoCurrentTimeRef = useRef(0)
+  const isVideoAnimatingRef = useRef(false)
+
+  // Handle Resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768)
+      const canvas = canvasRef.current
+      if (canvas && window.innerWidth > 768) {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+        drawFrame(Math.round(currentFrameRef.current))
+      }
+    }
+    
+    window.addEventListener('resize', handleResize)
+    handleResize()
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // --- DESKTOP CANVAS LOGIC ---
+
   const loadImage = (index) => {
-    if (imagesRef.current[index]) {
-      return Promise.resolve(imagesRef.current[index])
-    }
-    if (loadingQueueRef.current.has(index)) {
-      return Promise.resolve(null)
-    }
+    if (imagesRef.current[index]) return Promise.resolve(imagesRef.current[index])
+    if (loadingQueueRef.current.has(index)) return Promise.resolve(null)
 
     loadingQueueRef.current.add(index)
     return new Promise((resolve) => {
       const img = new Image()
       const frameNum = String(index).padStart(4, '0')
-      // Suffix query parameters to bust Vercel Edge Cache and local browser caching
       img.src = `/frames/frame_${frameNum}.jpg?v=4`
       img.onload = () => {
         imagesRef.current[index] = img
         loadingQueueRef.current.delete(index)
-        setLoadedCount((prev) => prev + 1)
         resolve(img)
       }
       img.onerror = () => {
@@ -41,7 +59,6 @@ const ScrollCanvas = () => {
     })
   }
 
-  // Draw frame on canvas with dynamic fallback to nearest loaded frame
   const drawFrame = (frameIndex) => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -50,11 +67,9 @@ const ScrollCanvas = () => {
 
     let img = imagesRef.current[frameIndex]
 
-    // Fallback: draw the closest available preloaded frame if the exact frame isn't loaded yet
     if (!img || !img.complete) {
       let closestIdx = -1
       let minDiff = Infinity
-
       for (const key in imagesRef.current) {
         const idx = parseInt(key, 10)
         const diff = Math.abs(idx - frameIndex)
@@ -63,11 +78,10 @@ const ScrollCanvas = () => {
           closestIdx = idx
         }
       }
-
       if (closestIdx !== -1) {
         img = imagesRef.current[closestIdx]
       } else {
-        return // Skip drawing if no image is loaded yet
+        return
       }
     }
 
@@ -99,22 +113,14 @@ const ScrollCanvas = () => {
     ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight)
   }
 
-  // Stream a window of adjacent frames around the active scroll index
   const prefetchWindow = (centerIndex) => {
     const priorityList = [centerIndex]
-
-    // Priority: Fetch next 8 frames (forward direction) and previous 3 frames (backward history)
     for (let i = 1; i <= 8; i++) {
-      const nextIdx = centerIndex + i
-      if (nextIdx <= frameCount) priorityList.push(nextIdx)
-      const prevIdx = centerIndex - i
-      if (prevIdx >= 1 && i <= 3) priorityList.push(prevIdx)
+      if (centerIndex + i <= frameCount) priorityList.push(centerIndex + i)
+      if (centerIndex - i >= 1 && i <= 3) priorityList.push(centerIndex - i)
     }
-
-    // Trigger on-demand downloads without blocking the network queue
     priorityList.forEach((idx) => {
       loadImage(idx).then((img) => {
-        // Redraw immediately if the user is still resting on this frame index
         if (img && Math.round(currentFrameRef.current) === idx) {
           drawFrame(idx)
         }
@@ -122,11 +128,9 @@ const ScrollCanvas = () => {
     })
   }
 
-  // Smooth frame render loop
   const animate = () => {
     const target = targetFrameRef.current
     let current = currentFrameRef.current
-
     const diff = target - current
     if (Math.abs(diff) < 0.05) {
       currentFrameRef.current = target
@@ -139,15 +143,11 @@ const ScrollCanvas = () => {
       }
       isAnimatingRef.current = false
     } else {
-      // Easing multiplier of 0.08 for fluid scroll interpolation
       current += diff * 0.08
       currentFrameRef.current = current
-
       const roundedCurrent = Math.round(current)
       drawFrame(roundedCurrent)
 
-      // Network throttling: only prefetch surrounding window if scrolling relatively slowly
-      // If user is flicking/sweeping fast (diff >= 15), load only the single frame to save network queue bandwidth
       if (roundedCurrent !== lastPrefetchedRef.current) {
         lastPrefetchedRef.current = roundedCurrent
         if (Math.abs(diff) < 15) {
@@ -160,49 +160,85 @@ const ScrollCanvas = () => {
           })
         }
       }
-
       requestAnimationFrame(animate)
     }
   }
 
-  // Get active frame index based on window scroll percentage
-  const getScrollFrame = () => {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight
-    if (maxScroll <= 0) return 1
-
-    const scrollFraction = Math.min(1, Math.max(0, scrollTop / maxScroll))
-    return Math.min(
-      frameCount,
-      Math.max(1, Math.floor(scrollFraction * frameCount) + 1)
-    )
+  // --- MOBILE VIDEO LOGIC ---
+  const animateVideo = () => {
+    if (!videoRef.current || !videoRef.current.duration) {
+      isVideoAnimatingRef.current = false
+      return
+    }
+    
+    const target = videoTargetTimeRef.current
+    let current = videoCurrentTimeRef.current
+    const diff = target - current
+    
+    // Smoothness interpolation
+    if (Math.abs(diff) < 0.01) {
+      videoCurrentTimeRef.current = target
+      videoRef.current.currentTime = target
+      isVideoAnimatingRef.current = false
+    } else {
+      current += diff * 0.08 // same easing as desktop
+      videoCurrentTimeRef.current = current
+      videoRef.current.currentTime = current
+      requestAnimationFrame(animateVideo)
+    }
   }
 
-  // Pre-load initial view and sparse keyframe timeline
-  useEffect(() => {
-    const isMobile = window.innerWidth <= 768
+  // --- SHARED SCROLL LISTENER ---
+  const getScrollFraction = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight
+    if (maxScroll <= 0) return 0
+    return Math.min(1, Math.max(0, scrollTop / maxScroll))
+  }
 
-    // 1. Immediately load target frame (always frame 1 for static fallback on mobile)
-    const initialFrame = isMobile ? 1 : getScrollFrame()
+  useEffect(() => {
+    const handleScroll = () => {
+      const fraction = getScrollFraction()
+
+      if (isMobile) {
+        if (videoRef.current && videoRef.current.duration) {
+          videoTargetTimeRef.current = fraction * videoRef.current.duration
+          if (!isVideoAnimatingRef.current) {
+            isVideoAnimatingRef.current = true
+            requestAnimationFrame(animateVideo)
+          }
+        }
+      } else {
+        const frameIndex = Math.min(frameCount, Math.max(1, Math.floor(fraction * frameCount) + 1))
+        targetFrameRef.current = frameIndex
+        if (!isAnimatingRef.current) {
+          isAnimatingRef.current = true
+          requestAnimationFrame(animate)
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isMobile])
+
+  // --- DESKTOP PRELOAD ---
+  useEffect(() => {
+    if (isMobile) return
+
+    const initialFrame = getScrollFraction() === 0 ? 1 : Math.min(frameCount, Math.max(1, Math.floor(getScrollFraction() * frameCount) + 1))
+    
     loadImage(initialFrame).then(() => {
       currentFrameRef.current = initialFrame
       targetFrameRef.current = initialFrame
       drawFrame(initialFrame)
     })
 
-    if (isMobile) {
-      // Bypass loading sparse keyframe frames on mobile to save bandwidth & memory
-      return
-    }
-
-    // 2. Queue sparse keyframes (every 10th frame) to build a fast-seeking outline timeline
-    // This loads only 60 images (~12MB) on page load instead of 600 (~130MB), keeping network pipes free.
     const sparseFrames = []
     for (let i = 1; i <= frameCount; i += 10) {
       if (i !== initialFrame) sparseFrames.push(i)
     }
 
-    // Load sparse keyframes in small batches of 4 to prevent browser connection starvation
     const loadSparse = async () => {
       const batchSize = 4
       for (let i = 0; i < sparseFrames.length; i += batchSize) {
@@ -211,68 +247,59 @@ const ScrollCanvas = () => {
       }
     }
     loadSparse()
-  }, [])
+  }, [isMobile])
 
-  // Scroll and Resize Event Listeners
-  useEffect(() => {
-    const isMobile = window.innerWidth <= 768
-
-    const handleScroll = () => {
-      const frameIndex = getScrollFrame()
-      targetFrameRef.current = frameIndex
-
-      // Trigger animation thread
-      if (!isAnimatingRef.current) {
-        isAnimatingRef.current = true
-        requestAnimationFrame(animate)
-      }
+  // Handle Video Metadata Loaded for initial time set
+  const handleVideoLoaded = () => {
+    if (isMobile && videoRef.current) {
+       const fraction = getScrollFraction()
+       const target = fraction * videoRef.current.duration
+       videoTargetTimeRef.current = target
+       videoCurrentTimeRef.current = target
+       videoRef.current.currentTime = target
     }
-
-    if (!isMobile) {
-      window.addEventListener('scroll', handleScroll, { passive: true })
-    }
-
-    const handleResize = () => {
-      const canvas = canvasRef.current
-      if (canvas) {
-        canvas.width = window.innerWidth
-        canvas.height = window.innerHeight
-        drawFrame(Math.round(currentFrameRef.current))
-      }
-    }
-
-    window.addEventListener('resize', handleResize)
-    handleResize() // Sizing setup
-
-    return () => {
-      if (!isMobile) {
-        window.removeEventListener('scroll', handleScroll)
-      }
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+  }
 
   return (
     <>
-      <canvas
-        ref={canvasRef}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          zIndex: -2,
-          pointerEvents: 'none',
-          display: 'block',
-          // Rich cinematic blur & filter effects
-          filter: 'blur(3.5px) brightness(0.44) contrast(1.2) saturate(0.85)',
-          // Scale up slightly to prevent fuzzy white bleeding borders caused by the blur filter
-          transform: 'scale(1.04)',
-          transition: 'filter 0.5s ease',
-        }}
-      />
-      {/* Dark radial vignette gradient layer for depth and high text readability */}
+      {!isMobile ? (
+        <canvas
+          ref={canvasRef}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            zIndex: -2,
+            pointerEvents: 'none',
+            display: 'block',
+            filter: 'blur(3.5px) brightness(0.44) contrast(1.2) saturate(0.85)',
+            transform: 'scale(1.04)',
+            transition: 'filter 0.5s ease',
+          }}
+        />
+      ) : (
+        <video
+          ref={videoRef}
+          src="/assets/mobile-bg-scroll.mp4"
+          muted
+          playsInline
+          onLoadedMetadata={handleVideoLoaded}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            objectFit: 'cover',
+            zIndex: -2,
+            pointerEvents: 'none',
+            display: 'block',
+            filter: 'brightness(0.44) contrast(1.2) saturate(0.85)',
+          }}
+        />
+      )}
       <div
         style={{
           position: 'fixed',

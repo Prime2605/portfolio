@@ -73,8 +73,7 @@ const Education = ({ data }) => {
               }} />
 
               <div className="education-card">
-
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px', position: 'relative', zIndex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', position: 'relative', zIndex: 1, flexWrap: 'wrap', gap: '10px' }}>
                   <span style={{ 
                     fontSize: '0.85rem', 
                     fontWeight: '700', 
@@ -87,64 +86,43 @@ const Education = ({ data }) => {
                   }}>
                     {item.date || item.duration}
                   </span>
-                  <span style={{ fontSize: '1.2rem', color: '#f59e0b', background: 'rgba(245, 158, 11, 0.1)', padding: '8px', borderRadius: '12px' }}>
-                    <FaGraduationCap />
+                  
+                  <span style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    background: 'var(--bg-highlight-green)', 
+                    color: 'var(--accent-emerald)', 
+                    padding: '6px 14px', 
+                    borderRadius: '50px',
+                    border: '1px solid var(--border-highlight-green)',
+                    fontWeight: '700',
+                    fontSize: '0.85rem'
+                  }}>
+                    {item.grade}
                   </span>
                 </div>
 
                 <h3 style={{ 
-                  fontSize: '1.6rem', 
+                  fontSize: '1.4rem', 
                   fontWeight: '800', 
                   color: 'var(--text-primary)', 
                   marginBottom: '8px',
-                  lineHeight: '1.2',
-                  position: 'relative',
-                  zIndex: 1
-                }}>
-                  {item.title || item.degree}
-                </h3>
-
-                <p style={{ 
-                  fontSize: '1rem', 
-                  color: 'var(--accent-primary)', 
-                  fontWeight: '700',
-                  marginBottom: '16px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
+                  lineHeight: '1.3',
                   position: 'relative',
                   zIndex: 1
                 }}>
                   {item.institution}
-                </p>
+                </h3>
 
                 <p style={{ 
                   fontSize: '0.95rem', 
                   color: 'var(--text-secondary)', 
-                  lineHeight: '1.7',
-                  marginBottom: '24px',
+                  fontWeight: '600',
                   position: 'relative',
                   zIndex: 1
                 }}>
-                  {item.description}
+                  {item.title || item.degree}
                 </p>
-
-                <div style={{ 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: '10px',
-                  background: 'var(--bg-highlight-green)', 
-                  color: 'var(--accent-emerald)', 
-                  padding: '8px 16px', 
-                  borderRadius: '10px',
-                  border: '1px solid var(--border-highlight-green)',
-                  fontWeight: '700',
-                  position: 'relative',
-                  zIndex: 1
-                }}>
-                  <FaStar style={{ fontSize: '0.9rem' }} />
-                  {item.grade}
-                </div>
               </div>
             </div>
           ))}

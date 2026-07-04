@@ -1,8 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { FaAward, FaTimes, FaExpand, FaExternalLinkAlt } from 'react-icons/fa'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+import { 
+  FaAward, 
+  FaTimes, 
+  FaExpand, 
+  FaExternalLinkAlt, 
+  FaBriefcase, 
+  FaCalendarAlt, 
+  FaTag, 
+  FaBrain, 
+  FaGlobe, 
+  FaLaptopCode, 
+  FaMicrochip, 
+  FaPlug 
+} from 'react-icons/fa'
 import { SiGoogle } from 'react-icons/si'
 import { certificationsData } from './Certifications'
+
+const experienceIcons = {
+  '🧠': <FaBrain />,
+  '🌐': <FaGlobe />,
+  '🖥️': <FaLaptopCode />,
+  '🖲️': <FaMicrochip />,
+  '🔌': <FaPlug />,
+  '💼': <FaBriefcase />,
+}
+
+const getExperienceIcon = (emoji) => {
+  return experienceIcons[emoji] || <FaBriefcase />
+}
 
 const Experience = ({ data, limit }) => {
   const allData = data || certificationsData
@@ -191,7 +218,7 @@ const Experience = ({ data, limit }) => {
               />
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px', position: 'relative', zIndex: 1 }}>
-                <span style={{ fontSize: '2.5rem', filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.2))' }}>{cert.emoji || '💼'}</span>
+                <span style={{ fontSize: '2.5rem', color: 'var(--accent-secondary)', filter: 'drop-shadow(0 0 10px rgba(6, 182, 212, 0.4))', display: 'inline-flex', alignItems: 'center' }}>{getExperienceIcon(cert.emoji)}</span>
                 <span style={{ 
                   fontSize: '0.8rem', 
                   fontWeight: '800', 
@@ -237,7 +264,7 @@ const Experience = ({ data, limit }) => {
                 color: '#cbd5e1', 
                 lineHeight: '1.7',
                 display: '-webkit-box',
-                WebkitLineClamp: 3,
+                WebkitLineClamp: limit ? 2 : 'none',
                 WebkitBoxOrient: 'vertical',
                 overflow: 'hidden',
                 marginBottom: '24px',
@@ -279,10 +306,10 @@ const Experience = ({ data, limit }) => {
         </div>
 
         {limit && filteredExps.length > limit && (
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }} data-aos="fade-up">
-            <Link to="/experience" className="btn-jelly btn-primary glow-text" style={{ padding: '14px 36px', fontSize: '1.1rem', textDecoration: 'none' }}>
-              View All Experience
-            </Link>
+          <div className="section-footer" style={{ textAlign: 'center', marginTop: '30px' }} data-aos="fade-up">
+            <InteractiveHoverButton as={Link} to="/experience" className="glow-text">
+              See All Experience
+            </InteractiveHoverButton>
           </div>
         )}
       </div>
@@ -349,7 +376,7 @@ const Experience = ({ data, limit }) => {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '30px' }}>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <span style={{ fontSize: '3rem', marginBottom: '15px' }}>{activeCertificate.emoji || '💼'}</span>
+                <span style={{ fontSize: '3rem', color: 'var(--accent-secondary)', filter: 'drop-shadow(0 0 10px rgba(6, 182, 212, 0.4))', marginBottom: '15px', display: 'inline-flex', alignItems: 'center' }}>{getExperienceIcon(activeCertificate.emoji)}</span>
                 <h3 className="glow-text" style={{ fontSize: '2rem', fontWeight: '900', color: '#fff', marginBottom: '10px' }}>
                   {activeCertificate.event}
                 </h3>
@@ -363,11 +390,11 @@ const Experience = ({ data, limit }) => {
                 </div>
 
                 <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', marginBottom: '25px' }}>
-                  <span style={{ background: 'rgba(212, 175, 55, 0.1)', color: '#d4af37', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '6px 16px', borderRadius: '50px', fontSize: '0.85rem', fontWeight: '800' }}>
-                    📅 {activeCertificate.date}
+                  <span style={{ background: 'rgba(212, 175, 55, 0.1)', color: '#d4af37', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '6px 16px', borderRadius: '50px', fontSize: '0.85rem', fontWeight: '800', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    <FaCalendarAlt /> {activeCertificate.date}
                   </span>
-                  <span style={{ background: 'rgba(30, 58, 138, 0.3)', color: '#93c5fd', border: '1px solid rgba(147, 197, 253, 0.3)', padding: '6px 16px', borderRadius: '50px', fontSize: '0.85rem', fontWeight: '800' }}>
-                    🏷️ {activeCertificate.category}
+                  <span style={{ background: 'rgba(30, 58, 138, 0.3)', color: '#93c5fd', border: '1px solid rgba(147, 197, 253, 0.3)', padding: '6px 16px', borderRadius: '50px', fontSize: '0.85rem', fontWeight: '800', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    <FaTag /> {activeCertificate.category}
                   </span>
                 </div>
 

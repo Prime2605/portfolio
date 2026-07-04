@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 
 const GalleryPage = () => {
   useEffect(() => {
@@ -6,7 +8,12 @@ const GalleryPage = () => {
   }, [])
 
   return (
-    <div className="section-container" style={{ minHeight: '100vh', paddingTop: '100px' }}>
+    <div className="section-container" style={{ minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
+      <div className="container" style={{ marginBottom: '20px' }}>
+        <InteractiveHoverButton as={Link} to="/" className="glow-text">
+          ← Back to Home
+        </InteractiveHoverButton>
+      </div>
       <h2 className="section-title glow-text" data-aos="fade-up">Gallery</h2>
       
       <div className="gallery-branch neumorphic-card" data-aos="fade-up" data-aos-delay="100">

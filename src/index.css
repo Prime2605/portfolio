@@ -614,6 +614,21 @@ body {
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border: 2px solid var(--border-highlight);
+  border-radius: var(--border-radius-lg);
+  background: var(--bg-glass);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+}
+
+.hero-name:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-glow-strong);
+  transform: translateY(-2px);
 }
 
 .hero-name .highlight {
@@ -749,7 +764,7 @@ body {
 
 .about-image-placeholder {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 3/4;
   border-radius: var(--border-radius);
   background: var(--gradient-card);
   display: flex;
@@ -1901,14 +1916,7 @@ body {
 .glass-card:hover,
 .document-card:hover,
 .cert-card:hover,
-.hero-text:hover,
-.footer:hover,
-.section-header:hover {
-  border-top: 1px solid var(--border-highlight) !important;
-  border-left: 1px solid var(--border-highlight) !important;
-  opacity: 0.8 !important;
-  box-shadow: var(--shadow-glow-strong) !important;
-}
+/* Removed global hover borders as they break layouts */
 
 /* Hover specific translations */
 .project-card:hover {
