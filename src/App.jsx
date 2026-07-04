@@ -15,7 +15,6 @@ import LoadingScreen from './components/LoadingScreen'
 import Documents from './components/Documents'
 import ScrollCanvas from './components/ScrollCanvas'
 import GalleryPage from './components/GalleryPage'
-import { AnimatedThemeToggler } from './components/ui/AnimatedThemeToggler'
 import { api } from './lib/api'
 import { supabase } from './lib/supabase'
 import Experience from './components/Experience'
@@ -105,8 +104,6 @@ function AppContent() {
       <div className="orb orb-3" />
       <div className="cursor-glow" ref={cursorRef} />
 
-      <AnimatedThemeToggler />
-
       <Navbar />
       <Routes>
         <Route path="/" element={
@@ -114,10 +111,29 @@ function AppContent() {
             <Hero data={portfolioData?.profile} />
             <About data={portfolioData?.profile} />
             <Skills data={portfolioData?.skills} />
-            <Education data={portfolioData?.education} />
             <Experience data={portfolioData?.certifications} limit={3} />
+            <Education data={portfolioData?.education} />
             <Projects data={portfolioData?.projects} limit={3} />
             <Certifications data={portfolioData?.certifications} limit={3} />
+            <section id="resume" style={{ paddingTop: '80px' }}>
+              <div className="container">
+                <div className="section-header" data-aos="fade-up">
+                  <span className="section-label">// Professional Profile</span>
+                  <h2 className="section-title">Resume</h2>
+                  <p className="section-subtitle">
+                    My comprehensive professional resume and curriculum vitae
+                  </p>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }} data-aos="fade-up">
+                  <InteractiveHoverButton as="a" href="/Resume.pdf" target="_blank" rel="noopener noreferrer" style={{ padding: '16px 40px', fontSize: '1.2rem' }}>
+                    View & Download Resume
+                  </InteractiveHoverButton>
+                </div>
+              </div>
+            </section>
+            <div id="other-documents">
+              <Documents />
+            </div>
             <Contact data={portfolioData?.profile} />
             <div style={{ display: 'flex', justifyContent: 'center', padding: '0 0 80px 0' }}>
               <Link to="/gallery" className="btn-jelly btn-primary glow-text" style={{ padding: '16px 40px', fontSize: '1.2rem' }}>
@@ -126,7 +142,6 @@ function AppContent() {
             </div>
           </main>
         } />
-        <Route path="/documents" element={<Documents />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/projects" element={<ProjectsPage data={portfolioData?.projects} />} />
         <Route path="/certifications" element={<CertificationsPage data={portfolioData?.certifications} />} />

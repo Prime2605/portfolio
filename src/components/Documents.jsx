@@ -5,25 +5,18 @@ import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 
 const Documents = () => {
   return (
-    <section className="section" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', paddingTop: '120px' }}>
+    <section className="section" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
       <div className="container">
-        {/* Back button */}
-        <div data-aos="fade-up" style={{ marginBottom: '40px' }}>
-          <InteractiveHoverButton as={Link} to="/">
-            Back to Home
-          </InteractiveHoverButton>
-        </div>
-
         {/* Section Header */}
         <div className="section-header" data-aos="fade-up" style={{ textAlign: 'center', marginBottom: '60px' }}>
           <span className="section-label" style={{ display: 'block', color: '#c4b5fd', fontSize: '0.9rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '10px' }}>
             // Verification Portfolio
           </span>
           <h2 className="section-title" style={{ fontSize: '3rem', fontWeight: '900', color: '#fff', marginBottom: '20px' }}>
-            Official Documents
+            Other Documents
           </h2>
           <p className="section-subtitle" style={{ maxWidth: '600px', margin: '0 auto', color: '#cbd5e1', fontSize: '1.1rem', lineHeight: '1.6' }}>
-            Access and download verified copies of my academic records, professional resume, and personal credentials.
+            Access and download verified copies of my academic records and personal credentials.
           </p>
         </div>
 
@@ -157,75 +150,6 @@ const Documents = () => {
               </h3>
               <p style={{ color: '#cbd5e1', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '30px' }}>
                 Official personal profile containing detailed background information, personal details, contact data, and key career objectives.
-              </p>
-            </div>
-
-            <div>
-              <InteractiveHoverButton disabled style={{ width: '100%', opacity: 0.5, cursor: 'not-allowed' }}>
-                Uploading Soon
-              </InteractiveHoverButton>
-            </div>
-          </div>
-
-          {/* Card 3: Resume */}
-          <div 
-            data-aos="fade-up"
-            data-aos-delay="300"
-            className="document-card doc-green"
-          >
-            {/* Top decorative glow */}
-            <div style={{
-              position: 'absolute',
-              top: '-50px',
-              right: '-50px',
-              width: '120px',
-              height: '120px',
-              background: 'rgba(16, 185, 129, 0.15)',
-              filter: 'blur(30px)',
-              borderRadius: '50%'
-            }} />
-
-            <div>
-              <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                marginBottom: '28px'
-              }}>
-                <div style={{
-                  width: '60px',
-                  height: '60px',
-                  borderRadius: '16px',
-                  background: 'rgba(16, 185, 129, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '1.8rem',
-                  color: '#10b981',
-                  border: '1px solid rgba(16, 185, 129, 0.2)'
-                }}>
-                  <FaFileContract />
-                </div>
-                <span style={{
-                  fontSize: '0.75rem',
-                  fontWeight: '700',
-                  color: '#10b981',
-                  background: 'rgba(16, 185, 129, 0.1)',
-                  border: '1px solid rgba(16, 185, 129, 0.3)',
-                  padding: '4px 10px',
-                  borderRadius: '50px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px'
-                }}>
-                  Coming Soon
-                </span>
-              </div>
-              
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: '#fff', marginBottom: '12px' }}>
-                Professional Resume
-              </h3>
-              <p style={{ color: '#cbd5e1', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '30px' }}>
-                Detailed resume showcasing professional skills, projects, certifications, research interests, and hands-on experience in ECE & Development.
               </p>
             </div>
 

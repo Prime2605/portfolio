@@ -689,18 +689,14 @@ export const certificationsData = baseCertificationsData.map(cert => ({
 
 const Certifications = ({ data, limit }) => {
   const certs = data || certificationsData
-  const [activeTab, setActiveTab] = useState('Hackathons') // Default category
-  const [activeSubTab, setActiveSubTab] = useState('Software') // Default workshops subcategory to Software
+  const [activeTab, setActiveTab] = useState('Hackathons')
   const [activeCertificate, setActiveCertificate] = useState(null)
   const [isFullScreenImg, setIsFullScreenImg] = useState(false)
 
-  const tabs = ['Hackathons', 'Courses', 'Workshops', 'Quiz', 'Others'];
+  const tabs = ['Courses', 'Hackathons', 'Quiz', 'Technical Events'];
   const filteredCerts = certs.filter(cert => {
-    if (cert.category !== activeTab) return false;
-    if (activeTab === 'Workshops') {
-      return cert.subCategory === activeSubTab;
-    }
-    return true;
+    if (activeTab === 'Technical Events') return cert.category === 'Others';
+    return cert.category === activeTab;
   });
   const displayedCerts = limit ? filteredCerts.slice(0, limit) : filteredCerts;
 
@@ -714,13 +710,13 @@ const Certifications = ({ data, limit }) => {
   }, [activeCertificate]);
 
   return (
-    <section className="section" id="certifications">
+    <section className="section" id="achievements">
       <div className="container">
         <div className="section-header" data-aos="fade-up">
-          <span className="section-label">// Recognition & achievements</span>
-          <h2 className="section-title">Certifications</h2>
+          <span className="section-label">// Recognition and validation</span>
+          <h2 className="section-title">Achievements</h2>
           <p className="section-subtitle">
-            Credentials and recognition earned through dedication and hard work
+            Verified skills through specialized courses, hackathons, and technical events
           </p>
         </div>
 
@@ -764,62 +760,7 @@ const Certifications = ({ data, limit }) => {
           ))}
         </div>
 
-        {/* 1.5. Workshops Sub-Filters */}
-        {activeTab === 'Workshops' && (
-          <div className="cert-subfilters" data-aos="fade-up" style={{ 
-            display: 'flex', 
-            justifyContent: 'flex-start', // Use flex-start instead of center so it scrolls correctly
-            gap: '15px', 
-            marginBottom: '30px', 
-            flexWrap: 'nowrap',
-            overflowX: 'auto',
-            WebkitOverflowScrolling: 'touch',
-            paddingBottom: '10px',
-            scrollSnapType: 'x mandatory'
-          }}>
-            <style>{`.cert-subfilters::-webkit-scrollbar { display: none; }`}</style>
-            {['Software', 'Hardware'].map(subTab => (
-              <button
-                key={subTab}
-                onClick={() => setActiveSubTab(subTab)}
-                style={{
-                  background: activeSubTab === subTab ? 'var(--bg-highlight-blue)' : 'var(--bg-glass)',
-                  color: activeSubTab === subTab ? 'var(--text-primary)' : 'var(--text-secondary)',
-                  border: '1px solid',
-                  borderColor: activeSubTab === subTab ? 'var(--border-highlight-blue)' : 'var(--border-glass)',
-                  padding: '8px 24px',
-                  borderRadius: '20px',
-                  fontSize: '0.85rem',
-                  fontWeight: '700',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  boxShadow: activeSubTab === subTab ? '0 0 15px rgba(37, 99, 235, 0.4)' : 'none',
-                  backdropFilter: 'blur(10px)'
-                }}
-                onMouseEnter={(e) => {
-                  if (activeSubTab !== subTab) {
-                    e.target.style.background = 'var(--bg-highlight-blue)';
-                    e.target.style.borderColor = 'var(--border-highlight-blue)';
-                    e.target.style.color = 'var(--text-primary)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activeSubTab !== subTab) {
-                    e.target.style.background = 'var(--bg-glass)';
-                    e.target.style.borderColor = 'var(--border-glass)';
-                    e.target.style.color = 'var(--text-secondary)';
-                  }
-                }}
-              >
-                {subTab}
-              </button>
-            ))}
-          </div>
-        )}
-
-        {/* 2. Grid of Certificate Cards for the active category */}
+        {/* 2. Grid of Certificate Cards for the active category */}        {/* 2. Grid of Certificate Cards for the active category */}
         <div className="cert-grid" data-aos="fade-up" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',

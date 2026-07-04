@@ -5,12 +5,14 @@ const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Education', href: '#education' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Education', href: '#education' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Certifications', href: '#certifications' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Achievements', href: '#achievements' },
+  { label: 'Resume', href: '#resume' },
+  { label: 'Other Documents', href: '#other-documents' },
   { label: 'Gallery', href: '/gallery' },
+  { label: 'Contact', href: '#contact' }
 ]
 
 const Navbar = () => {
